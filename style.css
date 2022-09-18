@@ -1,0 +1,89 @@
+.nav-header {
+    height: 60px;
+    border: 1px solid black;
+}
+
+.all {
+    display: flex;
+}
+
+.left {
+    min-width: 200px !important;
+    max-width: 200px !important;
+    border: 1px solid black;
+}
+
+.rigth {
+    width: 100%;
+    border: 1px solid black;
+    padding: 2em;
+}
+
+.card {
+    user-select: none;
+}
+
+.card-header {
+    display: flex;
+}
+
+.card-header .card-title {
+    width: 100%;
+}
+
+.col.hidden .card {
+    visibility: hidden;
+}
+
+.photo_student img {
+    width: 40px;
+    height: 40px;
+    margin: 0 10px 0 0;
+    border-radius: 100%;
+    user-select: none;
+}
+
+.info_student p {
+    width: max-content;
+    margin: 0;
+    border-radius: 100%;
+    user-select: none;
+}
+
+.d-flex {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal_student .btn_delete {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ce1717;
+    color: #ce1717;
+    /*
+    border: 1px solid black;
+    color: black;*/
+    margin: 0 10px 0 0;
+    border-radius: 100%;
+    user-select: none;
+    /* transition: all .5s ease;*/
+}
+
+.modal_student .btn_delete:hover {
+    border: 1px solid #ce1717;
+    color: #ce1717;
+}
+
+@media (min-width: 900px) {
+    .left {
+        min-width: 240px !important;
+        max-width: 240px !important;
+    }
+}
+
+@media (min-width: 1600px) {
+    .left {
+        min-width: 280px !important;
+        max-width: 280px !important;
+    }
+}
