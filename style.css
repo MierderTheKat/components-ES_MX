@@ -1,3 +1,5 @@
+/* _________________ Definir campo de trabajo en Escolares _________________ */
+
 .nav-header {
     height: 60px;
     border: 1px solid black;
@@ -16,8 +18,21 @@
 .rigth {
     width: 100%;
     border: 1px solid black;
-    padding: 2em;
 }
+
+.r_top {
+    height: 44px;
+    border: 1px solid black;
+}
+
+.row.row-cols-1.row-cols-md-2.g-4 {
+    border: 1px solid black;
+    padding: 1.5em;
+    margin: 0;
+}
+
+
+/* _________________ Cards Modulo de Pruebas _________________ */
 
 .card {
     user-select: none;
@@ -25,14 +40,24 @@
 
 .card-header {
     display: flex;
+    align-items: center;
 }
 
 .card-header .card-title {
     width: 100%;
+    margin: 0;
 }
+
+
+/* _________________ Alumnos Escondidos _________________ */
 
 .col.hidden .card {
     visibility: hidden;
+}
+
+.d-flex {
+    justify-content: space-between;
+    align-items: center;
 }
 
 .photo_student img {
@@ -48,11 +73,6 @@
     margin: 0;
     border-radius: 100%;
     user-select: none;
-}
-
-.d-flex {
-    justify-content: space-between;
-    align-items: center;
 }
 
 .modal_student .btn_delete {
@@ -72,6 +92,22 @@
 .modal_student .btn_delete:hover {
     border: 1px solid #ce1717;
     color: #ce1717;
+}
+
+
+/* _________________ Modal Editar Alumnos _________________ */
+
+.card-period,
+.card-type {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.card-period .card-title,
+.card-type .card-title {
+    width: 50%;
+    margin: 0;
 }
 
 @media (min-width: 900px) {

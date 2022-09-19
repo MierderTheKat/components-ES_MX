@@ -28,45 +28,72 @@
     <div class="all">
         <div class="left"></div>
         <div class="rigth">
+            <div class="r_top"></div>
             <div class="row row-cols-1 row-cols-md-2 g-4">
                 <form class="col">
                     <div class="card">
                         <div class="card-header">
                             <h5 for="group" class="card-title">Grupo</h5>
-                            <select class="form-select" id="group" ng-options="option.name for option in data.A_Options track by option.id" ng-model="data.S_Option" required></select>
+                            <select class="form-select" id="group" ng-options="option.name for option in data_group.A_Options track by option.id" ng-model="data_group.S_Option" required></select>
                         </div>
                         <div class="card-body">
-                            <button class="btn" type="submit"><i class="fa-solid fa-rotate-right"></i> Recargar</button>
-                            <button class="btn btn-primary" type="submit" ng-disabled=data.S_Option.status>Editar</button>
-                            <button class="btn btn-danger" type="submit" ng-disabled=data.S_Option.status><i class="fa-solid fa-trash-can"></i> Eliminar</button>
-                            <button class="btn btn-primary" type="submit" ng-disabled=data.S_Option.status><i class="fa-solid fa-user"></i> Agregar Alumno</button>
+                            <button class="btn" ng-click="reload()" type="submit"><i class="fa-solid fa-rotate-right"></i> Recargar</button>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#U_Modal_Group" type="submit" ng-disabled=data_group.S_Option.status><i class="fa-solid fa-pen"></i> Editar</button>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#D_Modal_Group" type="submit" ng-disabled=data_group.S_Option.status><i class="fa-solid fa-trash-can"></i> Eliminar</button>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#A_Modal_Group" type="submit" ng-disabled=data_group.S_Option.status><i class="fa-solid fa-user"></i> Agregar Alumno</button>
                         </div>
                     </div>
                 </form>
-                <div class="col {{data.S_Option.view}}">
+                <div class="col {{data_group.S_Option.view}}">
                     <div class="card">
                         <div class="card-header">
                             <h5 class="card-title">Alumnos</h5>
                         </div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item d-flex" ng-repeat="student in students">
-                                <div class="photo_student">
+                                <div class="col-2 photo_student">
                                     <img src="{{student.photo}}" alt="">
                                 </div>
-                                <div class="info_student">
-                                    <p>{{student.name}} {{student.lastname}}</p>
-                                    <p>{{student.status}} - {{student.school_id}}</p>
+                                <div class="col-8 info_student">
+                                    <button type="button" class="btn btn_edit" data-bs-toggle="modal" data-bs-target="#E_Modal_{{student.id}}">
+                                        <p>{{student.name}} {{student.lastname}}</p>
+                                        <p>{{student.status}} - {{student.school_id}}</p>
+                                    </button>
+                                    <!-- Modal para editar Alumno -->
+                                    <div class="modal fade" id="E_Modal_{{student.id}}" tabindex="-1" aria-labelledby="E_ModalLabel{{student.id}}" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-m">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="E_ModalLabel{{student.id}}">Editar Alumno</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="card-period">
+                                                        <h5 for="student-period" class="card-title">Periodo</h5>
+                                                        <select class="form-select" id="student-period" ng-options="option.name for option in data_period.A_Options track by option.id" ng-model="data_period.S_Option" required></select>
+                                                    </div>
+                                                    <div class="card-type">
+                                                        <h5 for="student-type" class="card-title">Tipo</h5>
+                                                        <select class="form-select" id="student-type" ng-options="option.name for option in data_type.A_Options track by option.id" ng-model="data_type.S_Option" required></select>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                                    <button type="button" class="btn btn-danger">Eliminar</button>
+                                                    <button type="button" class="btn btn-primary">Editar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="modal_student">
-                                    <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn_delete" data-bs-toggle="modal" data-bs-target="#Modal_{{student.id}}"><i class="fa-solid fa-x"></i></button>
-
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="Modal_{{student.id}}" tabindex="-1" aria-labelledby="+ModalLabel{{student.id}}" aria-hidden="true">
+                                <div class="col-2 modal_student">
+                                    <button type="button" class="btn btn_delete" data-bs-toggle="modal" data-bs-target="#D_Modal_{{student.id}}"><i class="fa-solid fa-x"></i></button>
+                                    <!-- Modal para Eliminar Alumno -->
+                                    <div class="modal fade" id="D_Modal_{{student.id}}" tabindex="-1" aria-labelledby="D_ModalLabel{{student.id}}" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered modal-sm">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="ModalLabel{{student.id}}">Eliminar Alumno</h5>
+                                                    <h5 class="modal-title" id="D_ModalLabel{{student.id}}">Eliminar Alumno</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
@@ -84,6 +111,80 @@
                         </ul>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Editar Grupo -->
+    <div class="modal fade" id="U_Modal_Group" tabindex="-1" aria-labelledby="U_ModalLabel_Group" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-m">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="U_ModalLabel_Group">Editar Grupo DEV</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¿Esta seguro de EDITAR el grupo de <b>{{data_group.S_Option.name}}</b>?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-success">Editar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Eliminar Grupo -->
+    <div class="modal fade" id="D_Modal_Group" tabindex="-1" aria-labelledby="D_ModalLabel_Group" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="D_ModalLabel_Group">Eliminar Grupo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¿Esta seguro de eliminar el grupo de <b>{{data_group.S_Option.name}}</b>?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-danger">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Agregar Alumno -->
+    <div class="modal fade" id="A_Modal_Group" tabindex="-1" aria-labelledby="A_ModalLabel_Group" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-m">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="A_ModalLabel_Group">Añadir Alumno DEV</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="">
+                    <div class="modal-body row">
+                        <div class="col-12">
+                            <label for="student_name" class="form-label">Alumno</label>
+                            <input type="text" class="form-control" id="student_name" placeholder="Escribe el nombre del alumno" required>
+                        </div>
+                        <div class="col-8">
+                            <label for="student_sex" class="form-label">Sexo</label>
+                            <div class="input-group mb-3">
+                                <select class="form-select" id="student_sex" required>
+                                  <option selected disabled value="">Elige...</option>
+                                  <option value="1">Femenino</option>
+                                  <option value="2">Masculino</option>
+                                  <option value="3">Otro</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <label for="student_date" class="form-label">Dia de nacimiento</label>
+                            <input type="date" class="form-control" id="student_date" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Añadir</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
