@@ -4,11 +4,11 @@ app.controller('GroupList', function($scope) {
 
     $scope.data_group = {
         A_Options: [
-            { id: '1', name: 'Seleccionar Grupo', status: true, view: "hidden" },
+            { id: '1', name: 'Seleccionar Grupo', status: true, view: "invisible" },
             { id: '2', name: 'Ing. de SW', status: false },
             { id: '3', name: 'Ing. de Tele', status: false }
         ],
-        S_Option: { id: '1', name: 'Seleccionar Grupo', status: true, view: "hidden" }
+        S_Option: { id: '1', name: 'Seleccionar Grupo', status: true, view: "invisible" }
     };
 
     $scope.data_period = {

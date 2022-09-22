@@ -25,45 +25,19 @@
     border: 1px solid black;
 }
 
-.row.row-cols-1.row-cols-md-2.g-4 {
-    border: 1px solid black;
-    padding: 1.5em;
-    margin: 0;
-}
 
+/* _________________ Mouse de seleccion en listas _________________ */
 
-/* _________________ Cards Modulo de Pruebas _________________ */
-
-.card {
-    user-select: none;
-}
-
-.card-header {
-    display: flex;
-    align-items: center;
-}
-
-.card-header .card-title {
-    width: 100%;
-    margin: 0;
+.form-select {
+    cursor: pointer;
 }
 
 
 /* _________________ Alumnos Escondidos _________________ */
 
-.col.hidden .card {
-    visibility: hidden;
-}
-
-.d-flex {
-    justify-content: space-between;
-    align-items: center;
-}
-
 .photo_student img {
     width: 40px;
     height: 40px;
-    margin: 0 10px 0 0;
     border-radius: 100%;
     user-select: none;
 }
@@ -76,39 +50,54 @@
 }
 
 .modal_student .btn_delete {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border: 1px solid #ce1717;
     color: #ce1717;
-    /*
-    border: 1px solid black;
-    color: black;*/
-    margin: 0 10px 0 0;
+    padding: 0;
+    margin: 0;
     border-radius: 100%;
     user-select: none;
-    /* transition: all .5s ease;*/
+}
+
+.modal_student .btn_delete i {
+    font-weight: 100;
 }
 
 .modal_student .btn_delete:hover {
-    border: 1px solid #ce1717;
-    color: #ce1717;
+    border: 2px solid #962929;
+    color: #962929;
+    box-shadow: 1px 1px 2px rgb(0 0 0 / 20%);
 }
 
 
-/* _________________ Modal Editar Alumnos _________________ */
+/* _________________ Boton fixed Flotante _________________ */
 
-.card-period,
-.card-type {
-    display: flex;
-    align-items: center;
-    margin: 5px 0;
+.add-group {
+    height: 70px;
+    width: 70px;
+    border-radius: 100%;
+    border: 0 solid transparent;
+    background-color: #33cd5f;
+    box-shadow: 2px 4px 4px rgb(0 0 0 / 30%);
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
 }
 
-.card-period .card-title,
-.card-type .card-title {
-    width: 50%;
-    margin: 0;
+.add-group i {
+    color: white;
+    font-weight: 100;
 }
+
+.add-group:hover {
+    background-color: #32c55c;
+    box-shadow: 2px 4px 4px rgb(0 0 0 / 40%);
+}
+
+
+/* _________________ Responsive basico _________________ */
 
 @media (min-width: 900px) {
     .left {
