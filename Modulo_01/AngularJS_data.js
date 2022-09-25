@@ -7,7 +7,7 @@ app.controller('GroupList', function($scope) {
             { id: '1', name: 'Seleccionar Grupo', status: true, view: 'invisible' },
             { id: '2', name: 'INGENIERIA EN SOFTWARE - 1 A TV', status: false },
             { id: '3', name: 'INGENIERIA EN SOFTWARE - 1 A TM', status: false },
-            { id: '3', name: 'INGENIERIA EN SOFTWARE - 7 SW TM', status: false }
+            { id: '4', name: 'INGENIERIA EN SOFTWARE - 7 SW TM', status: false }
         ],
         S_Option: { id: '1', name: 'Seleccionar Grupo', status: true, view: 'invisible' }
     };
@@ -87,9 +87,12 @@ app.controller('GroupList', function($scope) {
     };
 
     $scope.students = [
-        { id: '1', name: 'Juan', lastname: 'Berumen Ramirez', status: 'REGULAR', school_id: 'ISW2022_A', photo: 'https://placehold.jp/100x100.png' },
-        { id: '2', name: 'Yasser', lastname: 'Hernadez Garcia', status: 'REGULAR', school_id: 'ISW2022_B', photo: 'https://placehold.jp/100x100.png' },
-        { id: '3', name: 'Arturo', lastname: 'Alvarez Galaviz', status: 'REGULAR', school_id: 'ISW2022_C', photo: 'https://placehold.jp/100x100.png' }
+        { id: '1', name: 'Juan', lastname: 'Berumen Ramirez', status: 'REGULAR', school_id: 'ISW2022_A1', id_group: '2', photo: 'https://placehold.jp/100x100.png' },
+        { id: '2', name: 'Yasser', lastname: 'Hernadez Garcia', status: 'REGULAR', school_id: 'ISW2022_A2', id_group: '2', photo: 'https://placehold.jp/100x100.png' },
+        { id: '3', name: 'Arturo', lastname: 'Alvarez Galaviz', status: 'REGULAR', school_id: 'ISW2022_A3', id_group: '2', photo: 'https://placehold.jp/100x100.png' },
+        { id: '1', name: 'Esau', lastname: 'Anaya Rivas', status: 'REGULAR', school_id: 'ISW2022_B1', id_group: '3', photo: 'https://placehold.jp/100x100.png' },
+        { id: '2', name: 'Valeria', lastname: 'Barraza Ruano', status: 'REGULAR', school_id: 'ISW2022_B2', id_group: '3', photo: 'https://placehold.jp/100x100.png' },
+        { id: '3', name: 'Alex', lastname: 'Villagomez Esqueda', status: 'REGULAR', school_id: 'ISW2022_C1', id_group: '4', photo: 'https://placehold.jp/100x100.png' }
     ]
 
     $scope.data_period = {

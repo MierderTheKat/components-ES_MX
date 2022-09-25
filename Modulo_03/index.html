@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Groups">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calificaciones</title>
+    <link rel="icon" load href="https://web.escolaresmx.com/theme/img/icon.png">
+
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <!-- Bootstrap 5.2 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/8a7f1b84c8.js" crossorigin="anonymous"></script>
+
+    <!-- Local Edits -->
+    <script src="AngularJS_data.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="" ng-controller="GroupList">
+
+    <header class="nav-header"></header>
+    <div class="all">
+        <div class="left"></div>
+        <div class="rigth">
+            <div class="r_top">
+                <nav>
+                    <ul class="pagination justify-content-center m-2">
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_01/index.html">1</a></li>
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_02/index.html">2</a></li>
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_03/index.html">3</a></li>
+                        <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_04/index.html">4</a></li>
+                        <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_05/index.html">5</a></li>
+                        <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_06/index.html">6</a></li>
+                        <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_07/index.html">7</a></li>
+                        <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_08/index.html">8</a></li>
+                        <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_09/index.html">9</a></li>
+                        <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_10/index.html">10</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="row g-4 m-0 p-3">
+                <div class="col-lg-6">
+                    <div class="card user-select-none">
+                        <div class="card-header">
+                            <div class="align-items-center py-2">
+                                <div class="text-center">
+                                    <h5 class="card-title my-0">Datos</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <div class="row align-items-center px-1 py-2 border-0 border-bottom">
+                                <div class="col-5 text-start">
+                                    <h5 for="group" class="card-title my-0">Periodo</h5>
+                                </div>
+                                <div class="col-7">
+                                    <select class="form-select" id="group" ng-options="option.name for option in data_period.A_Options track by option.id" ng-model="data_period.S_Option" required></select>
+                                </div>
+                            </div>
+                            <div class="row align-items-center px-1 py-2 border-0 border-bottom">
+                                <div class="col-5 text-start">
+                                    <h5 for="group" class="card-title my-0">Grupo</h5>
+                                </div>
+                                <div class="col-7">
+                                    <select class="form-select" id="group" ng-click="showClasses()" ng-options="option.name for option in data_group.A_Options track by option.id" ng-model="data_group.S_Option" required></select>
+                                </div>
+                            </div>
+                            <div class="row align-items-center px-1 py-2 border-0 border-bottom">
+                                <div class="col-5 text-start">
+                                    <h5 for="group" class="card-title my-0">Materia</h5>
+                                </div>
+                                <div class="col-7">
+                                    <select class="form-select" id="group" ng-options="option.name for option in data_class.A_Options track by option.id" ng-model="data_class.S_Option" required></select>
+                                </div>
+                            </div>
+                            <div class="row align-items-center px-1 py-4 border-0 border-bottom">
+                                <div class="col-12 d-flex align-items-center text-start">
+                                    <div class="fs-2 text-primary">
+                                        <i class="fa-solid fa-circle-info me-3"></i>
+                                    </div>
+                                    <div>
+                                        <p for="group" class="border border-0 my-0 pb-1 text-break">Nomenclatura</p>
+                                        <p for="group" class="fs-6 border border-0 my-0 pb-1 fw-semibold text-break">-1: NO PRESENTÓ.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <button type="submit" class="mb-2 mx-1 px-2 btn btn-success" ng-click="reload()"><i class="fa-solid fa-rotate-right"></i></button>
+                                <button type="button" class="mb-2 mx-1 px-2 btn btn-primary" data-bs-toggle="modal" data-bs-target="#U_Modal_Grade" type="submit" ng-disabled=data_group.S_Option.status><i class="fa-solid fa-cloud-arrow-up"></i> <span>Subir</span></button>
+                                <button type="button" class="mb-2 mx-1 px-2 btn btn-primary" type="submit" ng-disabled=data_group.S_Option.status><i class="fa-solid fa-print"></i></button>
+                                <a type="button" href="" class="mb-2 mx-1 px-2 btn btn-light"><span>Cargar reticular</span></a>
+                                <a type="button" href="" class="mb-2 mx-1 px-2 btn btn-light"><span>Reporte por alumno</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 {{data_group.S_Option.view}}">
+                    <div class="card user-select-none">
+                        <div class="card-header">
+                            <div class="align-items-center py-2">
+                                <div class="text-center">
+                                    <h5 class="card-title my-0">Tabla de Calificaciones</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered align-middle">
+                                <thead class="table-light">
+                                    <tr class="text-center">
+                                        <th scope="col">Alumno</th>
+                                        <th scope="col">U1</th>
+                                        <th scope="col">U2</th>
+                                        <th scope="col">U3</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="align-items-center" ng-repeat="student in students | filter: { id_group: data_group.S_Option.id }">
+                                        <th scope=" row">
+                                            <div class="border-0">
+                                                <p class="m-0">{{student.name}} {{student.lastname}}</p>
+                                                <p class="m-0 fw-semibold">{{student.school_id}}</p>
+                                            </div>
+                                        </th>
+                                        <td class="text-center">
+                                            <div class="mb-3">
+                                                <input type="text" value="{{students.grade.grade_u1}}" class="bg-danger bg-opacity-25 form-control text-center" placeholder="U1">
+                                            </div>
+                                            <div class="{{data_class.S_Option.view}}">
+                                                <select class="form-select" ng-options="option.name for option in data_period_student.A_Options track by option.id" ng-model="data_period_student.S_Option" required></select>
+                                            </div>
+                                            <div class="text-danger">
+                                                <i class="fa-solid fa-circle-xmark"></i>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="mb-3">
+                                                <input type="text" class="bg-success bg-opacity-25 form-control text-center" placeholder="U2">
+                                            </div>
+                                            <div class="{{data_class.S_Option.view}}">
+                                                <select class="form-select" ng-options="option.name for option in data_period_student.A_Options track by option.id" ng-model="data_period_student.S_Option" required></select>
+                                            </div>
+                                            <div class="text-danger">
+                                                <i class="fa-solid fa-circle-xmark"></i>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="mb-3">
+                                                <input type="text" class="bg-danger bg-opacity-25 form-control text-center" placeholder="U3">
+                                            </div>
+                                            <div class="{{data_class.S_Option.view}}">
+                                                <select class="form-select" ng-options="option.name for option in data_period_student.A_Options track by option.id" ng-model="data_period_student.S_Option" required></select>
+                                            </div>
+                                            <div class="text-danger">
+                                                <i class="fa-solid fa-circle-xmark"></i>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- --------------------------------- Modales GLOBALES --------------------------------- -->
+    <!-- Modal Subir Calificaciones -->
+    <div class="modal fade" id="U_Modal_Grade" tabindex="-1" aria-labelledby="U_ModalLabel_Grade" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg user-select-none">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="U_ModalLabel_Grade"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="">
+                    <div class="modal-body text-center">
+                        <div class="text-success">
+                            <i class="fa-regular fa-circle-check fs-1"></i>
+                        </div>
+                        <h2 class="fs-1 fw-bold opacity-75">Guardado</h2>
+                        <p class="fs-4 fw-semibold opacity-75">Se agregaron 0 calificaciones y 30 fueron actualizadas</p>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-success fs-1 px-5" data-bs-dismiss="modal">OK</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
