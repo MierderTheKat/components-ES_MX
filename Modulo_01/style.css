@@ -1,27 +1,16 @@
 /* _________________ Definir campo de trabajo en Escolares _________________ */
 
-.nav-header {
-    height: 60px;
-    border: 1px solid black;
-}
-
 .all {
     display: flex;
 }
 
-.left {
-    min-width: 200px !important;
-    max-width: 200px !important;
-    border: 1px solid black;
+.r_top {
+    height: 44px;
+    border-bottom: 1px solid black;
 }
 
 .rigth {
     width: 100%;
-    border: 1px solid black;
-}
-
-.r_top {
-    height: 44px;
     border: 1px solid black;
 }
 
@@ -30,6 +19,21 @@
 
 .form-select {
     cursor: pointer;
+}
+
+button span {
+    visibility: hidden;
+    font-size: 0;
+}
+
+
+/* _________________ Invisible Space _________________ */
+
+.invisible {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 
@@ -43,7 +47,6 @@
 }
 
 .info_student p {
-    width: max-content;
     margin: 0;
     border-radius: 100%;
     user-select: none;
@@ -99,14 +102,31 @@
 
 /* _________________ Responsive basico _________________ */
 
-@media (min-width: 900px) {
-    .left {
-        min-width: 240px !important;
-        max-width: 240px !important;
+@media (min-width: 556px) {
+    button span {
+        visibility: visible;
+        font-size: 16px;
+    }
+    .info_student p {
+        width: max-content;
     }
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 992px) {
+    .left {
+        min-width: 240px !important;
+        max-width: 240px !important;
+        border: 1px solid black;
+        border-right: 0px;
+    }
+    .nav-header {
+        height: 60px;
+        border: 1px solid black;
+        border-bottom: 0px;
+    }
+}
+
+@media (min-width: 1400px) {
     .left {
         min-width: 280px !important;
         max-width: 280px !important;

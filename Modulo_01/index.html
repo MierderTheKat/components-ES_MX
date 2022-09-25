@@ -24,7 +24,7 @@
 
 </head>
 
-<body ng-controller="GroupList">
+<body class="container" ng-controller="GroupList">
 
     <header class="nav-header"></header>
     <div class="all">
@@ -44,11 +44,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body text-center">
                             <button type="submit" class="mb-2 mx-1 px-2 btn" ng-click="reload()"><i class="fa-solid fa-rotate-right"></i> <span>Recargar</span></button>
                             <button type="button" class="mb-2 mx-1 px-2 btn btn-primary" data-bs-toggle="modal" data-bs-target="#U_Modal_Group" type="submit" ng-disabled=data_group.S_Option.status><i class="fa-solid fa-pen"></i> <span>Editar</span></button>
                             <button type="button" class="mb-2 mx-1 px-2 btn btn-danger" data-bs-toggle="modal" data-bs-target="#D_Modal_Group" type="submit" ng-disabled=data_group.S_Option.status><i class="fa-solid fa-trash-can"></i> <span>Eliminar</span></button>
-                            <button type="button" class="mb-2 mx-1 px-2 btn btn-primary" data-bs-toggle="modal" data-bs-target="#A_Modal_Group" type="submit" ng-disabled=data_group.S_Option.status><i class="fa-solid fa-user"></i> <span>Agregar Alumno</span></button>
+                            <button type="button" class="mb-2 mx-1 px-2 btn btn-primary" data-bs-toggle="modal" data-bs-target="#A_Modal_Group" type="submit" ng-disabled=data_group.S_Option.status><i class="fa-solid fa-user-plus"></i> <span>Agregar Alumno</span></button>
                         </div>
                     </div>
                 </form>
@@ -134,6 +134,8 @@
             </div>
         </div>
     </div>
+
+    <!-- --------------------------------- Modales GLOBALES --------------------------------- -->
     <!-- Modal Editar Grupo -->
     <div class="modal fade" id="U_Modal_Group" tabindex="-1" aria-labelledby="U_ModalLabel_Group" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg user-select-none">
@@ -146,92 +148,58 @@
                     <div class="modal-body">
                         <div class="row align-items-center border-bottom border-2 py-2">
                             <div class="col-7">
-                                <label for="group_status">Estatus</label>
+                                <label for="U_group_status">Estatus</label>
                             </div>
                             <div class="col-5">
-                                <select class="form-select" id="group_status" required>
-                                    <option selected value="">Elegir</option>
-                                    <option value="">Activo</option>
-                                    <option value="">Egresado</option>
-                                </select>
+                                <select class="form-select" id="U_group_status" ng-options="option.name for option in status.A_Options track by option.id" ng-model="status.S_Option" required></select>
                             </div>
                         </div>
                         <div class="row align-items-center border-bottom border-2 py-2">
                             <div class="col-12">
-                                <label for="group_name" class="form-label">Grupo</label>
+                                <label for="U_group_name" class="form-label">Grupo</label>
                             </div>
                             <div class="col-12">
-                                <input type="text" class="form-control" id="group_name" placeholder="Escribe el nombre del grupo" required>
+                                <input type="text" class="form-control" id="U_group_name" placeholder="Escribe el nombre del grupo" required>
                             </div>
                         </div>
                         <div class="row align-items-center border-bottom border-2 py-2">
                             <div class="col-7">
-                                <label for="group_class">Carrera / Especialidad / Taller</label>
+                                <label for="U_group_class">Carrera / Especialidad / Taller</label>
                             </div>
                             <div class="col-5">
-                                <select class="form-select" id="group_class" required>
-                                    <option selected value="">Elegir</option>
-                                    <option value="">Animador</option>
-                                    <option value="">ARH</option>
-                                    <option value="">ASD</option>
-                                    <option value="">ADR</option>
-                                    <option value="">CONFECCION</option>
-                                    <option value="">DISEÑO GRAFICO</option>
-                                </select>
+                                <select class="form-select" id="U_group_class" ng-options="option.name for option in careers.A_Options track by option.id" ng-model="careers.S_Option" required></select>
                             </div>
                         </div>
                         <div class="row align-items-center border-bottom border-2 py-2">
                             <div class="col-7">
-                                <label for="group_reticle">Reticula</label>
+                                <label for="U_group_reticle">Reticula</label>
                             </div>
                             <div class="col-5">
-                                <select class="form-select" id="group_reticle" required>
-                                    <option selected value="">Elegir</option>
-                                    <option value="">ISW 2008-2013</option>
-                                    <option value="">ISW 2014-2019</option>
-                                </select>
+                                <select class="form-select" id="U_group_reticle" ng-options="option.name for option in reticle.A_Options track by option.id" ng-model="reticle.S_Option" required></select>
                             </div>
                         </div>
                         <div class="row align-items-center border-bottom border-2 py-2">
                             <div class="col-12">
-                                <label for="group_order" class="form-label">Orden</label>
+                                <label for="U_group_order" class="form-label">Orden</label>
                             </div>
                             <div class="col-12">
-                                <input type="text" class="form-control" id="group_order" placeholder="Ejemplo: 1-3" required>
+                                <input type="text" class="form-control" id="U_group_order" placeholder="Ejemplo: 1-3" required>
                             </div>
                         </div>
                         <div class="row align-items-center border-bottom border-2 py-2">
                             <div class="col-7">
-                                <label for="group_grade">Grado</label>
+                                <label for="U_group_grade">Grado</label>
                             </div>
                             <div class="col-5">
-                                <select class="form-select" id="group_grade" required>
-                                    <option selected value="">Elegir</option>
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
-                                    <option value="">4</option>
-                                    <option value="">5</option>
-                                    <option value="">6</option>
-                                    <option value="">7</option>
-                                    <option value="">8</option>
-                                    <option value="">9</option>
-                                    <option value="">10</option>
-                                </select>
+                                <select class="form-select" id="U_group_grade" ng-options="option.name for option in grade.A_Options track by option.id" ng-model="grade.S_Option" required></select>
                             </div>
                         </div>
                         <div class="row align-items-center py-2">
                             <div class="col-7">
-                                <label for="group_turn">Turno</label>
+                                <label for="U_group_turn">Turno</label>
                             </div>
                             <div class="col-5">
-                                <select class="form-select" id="group_turn" required>
-                                    <option selected value="">Elegir</option>
-                                    <option value="">TM</option>
-                                    <option value="">TV</option>
-                                    <option value="">TN</option>
-                                    <option value="">N/A</option>
-                                </select>
+                                <select class="form-select" id="U_group_turn" ng-options="option.name for option in turn.A_Options track by option.id" ng-model="turn.S_Option" required></select>
                             </div>
                         </div>
                     </div>
@@ -283,12 +251,7 @@
                             <div class="col-7">
                                 <label for="student_sex" class="form-label">Sexo</label>
                                 <div class="input-group mb-3">
-                                    <select class="form-select" id="student_sex" required>
-                                      <option selected disabled value="">Elige...</option>
-                                      <option value="1">Femenino</option>
-                                      <option value="2">Masculino</option>
-                                      <option value="3">Otro</option>
-                                    </select>
+                                    <select class="form-select" id="student_sex" ng-options="option.name for option in sex.A_Options track by option.id" ng-model="sex.S_Option" required></select>
                                 </div>
                             </div>
                             <div class="col-4">
@@ -319,98 +282,64 @@
                     <div class="modal-body">
                         <div class="row align-items-center border-bottom border-2 py-2">
                             <div class="col-7">
-                                <label for="group_status">Estatus</label>
+                                <label for="A_group_status">Estatus</label>
                             </div>
                             <div class="col-5">
-                                <select class="form-select" id="group_status" required>
-                                    <option selected value="">Elegir</option>
-                                    <option value="">Activo</option>
-                                    <option value="">Egresado</option>
-                                </select>
+                                <select class="form-select" id="A_group_status" ng-options="option.name for option in status.A_Options track by option.id" ng-model="status.S_Option" required></select>
                             </div>
                         </div>
                         <div class="row align-items-center border-bottom border-2 py-2">
                             <div class="col-12">
-                                <label for="group_name" class="form-label">Grupo</label>
+                                <label for="A_group_name" class="form-label">Grupo</label>
                             </div>
                             <div class="col-12">
-                                <input type="text" class="form-control" id="group_name" placeholder="Escribe el nombre del grupo" required>
+                                <input type="text" class="form-control" id="A_group_name" placeholder="Escribe el nombre del grupo" required>
                             </div>
                         </div>
                         <div class="row align-items-center border-bottom border-2 py-2">
                             <div class="col-7">
-                                <label for="group_class">Carrera / Especialidad / Taller</label>
+                                <label for="A_group_class">Carrera / Especialidad / Taller</label>
                             </div>
                             <div class="col-5">
-                                <select class="form-select" id="group_class" required>
-                                    <option selected value="">Elegir</option>
-                                    <option value="">Animador</option>
-                                    <option value="">ARH</option>
-                                    <option value="">ASD</option>
-                                    <option value="">ADR</option>
-                                    <option value="">CONFECCION</option>
-                                    <option value="">DISEÑO GRAFICO</option>
-                                </select>
+                                <select class="form-select" id="A_group_class" ng-options="option.name for option in careers.A_Options track by option.id" ng-model="careers.S_Option" required></select>
                             </div>
                         </div>
                         <div class="row align-items-center border-bottom border-2 py-2">
                             <div class="col-7">
-                                <label for="group_reticle">Reticula</label>
+                                <label for="A_group_reticle">Reticula</label>
                             </div>
                             <div class="col-5">
-                                <select class="form-select" id="group_reticle" required>
-                                    <option selected value="">Elegir</option>
-                                    <option value="">ISW 2008-2013</option>
-                                    <option value="">ISW 2014-2019</option>
-                                </select>
+                                <select class="form-select" id="A_group_reticle" ng-options="option.name for option in reticle.A_Options track by option.id" ng-model="reticle.S_Option" required></select>
                             </div>
                         </div>
                         <div class="row align-items-center border-bottom border-2 py-2">
                             <div class="col-12">
-                                <label for="group_order" class="form-label">Orden</label>
+                                <label for="A_group_order" class="form-label">Orden</label>
                             </div>
                             <div class="col-12">
-                                <input type="text" class="form-control" id="group_order" placeholder="Ejemplo: 1-3" required>
+                                <input type="text" class="form-control" id="A_group_order" placeholder="Ejemplo: 1-3" required>
                             </div>
                         </div>
                         <div class="row align-items-center border-bottom border-2 py-2">
                             <div class="col-7">
-                                <label for="group_grade">Grado</label>
+                                <label for="A_group_grade">Grado</label>
                             </div>
                             <div class="col-5">
-                                <select class="form-select" id="group_grade" required>
-                                    <option selected value="">Elegir</option>
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
-                                    <option value="">4</option>
-                                    <option value="">5</option>
-                                    <option value="">6</option>
-                                    <option value="">7</option>
-                                    <option value="">8</option>
-                                    <option value="">9</option>
-                                    <option value="">10</option>
-                                </select>
+                                <select class="form-select" id="A_group_grade" ng-options="option.name for option in grade.A_Options track by option.id" ng-model="grade.S_Option" required></select>
                             </div>
                         </div>
                         <div class="row align-items-center py-2">
                             <div class="col-7">
-                                <label for="group_turn">Turno</label>
+                                <label for="A_group_turn">Turno</label>
                             </div>
                             <div class="col-5">
-                                <select class="form-select" id="group_turn" required>
-                                    <option selected value="">Elegir</option>
-                                    <option value="">TM</option>
-                                    <option value="">TV</option>
-                                    <option value="">TN</option>
-                                    <option value="">N/A</option>
-                                </select>
+                                <select class="form-select" id="A_group_turn" ng-options="option.name for option in turn.A_Options track by option.id" ng-model="turn.S_Option" required></select>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-success">Editar</button>
+                        <button type="button" class="btn btn-primary">Agregar</button>
                     </div>
                 </form>
             </div>
