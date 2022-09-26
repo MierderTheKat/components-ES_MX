@@ -18,6 +18,10 @@
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/8a7f1b84c8.js" crossorigin="anonymous"></script>
 
+
+    <!-- Google Charts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
     <!-- Local Edits -->
     <script src="AngularJS_data.js"></script>
     <link rel="stylesheet" href="style.css">
@@ -459,13 +463,10 @@
                                     <button type="button" class="btn btn-light p-1 border"><i class="fa-solid fa-magnifying-glass opacity-75 fs-5"></i> </button>
                                 </div>
                             </div>
-                            <div class="p-4 align-items-center text-center">
-                                <div class="a">
-                                    <img class="a" src="https://placehold.jp/150x200.png" alt="">
-                                </div>
+                            <div class="px-0 py-4 align-items-center text-center text-break">
+                                <div id="chart_div" class="google_chart"></div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -602,11 +603,7 @@
                             <label for="document_status">Estatus</label>
                         </div>
                         <div class="col-5">
-                            <select class="form-select" id="document_status" required>
-                                <option selected value="">Elegir</option>
-                                <option value="">Activo</option>
-                                <option value="">Oculto</option>
-                            </select>
+                            <select class="form-select" id="document_status" ng-options="option.name for option in status.A_Options track by option.id" ng-model="status.S_Option" required></select>
                         </div>
                     </div>
                     <div class="row align-items-center border-bottom border-2 py-2">
@@ -631,7 +628,7 @@
                         </div>
                         <div class="col-12">
                             <textarea class="form-control" id="document_contents" placeholder="Escribe el contenido" rows="3"></textarea required>
-                            </div>
+                        </div>
                     </div>
                     <div class="card">
                         <div class="card-header border-0 text-center">
@@ -652,19 +649,7 @@
                                 <label for="document_grade">Grado</label>
                             </div>
                             <div class="col-5">
-                                <select class="form-select" id="document_grade" required>
-                                    <option selected value="">Elegir</option>
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
-                                    <option value="">4</option>
-                                    <option value="">5</option>
-                                    <option value="">6</option>
-                                    <option value="">7</option>
-                                    <option value="">8</option>
-                                    <option value="">9</option>
-                                    <option value="">10</option>
-                                </select>
+                                <select class="form-select" id="document_grade" ng-options="option.name for option in grade.A_Options track by option.id" ng-model="grade.S_Option" required></select>
                             </div>
                         </div>
                         <div class="row align-items-center border-bottom border-2 py-2">
@@ -680,15 +665,7 @@
                                 <label for="document_career_2">Carrera / Especialidad / Taller</label>
                             </div>
                             <div class="col-5">
-                                <select class="form-select" id="document_career_2" required>
-                                    <option selected value="">Elegir</option>
-                                    <option value="">Animador</option>
-                                    <option value="">ARH</option>
-                                    <option value="">ASD</option>
-                                    <option value="">ADR</option>
-                                    <option value="">CONFECCION</option>
-                                    <option value="">DISEÑO GRAFICO</option>
-                                </select>
+                                <select class="form-select" id="document_career_2" ng-options="option.name for option in careers_2.A_Options track by option.id" ng-model="careers_2.S_Option" required></select>
                                     
                                 </select>
                             </div>
@@ -698,11 +675,7 @@
                                 <label for="document_turn">Turno</label>
                             </div>
                             <div class="col-5">
-                                <select class="form-select" id="document_turn" required>
-                                            <option selected value="">Elegir</option>
-                                            <option value="">MATUTINO</option>
-                                            <option value="">VESPERTINO</option>
-                                </select>
+                                <select class="form-select" id="document_turn" ng-options="option.name for option in turn.A_Options track by option.id" ng-model="turn.S_Option" required></select>
                             </div>
                         </div>
                     </div>
@@ -715,7 +688,6 @@
         </div>
     </div>
 
-    </div>
 </body>
 
 </html>

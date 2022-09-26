@@ -57,6 +57,10 @@
     box-shadow: 2px 4px 4px rgb(0 0 0 / 40%);
 }
 
+.google_chart text {
+    font-size: 10px !important;
+}
+
 
 /* _________________ Responsive basico _________________ */
 

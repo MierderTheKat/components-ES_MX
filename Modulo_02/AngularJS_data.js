@@ -106,4 +106,30 @@ app.controller('GroupList', function($scope) {
         location.reload(true);
     }
 
+    google.charts.load('current', { 'packages': ['bar'] });
+    google.charts.setOnLoadCallback(drawStuff);
+
+    function drawStuff() {
+        var data = new google.visualization.arrayToDataTable([
+            ["", ""],
+            ["Carta BC", 2],
+            ["Constancia", 7]
+        ]);
+
+        var options = {
+            title: "D , i",
+            bar: { groupWidth: "95%" },
+            legend: { position: "none" },
+            bars: 'horizontal',
+            axes: {
+                x: {
+                    0: { side: 'top', label: 'Reporte mensual' }
+                }
+            },
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('chart_div'));
+        chart.draw(data, options);
+    };
+
 });
