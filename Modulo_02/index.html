@@ -18,7 +18,6 @@
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/8a7f1b84c8.js" crossorigin="anonymous"></script>
 
-
     <!-- Google Charts -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
@@ -56,7 +55,7 @@
                         <button type="button" class="btn btn-light card-header" data-bs-toggle="modal" data-bs-target="#Options_Modal">
                                 <div class="row align-items-center">
                                     <div class="col-10 text-start">
-                                        <h5 for="group" class="card-title border border-0 py-2 my-0"><i class="fa-solid fa-bars me-3"></i>Opciones</h5>
+                                        <h5  class="card-title border border-0 py-2 my-0"><i class="fa-solid fa-bars me-3"></i>Opciones</h5>
                                     </div>
                                     <div class="col-2 text-end">
                                         <i class="fa-solid fa-ellipsis me-2"></i>
@@ -65,12 +64,12 @@
                         </button>
                         <div class="d-flex align-items-center py-3">
                             <i class="fa-solid fa-magnifying-glass mx-3 fs-5 opacity-50"></i>
-                            <input class="form-control me-3" placeholder="Buscar documento...">
+                            <input class="form-control me-3" ng-model="search_document" placeholder="Buscar documento...">
                         </div>
                         <!-- -------------------------------------------------------- LOS MODALES BOTON -------------------------------------------------------- -->
 
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button" ng-repeat="certificate in certificates">
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button" ng-repeat="certificate in certificates | filter: search_document">
                                 <div data-bs-toggle="modal" href="#Modal_1_{{certificate.id}}" type="button">
                                     <div class="row align-items-center mx-0">
                                         <div class="col-10 d-flex align-items-center text-start">
@@ -78,10 +77,10 @@
                                                 <i class="fa-regular fa-file opacity-75 me-3"></i>
                                             </div>
                                             <div class="py-2">
-                                                <p for="group" class="border border-0 my-0 pb-1 fw-semibold">{{certificate.name}}</p>
-                                                <p for="group" class="fs-6 border border-0 my-0 pb-1 text-muted">{{certificate.status}} - {{certificate.role}} - ({{certificate.number}})</p>
-                                                <p for="group" class="fs-6 border border-0 my-0 pb-1 text-muted">{{certificate.career}}</p>
-                                                <p for="group" class="fs-6 border border-0 my-0 text-muted fw-bold">{{certificate.extra_info}}</p>
+                                                <p class="border border-0 my-0 pb-1 fw-semibold">{{certificate.name}}</p>
+                                                <p class="fs-6 border border-0 my-0 pb-1 text-muted">{{certificate.status}} - {{certificate.role}} - ({{certificate.number}})</p>
+                                                <p class="fs-6 border border-0 my-0 pb-1 text-muted">{{certificate.career}}</p>
+                                                <p class="fs-6 border border-0 my-0 text-muted fw-bold">{{certificate.extra_info}}</p>
                                             </div>
                                         </div>
                                         <div class="col-2 text-end">
@@ -113,8 +112,8 @@
                                                                     <i class="fa-regular fa-file opacity-75 me-3"></i>
                                                                 </div>
                                                                 <div class="py-2">
-                                                                    <p for="group" class="border border-0 my-0 pb-1 fs-6">Generar con el navegador</p>
-                                                                    <p for="group" class="border border-0 my-0 pb-1 text-muted">Crear un documento para un usuario</p>
+                                                                    <p class="border border-0 my-0 pb-1 fs-6">Generar con el navegador</p>
+                                                                    <p class="border border-0 my-0 pb-1 text-muted">Crear un documento para un usuario</p>
                                                                 </div>
                                                             </div>
                                                             <div class="col-2 text-primary text-end">
@@ -131,8 +130,8 @@
                                                                     <i class="fa-regular fa-file opacity-75 me-3"></i>
                                                                 </div>
                                                                 <div class="py-2">
-                                                                    <p for="group" class="border border-0 my-0 pb-1 fs-6">Generar con el navegador (grupal)</p>
-                                                                    <p for="group" class="border border-0 my-0 pb-1 text-muted">Seleccionar un grupo para realizar el documento de manera grupal</p>
+                                                                    <p class="border border-0 my-0 pb-1 fs-6">Generar con el navegador (grupal)</p>
+                                                                    <p class="border border-0 my-0 pb-1 text-muted">Seleccionar un grupo para realizar el documento de manera grupal</p>
                                                                 </div>
                                                             </div>
                                                             <div class="col-2 text-primary text-end">
@@ -149,8 +148,8 @@
                                                                     <i class="fa-regular fa-clock opacity-75 me-3"></i>
                                                                 </div>
                                                                 <div class="py-2">
-                                                                    <p for="group" class="border border-0 my-0 pb-1 fs-6">Historial</p>
-                                                                    <p for="group" class="border border-0 my-0 pb-1 text-muted">Lista de documentos generados</p>
+                                                                    <p class="border border-0 my-0 pb-1 fs-6">Historial</p>
+                                                                    <p class="border border-0 my-0 pb-1 text-muted">Lista de documentos generados</p>
                                                                 </div>
                                                             </div>
                                                             <div class="col-2 text-end">
@@ -172,8 +171,8 @@
                                                                     <i class="fa-regular fa-pen-to-square opacity-75 me-3"></i>
                                                                 </div>
                                                                 <div class="py-2">
-                                                                    <p for="group" class="border border-0 my-0 pb-1 fs-6">Editar</p>
-                                                                    <p for="group" class="border border-0 my-0 pb-1 text-muted">Modificar documento</p>
+                                                                    <p class="border border-0 my-0 pb-1 fs-6">Editar</p>
+                                                                    <p class="border border-0 my-0 pb-1 text-muted">Modificar documento</p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -187,8 +186,8 @@
                                                                     <i class="fa-regular fa-circle-xmark opacity-75 me-3"></i>
                                                                 </div>
                                                                 <div class="py-2">
-                                                                    <p for="group" class="border border-0 my-0 pb-1 fs-6">Eliminar</p>
-                                                                    <p for="group" class="border border-0 my-0 pb-1 text-muted">Se eliminará permanentemente con todo sus historial</p>
+                                                                    <p class="border border-0 my-0 pb-1 fs-6">Eliminar</p>
+                                                                    <p class="border border-0 my-0 pb-1 text-muted">Se eliminará permanentemente con todo sus historial</p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -196,7 +195,7 @@
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
-                                                <button class="btn btn-primary" data-bs-target="#Modal_2" data-bs-toggle="modal">Cerrar</button>
+                                                <button class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
                                             </div>
                                         </div>
                                     </div>
@@ -254,9 +253,10 @@
                                                 </div>
                                                 <div class="d-flex align-items-center border-bottom border-2 py-3">
                                                     <i class="fa-solid fa-magnifying-glass mx-3 fs-5 opacity-50"></i>
-                                                    <input class="form-control me-3" placeholder="Buscar por nombre...">
+                                                    <input class="form-control me-3" ng-model="search_student" placeholder="Buscar por nombre...">
                                                 </div>
-                                                <div class="d-flex align-items-center py-2 text-start">
+                                                <!-- --------------------- Si NO hay información en Alumnos --------------------- -->
+                                                <div class="d-flex align-items-center py-2 text-start" ng-if="students.length == 0">
                                                     <div class="fs-3 text-muted">
                                                         <i class="fa-regular fa-circle-xmark me-3"></i>
                                                     </div>
@@ -264,6 +264,25 @@
                                                         <p class="border border-0 my-0 pb-1">No hay resultados</p>
                                                         <p class="border border-0 my-0 pb-1 text-muted">Verifique los datos ó busque con otro criterio.</p>
                                                     </div>
+                                                </div>
+                                                <!-- --------------------- Si hay información en Alumnos --------------------- -->
+                                                <div ng-if="students.length > 0">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="d-flex align-items-center py-2 text-start border-bottom border-2 py-2" ng-repeat="student in students | filter: search_student">
+                                                            <div class="col-10 d-flex align-items-center">
+                                                                <div class="photo_student text-center fs-3 text-muted me-3">
+                                                                    <img src="{{student.photo}}" alt="">
+                                                                </div>
+                                                                <div class="py-2">
+                                                                    <p class="border border-0 my-0 pb-1">{{student.lastname}} {{student.name}}</p>
+                                                                    <p class="fs-6 border border-0 my-0 pb-1 text-muted">{{student.curp}} - {{student.grade}}{{student.group}} {{student.careers}} {{student.turn}} {{student.type}}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-2 text-end">
+                                                                <i class="fa-solid fa-circle-plus fs-1 text-muted"></i>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -306,14 +325,29 @@
                                                         <h6 class="modal-title">{{certificate.extra_info}}</h6>
                                                     </div>
                                                 </div>
-                                                <div class="d-flex align-items-center {{historial.border}} py-2 text-start">
+                                                <!-- --------------------- Si NO hay información en Historial --------------------- -->
+                                                <div class="d-flex align-items-center py-2 text-start" ng-if="historial.length == 0">
                                                     <div class="fs-3 text-muted">
-                                                        <i class="fa-regular {{historial.icon}} me-3"></i>
+                                                        <i class="fa-regular fa-circle-xmark me-3"></i>
                                                     </div>
                                                     <div class="py-3">
-                                                        <p class="border border-0 my-0 pb-1">{{historial.name}}</p>
-                                                        <p class="border border-0 my-0 pb-1 text-muted">{{historial.expired}} {{historial.date}}</p>
+                                                        <p class="border border-0 my-0 pb-1">Todavía no hay ningún documento</p>
+                                                        <p class="border border-0 my-0 pb-1 text-muted">Los documentos disponibles se mostrarán aquí.</p>
                                                     </div>
+                                                </div>
+                                                <!-- --------------------- Si hay información en Historial --------------------- -->
+                                                <div ng-if="historial.length > 0">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="d-flex align-items-center py-2 text-start border-bottom border-2 py-2" ng-repeat="historial in historial">
+                                                            <div class="fs-3 text-muted">
+                                                                <i class="fa-regular fa-file me-3"></i>
+                                                            </div>
+                                                            <div class="py-2">
+                                                                <p class="border border-0 my-0 pb-1">{{historial.lastname}} {{historial.name}}</p>
+                                                                <p class="fs-6 border border-0 my-0 pb-1 text-muted">Expira en {{historial.expired_date}}</p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">

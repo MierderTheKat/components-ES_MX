@@ -21,6 +21,13 @@
     cursor: pointer;
 }
 
+.photo_student img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    user-select: none;
+}
+
 
 /* _________________ Invisible Space _________________ */
 
@@ -55,10 +62,6 @@
 .add-document:hover {
     background-color: #32c55c;
     box-shadow: 2px 4px 4px rgb(0 0 0 / 40%);
-}
-
-.google_chart text {
-    font-size: 10px !important;
 }
 
 

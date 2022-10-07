@@ -26,6 +26,10 @@ button span {
     font-size: 0;
 }
 
+.fa-regular.fa-circle-check.fs-1 {
+    font-size: 6rem!important;
+}
+
 
 /* _________________ Invisible Space _________________ */
 

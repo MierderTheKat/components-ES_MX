@@ -88,18 +88,16 @@ app.controller('GroupList', function($scope) {
         { id: '3', name: 'Constancia con calificaciones', status: 'ACTIVO', role: 'ALUMNO', number: '14', career: '', extra_info: 'Kardex' }
     ];
 
-    if ($scope.historial != 0) {
-        $scope.historial = { id: '1', name: 'Todavía no hay ningún documento', expired: 'Los documentos disponibles se mostrarán aquí.', icon: 'fa-circle-xmark' }
-    } else {
-        $scope.historial = [
-            { id: '2', name: 'BERUMEN RAMIREZ DAVID VICTOR', expired: 'Expira en', date: 'Oct 1,2022', icon: 'fa-file', border: 'border-bottom border-2 py-2' }
-        ]
-    };
+    $scope.historial = [
+        { id: '1', name: 'DAVID VICTOR', lastname: 'BERUMEN RAMIREZ', expired_date: 'Oct 1,2022' },
+        { id: '2', name: 'YASSER GUADALUPE', lastname: 'HERNANDEZ GARCIA', expired_date: 'Oct 1,2022' },
+        { id: '3', name: 'MIGUEL ARTURO', lastname: 'ALVAREZ GALAVIZ', expired_date: 'Oct 1,2022' }
+    ]
 
     $scope.students = [
-        { id: '1', name: 'Juan', lastname: 'Berumen Ramirez', status: 'REGULAR', school_id: 'ISW2022_A', photo: 'https://placehold.jp/100x100.png' },
-        { id: '2', name: 'Yasser', lastname: 'Hernadez Garcia', status: 'REGULAR', school_id: 'ISW2022_B', photo: 'https://placehold.jp/100x100.png' },
-        { id: '3', name: 'Arturo', lastname: 'Alvarez Galaviz', status: 'REGULAR', school_id: 'ISW2022_C', photo: 'https://placehold.jp/100x100.png' }
+        { id: '1', name: 'JUAN PEDRO', lastname: 'BERUMEN RAMIREZ', school_id: 'ISW2022_A', curp: 'MARA940621HDGRMV01', careers: 'INGENIERIA EN SOFTWARE', grade: '2', group: 'C', turn: 'VESPERTINO', type: 'FISICO', photo: 'https://placehold.jp/100x100.png' },
+        { id: '2', name: 'YASSER GUADALUPE', lastname: 'HERNANDEZ GARCIA', school_id: 'ISW2022_B', curp: 'GARF940621HDGRMV01', careers: 'INGENIERIA EN SOFTWARE', grade: '1', group: 'A', turn: 'MATUTINO', type: 'VIRTUAL', photo: 'https://placehold.jp/100x100.png' },
+        { id: '3', name: 'MIGUEL ARTURO', lastname: 'ALVAREZ GALAVIZ', school_id: 'ISW2022_C', curp: 'LUFFY40621HDGRMV01', careers: 'ADMINISTRACIÓN DE EMPRESAS', grade: '1', group: 'A', turn: 'MATUTINO', type: 'FISICO', photo: 'https://placehold.jp/100x100.png' }
     ]
 
     $scope.reload = function() {
