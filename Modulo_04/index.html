@@ -37,7 +37,7 @@
                         <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_02/index.html">2</a></li>
                         <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_03/index.html">3</a></li>
                         <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_04/index.html">4</a></li>
-                        <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_05/index.html">5</a></li>
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_05/index.html">5</a></li>
                         <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_06/index.html">6</a></li>
                         <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_07/index.html">7</a></li>
                         <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_08/index.html">8</a></li>
@@ -90,8 +90,6 @@
                             </div>
                             <!-- --------------------- Si hay información en Classroom --------------------- -->
                             <div ng-if="courses.length > 0">
-
-                                <!-- -------------------------------------------------------- LOS MODALES BOTON -------------------------------------------------------- -->
                                 <div class="table-responsive">
                                     <table class="table table-bordered table-striped table-hover align-middle table-sm">
                                         <thead>
@@ -119,10 +117,6 @@
                                         </tbody>
                                     </table>
                                 </div>
-
-
-                                <!-- -------------------------------------------------------- LOS MODALES FINAL -------------------------------------------------------- -->
-
                             </div>
                         </div>
                     </div>
@@ -232,7 +226,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-primary" data-bs-target="#Modal_2" data-bs-toggle="modal">Cerrar</button>
+                    <button class="btn btn-secondary" data-bs-target="#Modal_2" data-bs-toggle="modal">Cerrar</button>
                 </div>
             </div>
         </div>
@@ -288,7 +282,7 @@
                         </ul>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     </div>
                 </div>
             </div>
@@ -358,7 +352,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-primary" data-bs-toggle="modal" href="#Modal_table_{{course.id}}">Regresar</button>
+                            <button class="btn btn-secondary" data-bs-toggle="modal" href="#Modal_table_{{course.id}}">Regresar</button>
                         </div>
                     </div>
                 </div>

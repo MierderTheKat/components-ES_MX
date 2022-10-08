@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Groups">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constancias</title>
+    <link rel="icon" load href="https://web.escolaresmx.com/theme/img/icon.png">
+
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <!-- Bootstrap 5.2 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/8a7f1b84c8.js" crossorigin="anonymous"></script>
+
+    <!-- Google Charts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <!-- Local Edits -->
+    <script src="AngularJS_data.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="container" ng-controller="GroupList">
+
+    <header class="nav-header"></header>
+    <div class="all">
+        <div class="left"></div>
+        <div class="rigth">
+            <div class="r_top">
+                <nav>
+                    <ul class="pagination justify-content-center m-2">
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_01/index.html">1</a></li>
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_02/index.html">2</a></li>
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_03/index.html">3</a></li>
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_04/index.html">4</a></li>
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_05/index.html">5</a></li>
+                        <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_06/index.html">6</a></li>
+                        <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_07/index.html">7</a></li>
+                        <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_08/index.html">8</a></li>
+                        <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_09/index.html">9</a></li>
+                        <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_10/index.html">10</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="row g-4 m-0 p-3">
+                <div class="col-lg-6">
+                    <div class="card user-select-none">
+                        <button type="button" class="btn btn-light card-header" data-bs-toggle="modal" data-bs-target="#Options_Modal">
+                                <div class="row align-items-center">
+                                    <div class="col-10 text-start">
+                                        <h5  class="card-title border border-0 py-2 my-0"><i class="fa-solid fa-bars me-3"></i>Opciones</h5>
+                                    </div>
+                                    <div class="col-2 text-end">
+                                        <i class="fa-solid fa-ellipsis me-2"></i>
+                                    </div>
+                                </div>
+                        </button>
+                        <div class="card-body text-center">
+                            <div class="row align-items-center px-1 py-2 border-0 border-bottom">
+                                <div class="col-6 text-start">
+                                    <h5 for="group" class="card-title my-0">Periodo de trabajo</h5>
+                                </div>
+                                <div class="col-6">
+                                    <select class="form-select" id="group" ng-options="option.name for option in data_period.A_Options track by option.id" ng-model="data_period.S_Option" required></select>
+                                </div>
+                            </div>
+                            <div class="row align-items-center mx-4 border-3 border-opacity-75 border-primary mt-3" style="border-style: dashed none">
+                                <label class="col-12 d-flex align-items-center text-start">
+                                    <div class="fs-4">
+                                        <i class="fa-solid fa-cloud-arrow-up fs-2 opacity-75 me-3"></i>
+                                    </div>
+                                    <div class="py-2">
+                                        <h2 class="fs-6 m-0">Subir XLSX Detalle de Calificaciones</h2>
+                                        <div class="fs-6 text-muted opacity-75">(Busca el archivo"detalle" que exporta SISEEMS en su formato original .xlsx o .xls)</div>
+                                        <div class="fs-6 text-muted opacity-75">(Asegurate que la codificación sea UTF-8)</div>
+                                    </div>
+                                    <input type="file" hidden accept=".xlsx,.xls" aria-invalid="false">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="align-items-center py-2 border-0 border-bottom border-top text-bg-light">
+                            <div class="align-items-center text-center">
+                                <p class="border border-0 my-0 pb-1 fw-semibold">Menú</p>
+                            </div>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button">
+                                <div data-bs-toggle="modal" href="#Modal_Groups" type="button">
+                                    <div class="row align-items-center mx-0">
+                                        <div class="col-10 d-flex align-items-center text-start">
+                                            <div class="fs-4">
+                                                <i class="fa-solid fa-chart-pie text-muted me-3"></i>
+                                            </div>
+                                            <div class="py-2">
+                                                <p class="border border-0 my-0 fw-semibold">Reporte por grupo</p>
+                                                <p class="fs-6 border border-0 my-0 text-muted">Genera diferentes tipos reporte por grupo</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-2 text-end">
+                                            <i class="fa-solid fa-ellipsis me-2"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button">
+                                <div data-bs-toggle="modal" href="#Modal_Teachers" type="button">
+                                    <div class="row align-items-center mx-0">
+                                        <div class="col-10 d-flex align-items-center text-start">
+                                            <div class="fs-4">
+                                                <i class="fa-solid fa-users text-muted me-3"></i>
+                                            </div>
+                                            <div class="py-2">
+                                                <p class="border border-0 my-0 fw-semibold">Reporte por docente</p>
+                                                <p class="fs-6 border border-0 my-0 text-muted">Por periodo de evaluación y docente</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-2 text-end">
+                                            <i class="fa-solid fa-ellipsis me-2"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button">
+                                <div data-bs-toggle="modal" href="#Modal_Students" type="button">
+                                    <div class="row align-items-center mx-0">
+                                        <div class="col-10 d-flex align-items-center text-start">
+                                            <div class="fs-4">
+                                                <i class="fa-solid fa-user text-muted me-3"></i>
+                                            </div>
+                                            <div class="py-2">
+                                                <p class="border border-0 my-0 fw-semibold">Reporte por alumno</p>
+                                                <p class="fs-6 border border-0 my-0 text-muted">Por periodo de evaluación</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-2 text-end">
+                                            <i class="fa-solid fa-ellipsis me-2"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-solid fa-arrow-trend-up text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Reporte de indices de aprobación</p>
+                                            <p class="fs-6 border border-0 my-0 text-muted">Por periodo de evaluación</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end">
+                                        <i class="fa-solid fa-ellipsis me-2"></i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-solid fa-arrow-trend-up text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Reporte de indices de aprobación, reprobación y vacias</p>
+                                            <p class="fs-6 border border-0 my-0 text-muted">Por periodo de evaluación</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end">
+                                        <i class="fa-solid fa-ellipsis me-2"></i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-solid fa-arrow-trend-up text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Reporte de materias en blanco</p>
+                                            <p class="fs-6 border border-0 my-0 text-muted">Por periodo de evaluación</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end">
+                                        <i class="fa-solid fa-ellipsis me-2"></i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button">
+                                <div data-bs-toggle="modal" href="#Modal_Extra" type="button">
+                                    <div class="row align-items-center mx-0">
+                                        <div class="col-10 d-flex align-items-center text-start">
+                                            <div class="fs-4">
+                                                <i class="fa-solid fa-book-open text-muted me-3"></i>
+                                            </div>
+                                            <div class="py-2">
+                                                <p class="border border-0 my-0 fw-semibold">Extraordinarios</p>
+                                                <p class="fs-6 border border-0 my-0 text-muted">Listas de alumnos con calificación en extraordinarios</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-2 text-end">
+                                            <i class="fa-solid fa-ellipsis me-2"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button">
+                                <div data-bs-toggle="modal" href="#Modal_Recur" type="button">
+                                    <div class="row align-items-center mx-0">
+                                        <div class="col-10 d-flex align-items-center text-start">
+                                            <div class="fs-4">
+                                                <i class="fa-solid fa-file-lines text-muted me-3"></i>
+                                            </div>
+                                            <div class="py-2">
+                                                <p class="border border-0 my-0 fw-semibold">Recursamiento</p>
+                                                <p class="fs-6 border border-0 my-0 text-muted">Listas de alumnos con calificación en recursamientos</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-2 text-end">
+                                            <i class="fa-solid fa-ellipsis me-2"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card user-select-none">
+                        <div class="card-header">
+                            <div class="row align-items-center py-2">
+                                <div class="col-lg-12">
+                                    <h5 class="card-title my-0">Reporte comparativo</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body px-0">
+                            <div class="px-0 py-4 align-items-center text-center text-break">
+                                <div id="chart_div" class="google_chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card user-select-none">
+                        <div class="card-header">
+                            <div class="row align-items-center py-2">
+                                <div class="col-lg-12">
+                                    <h5 class="card-title my-0">Docentes con mayor reprobación</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex text-start align-items-center px-1 pb-3 border-0 border-bottom">
+                                <div class="fs-2 opacity-75">
+                                    <i class="fa-solid fa-circle-info me-3"></i>
+                                </div>
+                                <div>
+                                    <p class="border border-0 my-0 pb-1 text-break">Lista de posiciones de docentes de mayor a menor número de alumnos reprobados del periodo seleccionado</p>
+                                </div>
+                            </div>
+                            <!-- --------------------- Si NO hay información en Docentes con mayor reprobación  --------------------- -->
+                            <div ng-if="teacher_disapproveds.length == 0" class="d-flex align-items-center text-start">
+                                <div class="fs-3 text-muted">
+                                    <i class="fa-regular fa-circle-xmark me-3"></i>
+                                </div>
+                                <div class="py-3">
+                                    <p class="border border-0 my-0 pb-1">Todavía no hay ningún docente</p>
+                                    <p class="border border-0 my-0 pb-1 text-muted">Los docentes disponibles se mostrarán aquí.</p>
+                                </div>
+                            </div>
+                            <!-- --------------------- Si hay información en Docentes con mayor reprobación --------------------- -->
+                            <div ng-if="teacher_disapproveds.length > 0">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped table-hover align-middle table-sm">
+                                        <thead class="text-center">
+                                            <tr class="border-bottom-0 border-top-0">
+                                                <th scope="col"></th>
+                                                <th scope="col"></th>
+                                                <th class="border-bottom" scope="col" colspan="2">NO. DE REPROBADOS</th>
+                                            </tr>
+                                            <tr class="border-top-0">
+                                                <th scope="col">NO.</th>
+                                                <th scope="col">DOCENTE</th>
+                                                <th scope="col">ALUMNOS</th>
+                                                <th scope="col">MATERIAS</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="teacher_disapproved in teacher_disapproveds">
+                                                <th class="text-center" scope="row">{{teacher_disapproved.id}}</th>
+                                                <td>{{teacher_disapproved.name}}</td>
+                                                <td class="text-center">{{teacher_disapproved.students}}</td>
+                                                <td class="text-center">{{teacher_disapproved.careers}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card user-select-none">
+                        <div class="card-header">
+                            <div class="row align-items-center py-2">
+                                <div class="col-lg-12">
+                                    <h5 class="card-title my-0">Materias con mayor reprobación</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex text-start align-items-center px-1 pb-3 border-0 border-bottom">
+                                <div class="fs-2 opacity-75">
+                                    <i class="fa-solid fa-circle-info me-3"></i>
+                                </div>
+                                <div>
+                                    <p class="border border-0 my-0 pb-1 text-break">Lista de posiciones de materias de mayor a menor número de alumnos reprobados del periodo seleccionado</p>
+                                </div>
+                            </div>
+                            <!-- --------------------- Si NO hay información en Materias con mayor reprobación  --------------------- -->
+                            <div ng-if="careers_disapproveds.length == 0" class="d-flex align-items-center text-start">
+                                <div class="fs-3 text-muted">
+                                    <i class="fa-regular fa-circle-xmark me-3"></i>
+                                </div>
+                                <div class="py-3">
+                                    <p class="border border-0 my-0 pb-1">Todavía no hay ningún docente</p>
+                                    <p class="border border-0 my-0 pb-1 text-muted">Los docentes disponibles se mostrarán aquí.</p>
+                                </div>
+                            </div>
+                            <!-- --------------------- Si hay información en Materias con mayor reprobación --------------------- -->
+                            <div ng-if="careers_disapproveds.length > 0">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped table-hover align-middle table-sm">
+                                        <thead class="text-center">
+                                            <tr class="border-bottom-0 border-top-0">
+                                                <th scope="col"></th>
+                                                <th scope="col"></th>
+                                                <th class="border-bottom" scope="col" colspan="2">NO. DE REPROBADOS</th>
+                                            </tr>
+                                            <tr class="border-top-0">
+                                                <th scope="col">NO.</th>
+                                                <th scope="col">DOCENTE</th>
+                                                <th scope="col">ALUMNOS</th>
+                                                <th scope="col">MATERIAS</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="careers_disapproved in careers_disapproveds">
+                                                <th class="text-center" scope="row">{{careers_disapproved.id}}</th>
+                                                <td>{{careers_disapproved.career}}</td>
+                                                <td class="text-center">{{careers_disapproved.students}}</td>
+                                                <td class="text-center">{{careers_disapproved.units}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="card user-select-none">
+                        <div class="card-header">
+                            <div class="row align-items-center py-2">
+                                <div class="col-lg-12">
+                                    <h5 class="card-title my-0">Alumnos sin asignar calificación</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex text-start align-items-center px-1 pb-3 border-0 border-bottom">
+                                <div class="fs-2 opacity-75">
+                                    <i class="fa-solid fa-circle-info me-3"></i>
+                                </div>
+                                <div>
+                                    <h2 class="border border-0 my-0 fs-6 text-break">Calificaciones sin enlazar</h2>
+                                    <p class="border border-0 my-0 pb-1 text-break text-muted">Esto se debe a que la CURP del alumno en la plataforma y en SISEEMS no coinciden para realizar el enlazamiento de la cuenta con ambos sistemas.</p>
+                                </div>
+                            </div>
+                            <!-- --------------------- Si NO hay información en Calificaciones sin enlazar  --------------------- -->
+                            <div ng-if="unlinked_students.length == 0" class="d-flex align-items-center text-start">
+                                <div class="fs-3 text-muted">
+                                    <i class="fa-regular fa-circle-xmark me-3"></i>
+                                </div>
+                                <div class="py-3">
+                                    <p class="border border-0 my-0 pb-1">Todavía no hay ningún alumno</p>
+                                    <p class="border border-0 my-0 pb-1 text-muted">Los alumnos disponibles se mostrarán aquí.</p>
+                                </div>
+                            </div>
+                            <!-- --------------------- Si hay información en Calificaciones sin enlazar --------------------- -->
+                            <div ng-if="unlinked_students.length > 0">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped table-hover align-middle table-sm">
+                                        <thead class="text-center">
+                                            <tr>
+                                                <th scope="col">NO.</th>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">CURP</th>
+                                                <th scope="col">MATRÍCULA</th>
+                                                <th scope="col">NOMBRE COMPLETO</th>
+                                                <th scope="col">GRUPO</th>
+                                                <th scope="col">CARRERA</th>
+                                                <th scope="col">TURNO</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="unlinked_student in unlinked_students">
+                                                <th class="text-center" scope="row">{{unlinked_student.id}}</th>
+                                                <td class="text-center">{{unlinked_student.id_student}}</td>
+                                                <td>{{unlinked_student.curp}}</td>
+                                                <td class="text-center">{{unlinked_student.school_id}}</td>
+                                                <td>{{unlinked_student.lastname}} {{unlinked_student.name}}</td>
+                                                <td class="text-center">{{unlinked_student.group}}</td>
+                                                <td>{{unlinked_student.career}}</td>
+                                                <td class="text-center">{{unlinked_student.turn}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal de Opciones -->
+    <div class="modal fade" id="Options_Modal" tabindex="-1" aria-labelledby="ModalLabel_Options_Modal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable user-select-none">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalLabel_Options_Modal">Opciones</h5>
+                    <div>
+                        <button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="card">
+                        <div class="card-header border-0 text-center">
+                            <h6 class="modal-title">Importación</h6>
+                        </div>
+                    </div>
+                    <div class="row align-items-center mx-4 border-3 border-opacity-75 border-primary my-3" style="border-style: dashed">
+                        <label class="col-12 d-flex align-items-center text-start py-2">
+                            <div class="fs-4">
+                                <i class="fa-solid fa-cloud-arrow-up fs-3 text-muted me-3"></i>
+                            </div>
+                            <div class="py-2">
+                                <h2 class="fs-6 m-0 opacity-75">Subir CSV Detalle de Calificaciones (Extraordinarios)</h2>
+                            </div>
+                            <input type="file" hidden accept=".csv" aria-invalid="false">
+                        </label>
+                    </div>
+                    <div class="row align-items-center mx-4 border-3 border-opacity-75 border-primary my-3" style="border-style: dashed">
+                        <label class="col-12 d-flex align-items-center text-start py-2">
+                            <div class="fs-4">
+                                <i class="fa-solid fa-cloud-arrow-up fs-3 text-muted me-3"></i>
+                            </div>
+                            <div class="py-2">
+                                <h2 class="fs-6 m-0 opacity-75">Subir CSV Detalle de Calificaciones (Recursamientos)</h2>
+                            </div>
+                            <input type="file" hidden accept=".csv" aria-invalid="false">
+                        </label>
+                    </div>
+                    <div class="card">
+                        <div class="card-header border-0 text-center"></div>
+                    </div>
+                    <div data-bs-toggle="modal" href="#GroupPosition_Modal" type="button">
+                        <div class="row align-items-center mt-3">
+                            <div class="col-1">
+                                <i class="fa-solid fa-arrow-trend-up fs-2 text-muted"></i>
+                            </div>
+                            <div class="col-11">
+                                <p class="m-0">Posiciones por grupo</p>
+                                <p class="m-0">Calcular posiciones por grupo</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal de Opciones > Posiciones por grupo  -->
+    <div class="modal fade" id="GroupPosition_Modal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="ModalLabel_GroupPosition_Modal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable user-select-none">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalLabel_GroupPosition_Modal">Posiciones por grupo</h5>
+                    <div>
+                        <button type="button" class="btn btn-close" data-bs-toggle="modal" href="#Options_Modal" aria-label="Close"></button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 text-start btn btn-light py-3" ng-repeat="data_group in data_groups">
+                        <div class="row">
+                            <div class="col-11">
+                                <p class="m-0">{{data_group.grade}}{{data_group.group}} {{data_group.name}} {{data_group.turn}}</p>
+                            </div>
+                            <div class="col-1">
+                                <i class="fa-solid fa-ellipsis fs-5 me-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" href="#Options_Modal">Regresar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal de Reporte por Grupos  -->
+    <div class="modal fade" id="Modal_Groups" aria-hidden="true" aria-labelledby="Modal_Groups_Label" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable user-select-none">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="Modal_Groups_Label">Grupos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row text-start align-items-center px-2 pb-3 border-0 border-bottom">
+                        <div class="col-10 d-flex">
+                            <div class="fs-2 opacity-75">
+                                <i class="fa-solid fa-circle-info text-info me-3"></i>
+                            </div>
+                            <div>
+                                <p class="border border-0 my-0 pb-1 text-break">Presiona el botón a la derecha para realizar el cálculo de materias reprobadas (esto puede tardar unos minutos).</p>
+                            </div>
+                        </div>
+                        <div class="col-2 text-center">
+                            <button class="px-2 btn btn-primary rounded-circle"><i class="fa-solid fa-rotate-right"></i></button>
+                        </div>
+                    </div>
+                    <!-- --------------------- Si NO hay información en Docentes --------------------- -->
+                    <div class="d-flex align-items-center py-2 text-start" ng-if="data_groups.length == 0">
+                        <div class="fs-3 text-muted">
+                            <i class="fa-regular fa-circle-xmark me-3"></i>
+                        </div>
+                        <div class="py-3">
+                            <p class="border border-0 my-0 pb-1">Todavía no hay grupos</p>
+                            <p class="border border-0 my-0 pb-1 text-muted">Los grupos disponibles se mostrarán aquí.</p>
+                        </div>
+                    </div>
+                    <!-- --------------------- Si hay información en Docentes --------------------- -->
+                    <div ng-if="data_groups.length > 0">
+                        <div class="d-flex align-items-center py-3">
+                            <i class="fa-solid fa-magnifying-glass mx-3 fs-5 opacity-50"></i>
+                            <input class="form-control me-3" ng-model="search_groups" placeholder="Filtrar grupos">
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped table-hover align-middle table-sm">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th scope="col">NO.</th>
+                                        <th scope="col">GRUPO</th>
+                                        <th scope="col">ACCIONES</th>
+                                        <th scope="col">%</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="data_group in data_groups | filter: search_groups">
+                                        <th class="text-center" scope="row">{{data_group.id}}</th>
+                                        <td>{{data_group.grade}} {{data_group.group}} {{data_group.name}} {{data_group.turn}}</td>
+                                        <td>
+                                            <div class="d-flex">
+                                                <button class="btn btn-sm btn-primary mx-1">Eva</button>
+                                                <button class="btn btn-sm btn-primary mx-1">Eva 3 unidades</button>
+                                                <button class="btn btn-sm btn-primary mx-1">Boleta</button>
+                                                <button class="btn btn-sm btn-dark mx-1">Máximo de asistencias</button>
+                                                <button class="btn btn-sm btn-dark mx-1">Indicador académico</button>
+                                            </div>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal de Docentes  -->
+    <div class="modal fade" id="Modal_Teachers" aria-hidden="true" aria-labelledby="Modal_Teachers_Label" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable user-select-none">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="Modal_Teachers_Label">Docentes</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- --------------------- Si NO hay información en Docentes --------------------- -->
+                    <div class="d-flex align-items-center py-2 text-start" ng-if="teachers.length == 0">
+                        <div class="fs-3 text-muted">
+                            <i class="fa-regular fa-circle-xmark me-3"></i>
+                        </div>
+                        <div class="py-3">
+                            <p class="border border-0 my-0 pb-1">Todavía no hay docentes</p>
+                            <p class="border border-0 my-0 pb-1 text-muted">Los docentes disponibles se mostrarán aquí.</p>
+                        </div>
+                    </div>
+                    <!-- --------------------- Si hay información en Docentes --------------------- -->
+                    <div ng-if="teachers.length > 0">
+                        <div class="d-flex align-items-center py-3">
+                            <i class="fa-solid fa-magnifying-glass mx-3 fs-5 opacity-50"></i>
+                            <input class="form-control me-3" ng-model="search_teacher" placeholder="Filtrar docentes">
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped table-hover align-middle table-sm">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th scope="col">NO.</th>
+                                        <th scope="col">TITULAR</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="teacher in teachers | filter: search_teacher">
+                                        <th class="text-center" scope="row">{{teacher.id}}</th>
+                                        <td>{{teacher.name}} {{teacher.lastname}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal de Alumnos  -->
+    <div class="modal fade" id="Modal_Students" aria-hidden="true" aria-labelledby="Modal_Students_Label" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable user-select-none">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="Modal_Students_Label">Buscador</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- --------------------- Si NO hay información en Alumnos --------------------- -->
+                    <div class="d-flex align-items-center py-2 text-start" ng-if="students.length == 0">
+                        <div class="fs-3 text-muted">
+                            <i class="fa-regular fa-circle-xmark me-3"></i>
+                        </div>
+                        <div class="py-3">
+                            <p class="border border-0 my-0 pb-1">Todavía no hay alumnos</p>
+                            <p class="border border-0 my-0 pb-1 text-muted">Los alumnos disponibles se mostrarán aquí.</p>
+                        </div>
+                    </div>
+                    <!-- --------------------- Si hay información en Alumnos --------------------- -->
+                    <div ng-if="students.length > 0">
+                        <div class="d-flex align-items-center py-3">
+                            <i class="fa-solid fa-magnifying-glass mx-3 fs-5 opacity-50"></i>
+                            <input class="form-control me-3" ng-init="search_student = ''" ng-model="search_student" placeholder="Buscar alumno en SISEEMS">
+                        </div>
+                        <div class="d-flex align-items-center py-2 text-start" ng-if="search_student == ''">
+                            <div class="fs-3 text-muted">
+                                <i class="fa-regular fa-circle-xmark me-3"></i>
+                            </div>
+                            <div class="py-3">
+                                <p class="border border-0 my-0 pb-1">No se encuentra el alumno buscado</p>
+                                <p class="border border-0 my-0 pb-1 text-muted">Los alumnos disponibles se mostrarán aquí.</p>
+                            </div>
+                        </div>
+                        <div class="table-responsive" ng-if="search_student != ''">
+                            <table class=" table table-bordered table-striped table-hover align-middle table-sm">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th scope="col">ALUMNO ID</th>
+                                        <th scope="col">FECHA</th>
+                                        <th scope="col">PERIODO</th>
+                                        <th scope="col">PERIODO NOMBRE</th>
+                                        <th scope="col">NOMBRE</th>
+                                        <th scope="col">CURP</th>
+                                        <th scope="col">MATRÍCULA</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="student in students | filter: search_student">
+                                        <th class="text-center" scope="row" data-bs-toggle="modal" href="#Modal_student_{{student.id}}">{{student.id}}</th>
+                                        <td data-bs-toggle="modal" href="#Modal_student_{{student.id}}">{{student.date}}</td>
+                                        <td data-bs-toggle="modal" href="#Modal_student_{{student.id}}">{{student.period}}</td>
+                                        <td data-bs-toggle="modal" href="#Modal_student_{{student.id}}">{{student.period_name}}</td>
+                                        <td data-bs-toggle="modal" href="#Modal_student_{{student.id}}">{{student.name}} {{student.lastname}}</td>
+                                        <td data-bs-toggle="modal" href="#Modal_student_{{student.id}}">{{student.curp}}</td>
+                                        <td data-bs-toggle="modal" href="#Modal_student_{{student.id}}">{{student.school_id}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button class="btn btn-primary" data-bs-toggle="modal" href="#Modal_Escolares_Students">Agregar Alumno</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal de Alumnos > Materias -->
+    <div ng-repeat="student in students | filter: search_student">
+        <div class="modal fade" id="Modal_student_{{student.id}}" data-bs-backdrop="static" aria-hidden="true" aria-labelledby="Modal_student_{{student.id}}_Label" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable user-select-none">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="Modal_student_{{student.id}}_Label">Calificaciones por alumno</h5>
+                        <button type="button" class="btn-close" data-bs-toggle="modal" href="#Modal_Students" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card">
+                            <div class="card-header border-0 text-center">
+                                <h6 class="modal-title">{{student.lastname}} {{student.name}}</h6>
+                            </div>
+                        </div>
+                        <!-- --------------------- Si NO hay información en Alumnos > Materias --------------------- -->
+                        <div class="d-flex align-items-center py-2 text-start" ng-if="student_classes.length == 0">
+                            <div class="fs-3 text-muted">
+                                <i class="fa-regular fa-circle-xmark me-3"></i>
+                            </div>
+                            <div class="py-3">
+                                <p class="border border-0 my-0 pb-1">Todavía no hay materias agregadas al alumnos</p>
+                                <p class="border border-0 my-0 pb-1 text-muted">Las materias del alumno se mostrarán aquí.</p>
+                            </div>
+                        </div>
+                        <!-- --------------------- Si hay información en Alumnos > Materias --------------------- -->
+                        <div ng-if="student_classes.length > 0">
+                            <div class="table-responsive">
+                                <table class=" table table-bordered table-striped table-hover align-middle table-sm">
+                                    <thead>
+                                        <tr class="text-center">
+                                            <th scope="col">ID</th>
+                                            <th scope="col">FECHA</th>
+                                            <th scope="col">PERIODO</th>
+                                            <th scope="col">PERIODO NOMBRE</th>
+                                            <th scope="col">GRUPO</th>
+                                            <th scope="col">CARRERA</th>
+                                            <th scope="col">MATERIA</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="student_class in student_classes">
+                                            <th class="text-center" scope="row" data-bs-toggle="modal" href="#Modal_student_{{student.id}}">{{student_class.id}}</th>
+                                            <td data-bs-toggle="modal" href="#Modal_student_{{student.id}}_{{student_class.id}}">{{student.date}}</td>
+                                            <td data-bs-toggle="modal" href="#Modal_student_{{student.id}}_{{student_class.id}}">{{student.period}}</td>
+                                            <td data-bs-toggle="modal" href="#Modal_student_{{student.id}}_{{student_class.id}}">{{student.period_name}}</td>
+                                            <td data-bs-toggle="modal" href="#Modal_student_{{student.id}}_{{student_class.id}}">{{student.grade}}{{student.group}} {{student.turn}}</td>
+                                            <td data-bs-toggle="modal" href="#Modal_student_{{student.id}}_{{student_class.id}}">{{student.career}}</td>
+                                            <td data-bs-toggle="modal" href="#Modal_student_{{student.id}}_{{student_class.id}}">{{student_class.name}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-toggle="modal" href="#Modal_Students">Regresar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal de Alumnos > Materias > Calificaciones -->
+    <div ng-repeat="student in students | filter: search_student">
+        <div ng-repeat="student_class in student_classes">
+            <div class="modal fade" id="Modal_student_{{student.id}}_{{student_class.id}}" data-bs-backdrop="static" aria-hidden="true" aria-labelledby="Modal_student_{{student.id}}_{{student_class.id}}_Label" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable user-select-none">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="Modal_student_{{student.id}}_{{student_class.id}}_Label">Detalle de Calificación</h5>
+                            <button type="button" class="btn-close" data-bs-toggle="modal" href="#Modal_student_{{student.id}}" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="card">
+                                <div class="card-header border-0 text-center">
+                                    <h6 class="modal-title">{{student.lastname}} {{student.name}}</h6>
+                                </div>
+                            </div>
+                            <div class="row align-items-center border-bottom border-2 py-2">
+                                <div class="col-7 text-start">
+                                    <label for="S_M_C_student_{{student.id}}_{{student_class.id}}">Alumno (Escolares)</label>
+                                </div>
+                                <div class="col-5">
+                                    <select class="form-select" id="S_M_C_student_{{student.id}}_{{student_class.id}}" ng-options="option.name for option in escolares_students_list.A_Options track by option.id" ng-model="escolares_students_list.S_Option" required></select>
+                                </div>
+                            </div>
+                            <div class="row align-items-center border-bottom border-2 py-2">
+                                <div class="col-7 text-start">
+                                    <label for="S_M_C_status_{{student.id}}_{{student_class.id}}">Firmado</label>
+                                </div>
+                                <div class="col-5">
+                                    <select class="form-select" id="S_M_C_status_{{student.id}}_{{student_class.id}}" ng-options="option.name for option in status.A_Options track by option.id" ng-model="status.S_Option" required></select>
+                                </div>
+                            </div>
+                            <div class="row align-items-center border-bottom border-2 py-2">
+                                <div class="form-floating">
+                                    <input type="number" class="form-control" id="parcial_1_{{student.id}}_{{student_class.id}}" value="{{student_class.p_1}}" placeholder="Calificación del parcial 1">
+                                    <label class="px-4" for="parcial_1_{{student.id}}_{{student_class.id}}">Parcial 1</label>
+                                </div>
+                            </div>
+                            <div class="row align-items-center border-bottom border-2 py-2">
+                                <div class="form-floating">
+                                    <input type="number" class="form-control" id="parcial_2_{{student.id}}_{{student_class.id}}" value="{{student_class.p_2}}" placeholder="Calificación del parcial 2">
+                                    <label class="px-4" for="parcial_2_{{student.id}}_{{student_class.id}}">Parcial 2</label>
+                                </div>
+                            </div>
+                            <div class="row align-items-center border-bottom border-2 py-2">
+                                <div class="form-floating">
+                                    <input type="number" class="form-control" id="parcial_3_{{student.id}}_{{student_class.id}}" value="{{student_class.p_3}}" placeholder="Calificación del parcial 3">
+                                    <label class="px-4" for="parcial_3_{{student.id}}_{{student_class.id}}">Parcial 3</label>
+                                </div>
+                            </div>
+                            <div class="row align-items-center border-bottom border-2 py-2">
+                                <div class="form-floating">
+                                    <input type="number" class="form-control" id="parcial_T_{{student.id}}_{{student_class.id}}" value="{{formatNumber((student_class.p_1 + student_class.p_2 + student_class.p_3)/3)}}" placeholder="Calificación Total">
+                                    <label class="px-4" for="parcial_T_{{student.id}}_{{student_class.id}}">Total Parcial</label>
+                                </div>
+                            </div>
+                            <div class="row align-items-center border-bottom border-2 py-2">
+                                <div class="form-floating">
+                                    <input type="number" class="form-control" id="asistencia_1_{{student.id}}_{{student_class.id}}" value="{{student_class.a_1}}" placeholder="Asistencias del parcial 1">
+                                    <label class="px-4" for="asistencia_1_{{student.id}}_{{student_class.id}}">Asistencia 1</label>
+                                </div>
+                            </div>
+                            <div class="row align-items-center border-bottom border-2 py-2">
+                                <div class="form-floating">
+                                    <input type="number" class="form-control" id="asistencia_2_{{student.id}}_{{student_class.id}}" value="{{student_class.a_2}}" placeholder="Asistencias del parcial 2">
+                                    <label class="px-4" for="asistencia_2_{{student.id}}_{{student_class.id}}">Asistencia 2</label>
+                                </div>
+                            </div>
+                            <div class="row align-items-center border-bottom border-2 py-2">
+                                <div class="form-floating">
+                                    <input type="number" class="form-control" id="asistencia_3_{{student.id}}_{{student_class.id}}" value="{{student_class.a_3}}" placeholder="Asistencias del parcial 3">
+                                    <label class="px-4" for="asistencia_3_{{student.id}}_{{student_class.id}}">Asistencia 3</label>
+                                </div>
+                            </div>
+                            <div class="row align-items-center border-bottom border-2 py-2">
+                                <div class="form-floating">
+                                    <input type="number" class="form-control" id="asistencia_T_{{student.id}}_{{student_class.id}}" value="{{student_class.a_1 + student_class.a_2 + student_class.a_3}}" placeholder="Asistencias Totales">
+                                    <label class="px-4" for="asistencia_T_{{student.id}}_{{student_class.id}}">Total Asistencia</label>
+                                </div>
+                            </div>
+                            <div class="row align-items-center py-2">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="student_class_{{student.id}}_{{student_class.id}}" value="{{student_class.name}}" placeholder="Nombre de la materia">
+                                    <label class="px-4" for="student_class_{{student.id}}_{{student_class.id}}">Materia</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-bs-toggle="modal" href="#Modal_student_{{student.id}}">Regresar</button>
+                            <button class="btn btn-danger">Eliminar</button>
+                            <button class="btn btn-success">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal de AGREGAR Alumnos  -->
+    <div class="modal fade" id="Modal_Escolares_Students" data-bs-backdrop="static" aria-hidden="true" aria-labelledby="Modal_Escolares_Students_Label" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable user-select-none">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="Modal_Escolares_Students_Label">Grupos de SISEEMS</h5>
+                    <button type="button" class="btn-close" data-bs-toggle="modal" href="#Modal_Students" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- --------------------- Si NO hay información en Alumnos de Escolares --------------------- -->
+                    <div class="d-flex align-items-center py-2 text-start" ng-if="escolares_students.length == 0">
+                        <div class="fs-3 text-muted">
+                            <i class="fa-regular fa-circle-xmark me-3"></i>
+                        </div>
+                        <div class="py-3">
+                            <p class="border border-0 my-0 pb-1">Todavía no hay alumnos</p>
+                            <p class="border border-0 my-0 pb-1 text-muted">Los alumnos disponibles se mostrarán aquí.</p>
+                        </div>
+                    </div>
+                    <!-- --------------------- Si hay información en Alumnos de Escolares --------------------- -->
+                    <div ng-if="escolares_students.length > 0">
+                        <div class="d-flex align-items-center py-3">
+                            <i class="fa-solid fa-magnifying-glass mx-3 fs-5 opacity-50"></i>
+                            <input class="form-control me-3" ng-init="search_Escolares_student = ''" ng-model="search_Escolares_student" placeholder="Buscar alumno en Escolares">
+                        </div>
+                        <div class="d-flex align-items-center py-2 text-start" ng-if="search_Escolares_student == ''">
+                            <div class="fs-3 text-muted">
+                                <i class="fa-regular fa-circle-xmark me-3"></i>
+                            </div>
+                            <div class="py-3">
+                                <p class="border border-0 my-0 pb-1">No se encuentra el alumno buscado</p>
+                                <p class="border border-0 my-0 pb-1 text-muted">Los alumnos disponibles se mostrarán aquí.</p>
+                            </div>
+                        </div>
+                        <div class="table-responsive" ng-if="search_Escolares_student != ''">
+                            <table class=" table table-bordered table-striped table-hover align-middle table-sm">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th scope="col">ID</th>
+                                        <th scope="col">NOMBRE</th>
+                                        <th scope="col">CURP</th>
+                                        <th scope="col">MATRÍCULA</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="escolares_student in escolares_students | filter: search_Escolares_student">
+                                        <th class="text-center" scope="row" data-bs-toggle="modal" href="#Modal_E_S_Agregar_{{escolares_student.id}}">{{escolares_student.id}}</th>
+                                        <td data-bs-toggle="modal" href="#Modal_E_S_Agregar_{{escolares_student.id}}">{{escolares_student.name}} {{escolares_student.lastname}}</td>
+                                        <td data-bs-toggle="modal" href="#Modal_E_S_Agregar_{{escolares_student.id}}">{{escolares_student.curp}}</td>
+                                        <td data-bs-toggle="modal" href="#Modal_E_S_Agregar_{{escolares_student.id}}">{{escolares_student.school_id}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-toggle="modal" href="#Modal_Students">Regresar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal de AGREGAR Alumnos > Información -->
+    <div ng-repeat="escolares_student in escolares_students | filter: search_Escolares_student">
+        <div class="modal fade" id="Modal_E_S_Agregar_{{escolares_student.id}}" data-bs-backdrop="static" aria-hidden="true" aria-labelledby="Modal_E_S_Agregar_{{escolares_student.id}}_Label" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable user-select-none">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="Modal_E_S_Agregar_{{escolares_student.id}}_Label">Grupos de SISEEMS</h5>
+                        <button type="button" class="btn-close" data-bs-toggle="modal" href="#Modal_Escolares_Students" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card">
+                            <div class="card-header border-0 text-center">
+                                <h6 class="modal-title">{{escolares_student.lastname}} {{escolares_student.name}}</h6>
+                            </div>
+                        </div>
+                        <div class="row align-items-center border-bottom border-2 py-2">
+                            <div class="col-7">
+                                <label for="A_group_grade{{escolares_student.id}}">Grado</label>
+                            </div>
+                            <div class="col-5">
+                                <select class="form-select" id="A_group_grade{{escolares_student.id}}" ng-options="option.name for option in grade.A_Options track by option.id" ng-model="grade.S_Option" required></select>
+                            </div>
+                        </div>
+                        <div class="row align-items-center border-bottom border-2 py-2">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="G_S_E{{escolares_student.id}}" placeholder="Grupo">
+                                <label class="px-4" for="G_S_E{{escolares_student.id}}">Grupo</label>
+                            </div>
+                        </div>
+                        <div class="row align-items-center border-bottom border-2 py-2">
+                            <div class="col-7">
+                                <label for="A_group_class{{escolares_student.id}}">Carrera</label>
+                            </div>
+                            <div class="col-5">
+                                <select class="form-select" id="A_group_class{{escolares_student.id}}" ng-options="option.name for option in careers.A_Options track by option.id" ng-model="careers.S_Option" required></select>
+                            </div>
+                        </div>
+                        <div class="row align-items-center border-bottom border-2 py-2">
+                            <div class="col-7">
+                                <label for="A_group_turn{{escolares_student.id}}">Turno</label>
+                            </div>
+                            <div class="col-5">
+                                <select class="form-select" id="A_group_turn{{escolares_student.id}}" ng-options="option.name for option in turn.A_Options track by option.id" ng-model="turn.S_Option" required></select>
+                            </div>
+                        </div>
+                        <div class="row align-items-center border-bottom border-2 py-2">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="M_E{{escolares_student.id}}" placeholder="Nombre de la materia">
+                                <label class="px-4" for="M_E{{escolares_student.id}}">Materia</label>
+                            </div>
+                        </div>
+                        <div class="row align-items-center border-bottom border-2 py-2">
+                            <div class="form-floating">
+                                <input type="number" class="form-control" id="P_1_{{escolares_student.id}}" placeholder="Calificación del parcial 1">
+                                <label class="px-4" for="P_1_{{escolares_student.id}}">Parcial 1</label>
+                            </div>
+                        </div>
+                        <div class="row align-items-center border-bottom border-2 py-2">
+                            <div class="form-floating">
+                                <input type="number" class="form-control" id="P_2_{{escolares_student.id}}" placeholder="Calificación del parcial 2">
+                                <label class="px-4" for="P_2_{{escolares_student.id}}">Parcial 2</label>
+                            </div>
+                        </div>
+                        <div class="row align-items-center border-bottom border-2 py-2">
+                            <div class="form-floating">
+                                <input type="number" class="form-control" id="P_3_{{escolares_student.id}}" placeholder="Calificación del parcial 3">
+                                <label class="px-4" for="P_3_{{escolares_student.id}}">Parcial 3</label>
+                            </div>
+                        </div>
+                        <div class="row align-items-center border-bottom border-2 py-2">
+                            <div class="form-floating">
+                                <input type="number" class="form-control" id="T_P_{{escolares_student.id}}" placeholder="Calificación Total">
+                                <label class="px-4" for="T_P_{{escolares_student.id}}">Total Parcial</label>
+                            </div>
+                        </div>
+                        <div class="row align-items-center border-bottom border-2 py-2">
+                            <div class="form-floating">
+                                <input type="number" class="form-control" id="A_1_{{escolares_student.id}}" placeholder="Asistencias del parcial 1">
+                                <label class="px-4" for="A_1_{{escolares_student.id}}">Asistencia 1</label>
+                            </div>
+                        </div>
+                        <div class="row align-items-center border-bottom border-2 py-2">
+                            <div class="form-floating">
+                                <input type="number" class="form-control" id="A_2_{{escolares_student.id}}" placeholder="Asistencias del parcial 2">
+                                <label class="px-4" for="A_2_{{escolares_student.id}}">Asistencia 2</label>
+                            </div>
+                        </div>
+                        <div class="row align-items-center border-bottom border-2 py-2">
+                            <div class="form-floating">
+                                <input type="number" class="form-control" id="A_3_{{escolares_student.id}}" placeholder="Asistencias del parcial 3">
+                                <label class="px-4" for="A_3_{{escolares_student.id}}">Asistencia 3</label>
+                            </div>
+                        </div>
+                        <div class="row align-items-center border-bottom border-2 py-2">
+                            <div class="form-floating">
+                                <input type="number" class="form-control" id="T_A_{{escolares_student.id}}" placeholder="Asistencias Totales">
+                                <label class="px-4" for="T_A_{{escolares_student.id}}">Total Asistencia</label>
+                            </div>
+                        </div>
+                        <div class="row align-items-center border-bottom border-2 py-2">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="N_D_{{escolares_student.id}}" placeholder="Nombre del Docente">
+                                <label class="px-4" for="N_D_{{escolares_student.id}}">Nombre del Docente</label>
+                            </div>
+                        </div>
+                        <div class="row align-items-center border-bottom border-2 py-2">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="RFC_D_{{escolares_student.id}}" placeholder="RFC del Docente">
+                                <label class="px-4" for="RFC_D_{{escolares_student.id}}">RFC del Docente</label>
+                            </div>
+                        </div>
+                        <div class="row align-items-center py-2">
+                            <div class="col-7 text-start">
+                                <label for="E_F_{{escolares_student.id}}">Firmado</label>
+                            </div>
+                            <div class="col-5">
+                                <select class="form-select" id="E_F_{{escolares_student.id}}" ng-options="option.name for option in status.A_Options track by option.id" ng-model="status.S_Option" required></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-toggle="modal" href="#Modal_Escolares_Students">Regresar</button>
+                        <button class="btn btn-success">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- --------------------- Modal Extraordinarios --------------------- -->
+    <div class=" modal fade" id="Modal_Extra" aria-hidden="true" aria-labelledby="Modal_Extra_Label" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable user-select-none">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="Modal_Extra_Label">Grupos de extraordinarios</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- --------------------- Si NO hay información en Extraordinarios --------------------- -->
+                    <div class="d-flex align-items-center py-2 text-start" ng-if="data_groups.length==0">
+                        <div class="fs-3 text-muted">
+                            <i class="fa-regular fa-circle-xmark me-3"></i>
+                        </div>
+                        <div class="py-3">
+                            <p class="border border-0 my-0 pb-1">Todavía no hay ningún grupo en extraordinarios</p>
+                            <p class="border border-0 my-0 pb-1 text-muted">Los grupos disponibles se mostrarán aquí.</p>
+                        </div>
+                    </div>
+                    <!-- --------------------- Si hay información en Extraordinarios --------------------- -->
+                    <div ng-if="data_groups.length> 0">
+                        <div class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 text-start btn btn-light py-4" ng-repeat="data_group in data_groups">
+                            <p class="m-0">{{data_group.grade}}{{data_group.group}} {{data_group.name}} {{data_group.turn}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- --------------------- Modal Recursamiento --------------------- -->
+    <div class="modal fade" id="Modal_Recur" aria-hidden="true" aria-labelledby="Modal_Recur_Label" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable user-select-none">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="Modal_Recur_Label">Grupos de recursamiento</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- --------------------- Si NO hay información en Recursamiento --------------------- -->
+                    <div class="d-flex align-items-center py-2 text-start" ng-if="data_groups.length == 0">
+                        <div class="fs-3 text-muted">
+                            <i class="fa-regular fa-circle-xmark me-3"></i>
+                        </div>
+                        <div class="py-3">
+                            <p class="border border-0 my-0 pb-1">Todavía no hay ningún grupo en recursamiento</p>
+                            <p class="border border-0 my-0 pb-1 text-muted">Los grupos disponibles se mostrarán aquí.</p>
+                        </div>
+                    </div>
+                    <!-- --------------------- Si hay información en Recursamiento --------------------- -->
+                    <div ng-if="data_groups.length > 0">
+                        <div class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 text-start btn btn-light py-4" ng-repeat="data_group in data_groups">
+                            <p class="m-0">{{data_group.grade}}{{data_group.group}} {{data_group.name}} {{data_group.turn}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

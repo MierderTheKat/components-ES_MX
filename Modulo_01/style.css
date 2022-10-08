@@ -114,8 +114,8 @@ button span {
 
 @media (min-width: 992px) {
     .left {
-        min-width: 240px !important;
-        max-width: 240px !important;
+        min-width: 220px !important;
+        max-width: 220px !important;
         border: 1px solid black;
         border-right: 0px;
     }
@@ -128,7 +128,7 @@ button span {
 
 @media (min-width: 1400px) {
     .left {
-        min-width: 280px !important;
-        max-width: 280px !important;
+        min-width: 240px !important;
+        max-width: 240px !important;
     }
 }
