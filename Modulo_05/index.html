@@ -521,10 +521,9 @@
         </div>
     </div>
 
-
     <!-- Modal de Reporte por Grupos  -->
     <div class="modal fade" id="Modal_Groups" aria-hidden="true" aria-labelledby="Modal_Groups_Label" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable user-select-none">
+        <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable user-select-none">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="Modal_Groups_Label">Grupos</h5>
@@ -567,7 +566,7 @@
                                         <th scope="col">NO.</th>
                                         <th scope="col">GRUPO</th>
                                         <th scope="col">ACCIONES</th>
-                                        <th scope="col">%</th>
+                                        <th scope="col" class="px-3">%</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -575,12 +574,12 @@
                                         <th class="text-center" scope="row">{{data_group.id}}</th>
                                         <td>{{data_group.grade}} {{data_group.group}} {{data_group.name}} {{data_group.turn}}</td>
                                         <td>
-                                            <div class="d-flex">
-                                                <button class="btn btn-sm btn-primary mx-1">Eva</button>
-                                                <button class="btn btn-sm btn-primary mx-1">Eva 3 unidades</button>
-                                                <button class="btn btn-sm btn-primary mx-1">Boleta</button>
-                                                <button class="btn btn-sm btn-dark mx-1">Máximo de asistencias</button>
-                                                <button class="btn btn-sm btn-dark mx-1">Indicador académico</button>
+                                            <div class="d-flex flex-wrap">
+                                                <button class="btn btn-sm btn-primary m-1" data-bs-toggle="modal" href="#Eva_Modal" type="button">Eva</button>
+                                                <button class="btn btn-sm btn-primary m-1">Eva 3 unidades</button>
+                                                <button class="btn btn-sm btn-primary m-1">Boleta</button>
+                                                <button class="btn btn-sm btn-dark m-1" data-bs-toggle="modal" href="#Eva_Modal" type="button">Máximo de asistencias</button>
+                                                <button class="btn btn-sm btn-dark m-1" data-bs-toggle="modal" href="#Ind_Aca_Modal{{data_group.id}}" type="button">Indicador académico</button>
                                             </div>
                                         </td>
                                         <td></td>
@@ -596,7 +595,288 @@
             </div>
         </div>
     </div>
-
+    <!-- Modal de Reporte por Grupos > Evaluación  -->
+    <div class="modal fade" id="Eva_Modal" aria-hidden="true" data-bs-backdrop="static" aria-labelledby="Eva_Modal_Label" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-sm modal-dialog-scrollable user-select-none">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="Eva_Modal_Label">Periodo</h5>
+                    <button type="button" class="btn-close" data-bs-toggle="modal" href="#Modal_Groups" type="button" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center">
+                        <p>Seleccione el tipo de eva</p>
+                        <div class="d-flex flex-wrap justify-content-center">
+                            <button class="btn btn-primary m-1" data-bs-toggle="modal" href="#Modal_Groups" type="button">U1</button>
+                            <button class="btn btn-primary m-1" data-bs-toggle="modal" href="#Modal_Groups" type="button">U2</button>
+                            <button class="btn btn-primary m-1" data-bs-toggle="modal" href="#Modal_Groups" type="button">U3</button>
+                            <button class="btn btn-primary m-1" data-bs-toggle="modal" href="#Modal_Groups" type="button">UT</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal de Reporte por Grupos > Indicador Académico  -->
+    <div ng-repeat="data_group in data_groups | filter: search_groups">
+        <div class="modal fade" id="Ind_Aca_Modal{{data_group.id}}" data-bs-backdrop="static" aria-hidden="true" aria-labelledby="Ind_Aca_Modal{{data_group.id}}_Label" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable user-select-none">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="Ind_Aca_Modal{{data_group.id}}_Label">Indicadores Académicos</h5>
+                        <button type="button" class="btn-close" data-bs-toggle="modal" href="#Modal_Groups" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card rounded-0 rounded-top">
+                            <div class="card-header border-0 text-center">
+                                <h6 class="modal-title">Grupo ({{data_group.students}} alumno(s))</h6>
+                            </div>
+                        </div>
+                        <div class="card rounded-0 rounded-bottom">
+                            <div class="card-header border-0 text-center">
+                                <h6 class="modal-title">{{data_group.grade}} {{data_group.group}} {{data_group.name}} {{data_group.turn}}</h6>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center btn btn-light py-3">
+                            <i class="fa-solid fa-print mx-3 fs-4 opacity-50"></i>
+                            <h2 class="m-0 fs-5">Imprimir</h2>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped table-hover align-middle table-sm">
+                                <thead>
+                                    <tr class="text-center border-bottom-0">
+                                        <th scope="col" colspan="1" class="border border-bottom-0"></th>
+                                        <th scope="col" colspan="{{classes.length * 3}}" class="border-bottom">FRECUENCIA</th>
+                                    </tr>
+                                    <tr class="text-center border-bottom-0 border-top-0">
+                                        <th scope="col" colspan="1"></th>
+                                        <th scope="col" colspan="3" class="border-bottom border-top" ng-repeat="class in classes">{{class.name}}</th>
+                                    </tr>
+                                    <tr class="text-center border-top-0">
+                                        <th scope="col">SITUACIÓN ACADÉMICA</th>
+                                        <th scope="col" ng-repeat="unit in units">{{unit.unit}}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Acreditados</th>
+                                        <th class="text-center" scope="col" ng-repeat="unit in units" data-bs-toggle="modal" href="#Ind_Aca_PC_Modal{{data_group.id}}"></th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Reprobados</th>
+                                        <th class="text-center" scope="col" ng-repeat="unit in units" data-bs-toggle="modal" href="#Ind_Aca_PC_Modal{{data_group.id}}"></th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Total</th>
+                                        <th class="text-center" scope="col" ng-repeat="unit in units"></th>
+                                    </tr>
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center" scope="row"></th>
+                                            <th class="text-center" scope="col" colspan="{{units.length}}">PORCENTAJE</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Acreditados</th>
+                                            <th class="text-center" scope="col" ng-repeat="unit in units">%</th>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Reprobados</th>
+                                            <th class="text-center" scope="col" ng-repeat="unit in units">%</th>
+                                        </tr>
+                                    </tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped table-hover align-middle table-sm">
+                                <thead>
+                                    <tr class="text-center border-bottom-0">
+                                        <th scope="col" colspan="1"></th>
+                                        <th scope="col" colspan="2" class="border-bottom">UNIDAD 1</th>
+                                        <th scope="col" colspan="2" class="border-bottom">UNIDAD 2</th>
+                                        <th scope="col" colspan="2" class="border-bottom">UNIDAD 3</th>
+                                    </tr>
+                                    <tr class="text-center border-top-0">
+                                        <th scope="col">RIESGO DE ABANDONO ESCOLAR POR REPROBACIÓN</th>
+                                        <th scope="col">CANTIDAD</th>
+                                        <th scope="col">%</th>
+                                        <th scope="col">CANTIDAD</th>
+                                        <th scope="col">%</th>
+                                        <th scope="col">CANTIDAD</th>
+                                        <th scope="col">%</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Riesgo Alto</th>
+                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Riesgo Moderado</th>
+                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Riesgo Bajo</th>
+                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Sin Riesgo</th>
+                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="card m-2 mb-4">
+                            <div class="card-body">
+                                <p class="mb-1">Donde:</p>
+                                <p class="m-0"><strong>Riesgo Alto</strong> = 3 asignaturas o más no acreditadas</p>
+                                <p class="m-0"><strong>Riesgo Moderado</strong> = 2 asignaturas no acreditadas</p>
+                                <p class="m-0"><strong>Riesgo Bajo</strong> = 1 asignaturas no acreditadas</p>
+                                <p class="m-0"><strong>Sin Riesgo</strong> = 0 asignaturas no acreditadas</p>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped table-hover align-middle table-sm">
+                                <thead>
+                                    <tr class="text-center border-bottom-0">
+                                        <th scope="col" colspan="1"></th>
+                                        <th scope="col" colspan="1"></th>
+                                        <th scope="col" colspan="2" class="border-bottom">MATERIAS REPROBADAS</th>
+                                        <th scope="col" colspan="4" class="border-bottom">RIESGO</th>
+                                    </tr>
+                                    <tr class="text-center border-top-0">
+                                        <th scope="col">NO.</th>
+                                        <th scope="col">ALUMNO(A)</th>
+                                        <th scope="col">PERIODO</th>
+                                        <th scope="col">GENERAL</th>
+                                        <th scope="col">ALTO</th>
+                                        <th scope="col">MODERADO</th>
+                                        <th scope="col">BAJO</th>
+                                        <th scope="col">NINGUNO</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th class="text-center" scope="row">1</th>
+                                        <th scope="col"></th>
+                                        <th scope="col"></th>
+                                        <th class="text-center" scope="col"></th>
+                                        <th class="text-center" scope="col">
+                                            <input class="form-check-input pe-none rounded-circle" type="checkbox" name="Riesgo_Alto" id="Riesgo_Alto">
+                                        </th>
+                                        <th class="text-center" scope="col">
+                                            <input class="form-check-input pe-none rounded-circle" type="checkbox" name="Riesgo_Moderado" id="Riesgo_Moderado">
+                                        </th>
+                                        <th class="text-center" scope="col">
+                                            <input class="form-check-input pe-none rounded-circle" type="checkbox" name="Riesgo_Bajo" id="Riesgo_Bajo">
+                                        </th>
+                                        <th class="text-center" scope="col">
+                                            <input class="form-check-input pe-none rounded-circle" type="checkbox" name="Ningun_Riesgo" checked id="Ningun_Riesgo">
+                                        </th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-toggle="modal" href="#Modal_Groups">Regresar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal de Reporte por Grupos > Indicador Académico > Por Materia  -->
+    <div ng-repeat="data_group in data_groups | filter: search_groups">
+        <div class="modal fade" id="Ind_Aca_PC_Modal{{data_group.id}}" data-bs-backdrop="static" aria-hidden="true" aria-labelledby="Ind_Aca_PC_Modal{{data_group.id}}_Label" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable user-select-none">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="Ind_Aca_PC_Modal{{data_group.id}}_Label">Alumnos</h5>
+                        <button type="button" class="btn-close" data-bs-toggle="modal" href="#Ind_Aca_Modal{{data_group.id}}" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped table-hover align-middle table-sm">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th scope="col">NO.</th>
+                                        <th scope="col">ALUMNO(A)</th>
+                                        <th scope="col">CALIFICACIÓN</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th class="text-center" scope="row">1</th>
+                                        <th scope="col"></th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-toggle="modal" href="#Ind_Aca_Modal{{data_group.id}}">Regresar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal de Reporte por Grupos > Indicador Académico > Por Riesgo  -->
+    <div ng-repeat="data_group in data_groups | filter: search_groups">
+        <div class="modal fade" id="Ind_Aca_RA_Modal{{data_group.id}}" data-bs-backdrop="static" aria-hidden="true" aria-labelledby="Ind_Aca_RA_Modal{{data_group.id}}_Label" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable user-select-none">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="Ind_Aca_RA_Modal{{data_group.id}}_Label">Alumnos</h5>
+                        <button type="button" class="btn-close" data-bs-toggle="modal" href="#Ind_Aca_Modal{{data_group.id}}" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped table-hover align-middle table-sm">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th scope="col">NO.</th>
+                                        <th scope="col">ALUMNO(A)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th class="text-center" scope="row">1</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-toggle="modal" href="#Ind_Aca_Modal{{data_group.id}}">Regresar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Modal de Docentes  -->
     <div class="modal fade" id="Modal_Teachers" aria-hidden="true" aria-labelledby="Modal_Teachers_Label" tabindex="-1">
@@ -647,6 +927,7 @@
             </div>
         </div>
     </div>
+
     <!-- Modal de Alumnos  -->
     <div class="modal fade" id="Modal_Students" aria-hidden="true" aria-labelledby="Modal_Students_Label" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable user-select-none">
@@ -1065,6 +1346,7 @@
             </div>
         </div>
     </div>
+
     <!-- --------------------- Modal Extraordinarios --------------------- -->
     <div class=" modal fade" id="Modal_Extra" aria-hidden="true" aria-labelledby="Modal_Extra_Label" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable user-select-none">

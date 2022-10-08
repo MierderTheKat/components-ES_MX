@@ -27,6 +27,26 @@ app.controller('GroupList', function($scope) {
         { id: '3', name: 'ARQUITECTURA', grade: '3', group: 'C', turn: 'TM', students: '5' }
     ];
 
+    $scope.classes = [
+        { id: '1', name: 'QUÍMICA II', p_1: 7.5, p_2: 6, p_3: 6, a_1: 18, a_2: 19, a_3: 19 },
+        { id: '2', name: 'LECTURA, EXPRESIÓN ORAL Y ESCRITA II', p_1: 9.5, p_2: 5.5, p_3: 8.2, a_1: 15, a_2: 17, a_3: 23 },
+        { id: '3', name: 'INGLÉS II', p_1: 9.2, p_2: 9.3, p_3: 10, a_1: 20, a_2: 20, a_3: 20 }
+    ];
+
+    $scope.units = [];
+
+    C_units = function(u_classes) {
+        var u = 1;
+        for (var i = 1; i < (u_classes + 1); i++) {
+            for (var o = 1; o < (4); o++) {
+                $scope.units.push({ id: u, unit: o });
+                u += 1;
+            }
+        }
+    };
+
+    C_units($scope.classes.length);
+
     $scope.teachers = [
         { id: '1', name: 'Yasser', lastname: 'Hernadez Garcia' },
         { id: '2', name: 'Arturo', lastname: 'Alvarez Galaviz' },
@@ -146,40 +166,6 @@ app.controller('GroupList', function($scope) {
         S_Option: { id: '1', name: 'Elegir' }
     };
 
-
-
-
-
-
-    $scope.filtro = {
-        A_Options: [
-            { id: '1', name: 'Seleccionar', view: 'invisible' },
-            { id: '2', name: 'Aspirante', view: 'invisible' },
-            { id: '3', name: 'Alumno', view: '' },
-            { id: '4', name: 'Egresado', view: 'invisible' }
-        ],
-        S_Option: { id: '1', name: 'Seleccionar', view: 'invisible' },
-        S_Option_E: { id: '3', name: 'Alumno', view: '' }
-    };
-
-
-    $scope.certificates = [
-        { id: '1', name: 'Carta de buena conducta', status: 'OCULTO', role: 'ALUMNO', number: '169', career: '', extra_info: '' },
-        { id: '2', name: 'Constancia', status: 'OCULTO', role: 'ALUMNO', number: '7', career: 'ING. EN SW', extra_info: 'Documento para acreditar estancia de alumno' },
-        { id: '3', name: 'Constancia con calificaciones', status: 'ACTIVO', role: 'ALUMNO', number: '14', career: '', extra_info: 'Kardex' }
-    ];
-
-    $scope.historial = [
-        { id: '1', name: 'DAVID VICTOR', lastname: 'BERUMEN RAMIREZ', expired_date: 'Oct 1,2022' },
-        { id: '2', name: 'YASSER GUADALUPE', lastname: 'HERNANDEZ GARCIA', expired_date: 'Oct 1,2022' },
-        { id: '3', name: 'MIGUEL ARTURO', lastname: 'ALVAREZ GALAVIZ', expired_date: 'Oct 1,2022' }
-    ]
-
-    $scope.reload = function() {
-        location.reload(true);
-    }
-
-
     google.charts.load('current', { 'packages': ['corechart'] });
     google.charts.setOnLoadCallback(drawChart);
 
@@ -202,6 +188,5 @@ app.controller('GroupList', function($scope) {
 
         chart.draw(data, options);
     }
-
 
 });
