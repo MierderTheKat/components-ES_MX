@@ -41,7 +41,7 @@
                         <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_03/index.html">3</a></li>
                         <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_04/index.html">4</a></li>
                         <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_05/index.html">5</a></li>
-                        <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_06/index.html">6</a></li>
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_06/index.html">6</a></li>
                         <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_07/index.html">7</a></li>
                         <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_08/index.html">8</a></li>
                         <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_09/index.html">9</a></li>
@@ -282,13 +282,11 @@
                                     <table class="table table-bordered table-striped table-hover align-middle table-sm">
                                         <thead class="text-center">
                                             <tr class="border-bottom-0 border-top-0">
-                                                <th scope="col"></th>
-                                                <th scope="col"></th>
+                                                <th scope="col" rowspan="2" class="align-middle">NO.</th>
+                                                <th scope="col" rowspan="2" class="align-middle">DOCENTE</th>
                                                 <th class="border-bottom" scope="col" colspan="2">NO. DE REPROBADOS</th>
                                             </tr>
                                             <tr class="border-top-0">
-                                                <th scope="col">NO.</th>
-                                                <th scope="col">DOCENTE</th>
                                                 <th scope="col">ALUMNOS</th>
                                                 <th scope="col">MATERIAS</th>
                                             </tr>
@@ -341,13 +339,11 @@
                                     <table class="table table-bordered table-striped table-hover align-middle table-sm">
                                         <thead class="text-center">
                                             <tr class="border-bottom-0 border-top-0">
-                                                <th scope="col"></th>
-                                                <th scope="col"></th>
+                                                <th scope="col" rowspan="2" class="align-middle">NO.</th>
+                                                <th scope="col" rowspan="2" class="align-middle">DOCENTE</th>
                                                 <th class="border-bottom" scope="col" colspan="2">NO. DE REPROBADOS</th>
                                             </tr>
                                             <tr class="border-top-0">
-                                                <th scope="col">NO.</th>
-                                                <th scope="col">DOCENTE</th>
                                                 <th scope="col">ALUMNOS</th>
                                                 <th scope="col">MATERIAS</th>
                                             </tr>
@@ -644,16 +640,14 @@
                         <div class="table-responsive">
                             <table class="table table-bordered table-striped table-hover align-middle table-sm">
                                 <thead>
-                                    <tr class="text-center border-bottom-0">
-                                        <th scope="col" colspan="1" class="border border-bottom-0"></th>
-                                        <th scope="col" colspan="{{classes.length * 3}}" class="border-bottom">FRECUENCIA</th>
+                                    <tr class="text-center">
+                                        <th scope="col" rowspan="3" class="align-middle">SITUACIÓN ACADÉMICA</th>
+                                        <th scope="col" colspan="{{classes.length * 3}}">FRECUENCIA</th>
                                     </tr>
-                                    <tr class="text-center border-bottom-0 border-top-0">
-                                        <th scope="col" colspan="1"></th>
-                                        <th scope="col" colspan="3" class="border-bottom border-top" ng-repeat="class in classes">{{class.name}}</th>
+                                    <tr class="text-center">
+                                        <th scope="col" colspan="3" ng-repeat="class in classes">{{class.name}}</th>
                                     </tr>
-                                    <tr class="text-center border-top-0">
-                                        <th scope="col">SITUACIÓN ACADÉMICA</th>
+                                    <tr class="text-center">
                                         <th scope="col" ng-repeat="unit in units">{{unit.unit}}</th>
                                     </tr>
                                 </thead>
@@ -692,14 +686,13 @@
                         <div class="table-responsive">
                             <table class="table table-bordered table-striped table-hover align-middle table-sm">
                                 <thead>
-                                    <tr class="text-center border-bottom-0">
-                                        <th scope="col" colspan="1"></th>
-                                        <th scope="col" colspan="2" class="border-bottom">UNIDAD 1</th>
-                                        <th scope="col" colspan="2" class="border-bottom">UNIDAD 2</th>
-                                        <th scope="col" colspan="2" class="border-bottom">UNIDAD 3</th>
+                                    <tr class="text-center">
+                                        <th scope="col" rowspan="2" class="align-middle">RIESGO DE ABANDONO ESCOLAR POR REPROBACIÓN</th>
+                                        <th scope="col" colspan="2">UNIDAD 1</th>
+                                        <th scope="col" colspan="2">UNIDAD 2</th>
+                                        <th scope="col" colspan="2">UNIDAD 3</th>
                                     </tr>
-                                    <tr class="text-center border-top-0">
-                                        <th scope="col">RIESGO DE ABANDONO ESCOLAR POR REPROBACIÓN</th>
+                                    <tr class="text-center">
                                         <th scope="col">CANTIDAD</th>
                                         <th scope="col">%</th>
                                         <th scope="col">CANTIDAD</th>
@@ -761,14 +754,12 @@
                             <table class="table table-bordered table-striped table-hover align-middle table-sm">
                                 <thead>
                                     <tr class="text-center border-bottom-0">
-                                        <th scope="col" colspan="1"></th>
-                                        <th scope="col" colspan="1"></th>
-                                        <th scope="col" colspan="2" class="border-bottom">MATERIAS REPROBADAS</th>
-                                        <th scope="col" colspan="4" class="border-bottom">RIESGO</th>
+                                        <th scope="col" rowspan="2" class="align-middle">ALUMNO(A)</th>
+                                        <th scope="col" rowspan="2" class="align-middle">NO.</th>
+                                        <th scope="col" colspan="2">MATERIAS REPROBADAS</th>
+                                        <th scope="col" colspan="4">RIESGO</th>
                                     </tr>
-                                    <tr class="text-center border-top-0">
-                                        <th scope="col">NO.</th>
-                                        <th scope="col">ALUMNO(A)</th>
+                                    <tr class="text-center">
                                         <th scope="col">PERIODO</th>
                                         <th scope="col">GENERAL</th>
                                         <th scope="col">ALTO</th>

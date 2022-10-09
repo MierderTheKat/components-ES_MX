@@ -76,6 +76,9 @@
         border: 1px solid black;
         border-right: 0px;
     }
+    .rigth {
+        width: calc(100% - 220px);
+    }
     .nav-header {
         height: 60px;
         border: 1px solid black;
@@ -87,5 +90,8 @@
     .left {
         min-width: 240px !important;
         max-width: 240px !important;
+    }
+    .rigth {
+        width: calc(100% - 240px);
     }
 }
