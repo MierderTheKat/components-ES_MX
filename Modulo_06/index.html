@@ -78,14 +78,14 @@
                                 <button type="button" class="mb-2 mx-1 px-2 btn btn-sm btn-light"><i class="fa-solid fa-print"></i> <span>Imprimir</span></button>
                                 <button type="button" class="mb-2 mx-1 px-2 btn btn-sm btn-primary" ng-click="reload()"><i class="fa-solid fa-rotate-right"></i> <span>Recargar</span></button>
                                 <button type="button" class="mb-2 mx-1 px-2 btn btn-sm btn-success"><i class="fa-solid fa-file-excel"></i> <span>Exportar</span></button>
-                                <button type="button" class="mb-2 mx-1 px-2 btn btn-sm btn-success {{data_reticule_group.S_Option.view}}"><i class="fa-solid fa-file-excel"></i> <span>Exportar</span></button>
-                                <button type="button" class="mb-2 mx-1 px-2 btn btn-sm btn-dark"><i class="fa-solid fa-box-archive"></i> <span>Revisión de documentos</span></button>
+                                <button type="button" class="mb-2 mx-1 px-2 btn btn-sm btn-success" ng-if="data_reticule_group.S_Option.view != 'invisible'"><i class="fa-solid fa-file-excel"></i> <span>Exportar</span></button>
+                                <button type="button" class="mb-2 mx-1 px-2 btn btn-sm btn-dark" data-bs-toggle="modal" href="#Document_Review"><i class="fa-solid fa-box-archive"></i> <span>Revisión de documentos</span></button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- Tabla Grupo Normal -->
-                <div class="col-12 {{data_group.S_Option.view}}">
+                <div class="col-12" ng-if="data_group.S_Option.view != 'invisible'">
                     <div class="card">
                         <div class="card-header">
                             <div class="align-items-center py-2">
@@ -146,7 +146,7 @@
                     </div>
                 </div>
                 <!-- Tabla Grupo Reticular-->
-                <div class="col-12 {{data_reticule_group.S_Option.view}}">
+                <div class="col-12" ng-if="data_reticule_group.S_Option.view != 'invisible'">
                     <div class="card">
                         <div class="card-header">
                             <div class="align-items-center py-2">
@@ -277,27 +277,21 @@
                 </div>
                 <div class="modal-body">
                     <div class="row align-items-center border-bottom border-2 py-2">
-                        <div class="col-12">
-                            <label for="Doc_title" class="form-label">Título</label>
-                        </div>
-                        <div class="col-12">
+                        <div class="form-floating">
                             <input type="text" class="form-control" id="Doc_title" placeholder="Título del documento" required>
+                            <label class="px-4" for="Doc_title">Título</label>
                         </div>
                     </div>
                     <div class="row align-items-center border-bottom border-2 py-2">
-                        <div class="col-12">
-                            <label for="Doc_num_orig" class="form-label">Originales requeridos</label>
-                        </div>
-                        <div class="col-12">
+                        <div class="form-floating">
                             <input type="number" class="form-control" id="Doc_num_orig" placeholder="Numero de originales requeridos" required>
+                            <label class="px-4" for="Doc_num_orig">Originales requeridos</label>
                         </div>
                     </div>
                     <div class="row align-items-center py-2">
-                        <div class="col-12">
-                            <label for="Doc_num_copy" class="form-label">Copias requeridas</label>
-                        </div>
-                        <div class="col-12">
+                        <div class="form-floating">
                             <input type="number" class="form-control" id="Doc_num_copy" placeholder="Numero de copias requeridas" required>
+                            <label class="px-4" for="Doc_num_copy">Copias requeridas</label>
                         </div>
                     </div>
                 </div>
@@ -308,6 +302,115 @@
             </div>
         </div>
     </div>
+
+
+    <!-- Modal de Revisión de Documentos  -->
+    <div class="modal fade" id="Document_Review" aria-hidden="true" aria-labelledby="Document_Review_Label" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-fullscreen modal-dialog-scrollable user-select-none">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="Document_Review_Label">Revisión de documentos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-2">
+                    <div class="row g-2 m-0 h-100">
+
+                        <div class="col-lg-3 px-1 m-0 mt-1">
+                            <div class="card user-select-none h-100">
+                                <div class="card-body p-2 text-center">
+                                    <div class="d-flex align-items-center border-bottom border-2 py-2">
+                                        <i class="fa-solid fa-magnifying-glass ms-1 me-2 fs-5 opacity-50"></i>
+                                        <input class="form-control me-3" ng-model="search_docs_student" placeholder="Filtrar">
+                                    </div>
+                                    <div ng-repeat="student_doc in students_docs | filter: search_docs_student">
+                                        <div class="btn btn-light d-flex align-items-center py-2 text-start border-bottom" ng-click="ChangeView(student_doc.id-1)">
+                                            <div class="fs-3 opacity-75">
+                                                <i class="fa-solid fa-user me-3"></i>
+                                            </div>
+                                            <div class="py-1 text-truncate">
+                                                <p class="border border-0 my-0 pb-1"><i class="fa-solid fa-circle-info text-warning me-1"></i>{{student_doc.lastname}} {{student_doc.name}}</p>
+                                                <p class="border border-0 my-0 pb-1 text-muted fw-bolder">Solicitud: #{{student_doc.request}} / # <span class="text-{{student_doc.status_color}}">{{student_doc.status}}</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Datos el Alumno -->
+                        <div class="col-lg-9 px-1 m-0 mt-1" ng-repeat="student_doc in students_docs | filter: search_docs_student" ng-if="student_doc.view != 'invisible'">
+                            <div class="card">
+                                <div class="card-body p-2 text-center border-bottom">
+                                    <div class="row d-flex align-items-center px-2 py-2">
+                                        <div class="col-10 d-flex align-items-center text-truncate">
+                                            <div class="photo_student text-center me-3">
+                                                <img src="{{student_doc.photo}}" alt="">
+                                            </div>
+                                            <div class="text-start align-items-center">
+                                                <p class="m-0">{{student_doc.lastname}} {{student_doc.name}}</p>
+                                                <p class="m-0">{{student_doc.curp}} - {{student_doc.email}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-2 text-end">
+                                            <i class="fa-solid fa-circle-info fs-2 opacity-50"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body p-2 text-center bg-light border-bottom">
+                                    <div class="row d-flex align-items-center px-2 py-2 w-75 mx-auto">
+                                        <div class="btn-group btn-group-lg" role="group" aria-label="B">
+                                            <button type="button" class="btn btn-danger"><i class="fa-solid fa-xmark"></i></button>
+                                            <button type="button" class="btn btn-success"><i class="fa-solid fa-check"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body p-2 text-center bg-light border-bottom">
+                                    <div class="row g-2 m-0 h-100">
+                                        <div class="col-lg-4 px-1 m-0 mt-1">
+                                            <div class="card" ng-repeat="document in documents">
+                                                <div class="card-body p-2 text-center border-bottom">
+                                                    <div class="btn btn-light row d-flex align-items-center px-2 py-2 m-0">
+                                                        <div class="col-10 d-flex align-items-center p-0 text-truncate">
+                                                            <i class="fa-regular fa-file fs-4 opacity-75 me-2"></i>
+                                                            <div class="text-start align-items-center">
+                                                                <p class="m-0">{{document.name}}</p>
+                                                                <p class="m-0"><span class="text-danger">{{document.status}}</span> - (Rev. {{document.revision}})</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-2 text-end text-info">
+                                                            <i class="fa-solid fa-circle-info fs-2 opacity-75"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-floating">
+                                                        <input type="text" class="form-control" id="Doc_comment{{document.id}}" placeholder="Comentario del documento" required>
+                                                        <label for="Doc_comment{{document.id}}">Comentario</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row align-items-center py-2 w-75 mx-auto">
+                                                <button type="button" class="btn btn-primary my-1"><i class="fa-solid fa-cloud-arrow-up"></i> Guardar</button>
+                                                <button type="button" class="btn btn-danger my-1">Enviar correo</button>
+                                                <button type="button" class="btn btn-success my-1">Generar y enviar</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8 px-1 m-0 mt-1">
+                                            <div ng-if="documents.length == 0">
+                                                <h2>Sin documento</h2>
+                                            </div>
+                                            <div ng-if="documents.length != 0">
+                                                <img src="https://placehold.jp/1000x1800.png" class="img-fluid rounded mx-auto d-block" alt="...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Modal de Comentario de Alumno Normal  -->
     <div ng-repeat="student in students | filter: search_student">
@@ -426,7 +529,7 @@
                         </div>
                         <div class="modal-footer justify-content-center">
                             <button class="btn btn-secondary" data-bs-toggle="modal" href="#Modal_Archive_{{student.name}}_{{document.id}}" type="button">Cancelar</button>
-                            <button class="btn btn-primary px-5">Si</button>
+                            <button class="btn btn-danger px-5">Si</button>
                         </div>
                     </div>
                 </div>

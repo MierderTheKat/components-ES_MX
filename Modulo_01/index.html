@@ -62,13 +62,13 @@
                         </div>
                         <div class="card-body text-center">
                             <button type="submit" class="mb-2 mx-1 px-2 btn btn-light" ng-click="reload()"><i class="fa-solid fa-rotate-right"></i> <span>Recargar</span></button>
-                            <button type="button" class="mb-2 mx-1 px-2 btn btn-primary" data-bs-toggle="modal" data-bs-target="#U_Modal_Group" type="submit" ng-disabled=data_group.S_Option.status><i class="fa-solid fa-pen"></i> <span>Editar</span></button>
-                            <button type="button" class="mb-2 mx-1 px-2 btn btn-danger" data-bs-toggle="modal" data-bs-target="#D_Modal_Group" type="submit" ng-disabled=data_group.S_Option.status><i class="fa-solid fa-trash-can"></i> <span>Eliminar</span></button>
-                            <button type="button" class="mb-2 mx-1 px-2 btn btn-primary" data-bs-toggle="modal" data-bs-target="#A_Modal_Group" type="submit" ng-disabled=data_group.S_Option.status><i class="fa-solid fa-user-plus"></i> <span>Agregar Alumno</span></button>
+                            <button type="button" class="mb-2 mx-1 px-2 btn btn-primary" data-bs-toggle="modal" data-bs-target="#U_Modal_Group" type="submit" ng-disabled=data_group.S_Option.disabled><i class="fa-solid fa-pen"></i> <span>Editar</span></button>
+                            <button type="button" class="mb-2 mx-1 px-2 btn btn-danger" data-bs-toggle="modal" data-bs-target="#D_Modal_Group" type="submit" ng-disabled=data_group.S_Option.disabled><i class="fa-solid fa-trash-can"></i> <span>Eliminar</span></button>
+                            <button type="button" class="mb-2 mx-1 px-2 btn btn-primary" data-bs-toggle="modal" data-bs-target="#A_Modal_Group" type="submit" ng-disabled=data_group.S_Option.disabled><i class="fa-solid fa-user-plus"></i> <span>Agregar Alumno</span></button>
                         </div>
                     </div>
                 </form>
-                <div class="col-lg-6 {{data_group.S_Option.view}}">
+                <div class="col-lg-6" ng-if="data_group.S_Option.view != 'invisible'">
                     <div class="card user-select-none">
                         <div class="card-header">
                             <div class="row align-items-center py-2">
@@ -123,7 +123,7 @@
                                     </div>
                                 </div>
                                 <div class="col-2 modal_student text-center">
-                                    <button type="button" class="btn btn_delete" data-bs-toggle="modal" data-bs-target="#D_Modal_{{student.id}}"><i class="fa-solid fa-x"></i></button>
+                                    <button type="button" class="btn text-danger border-danger border rounded-circle" data-bs-toggle="modal" data-bs-target="#D_Modal_{{student.id}}"><i class="fa-solid fa-x fw-light"></i></button>
                                     <!-- Modal para Eliminar Alumno -->
                                     <div class="modal fade" id="D_Modal_{{student.id}}" tabindex="-1" aria-labelledby="D_ModalLabel{{student.id}}" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered modal-sm">
@@ -171,11 +171,9 @@
                             </div>
                         </div>
                         <div class="row align-items-center border-bottom border-2 py-2">
-                            <div class="col-12">
-                                <label for="U_group_name" class="form-label">Grupo</label>
-                            </div>
-                            <div class="col-12">
+                            <div class="form-floating">
                                 <input type="text" class="form-control" id="U_group_name" placeholder="Escribe el nombre del grupo" required>
+                                <label class="px-4" for="U_group_name">Grupo</label>
                             </div>
                         </div>
                         <div class="row align-items-center border-bottom border-2 py-2">
@@ -256,11 +254,9 @@
                 <form action="">
                     <div class="modal-body">
                         <div class="row align-items-center border-bottom border-2 py-2">
-                            <div class="col-12">
-                                <label for="student_name" class="form-label">Alumno</label>
-                            </div>
-                            <div class="col-12">
+                            <div class="form-floating">
                                 <input type="text" class="form-control" id="student_name" placeholder="Escribe el nombre del alumno" required>
+                                <label class="px-4" for="student_name">Alumno</label>
                             </div>
                         </div>
                         <div class="row align-items-center py-2">
@@ -305,11 +301,9 @@
                             </div>
                         </div>
                         <div class="row align-items-center border-bottom border-2 py-2">
-                            <div class="col-12">
-                                <label for="A_group_name" class="form-label">Grupo</label>
-                            </div>
-                            <div class="col-12">
+                            <div class="form-floating">
                                 <input type="text" class="form-control" id="A_group_name" placeholder="Escribe el nombre del grupo" required>
+                                <label class="px-4" for="A_group_name">Grupo</label>
                             </div>
                         </div>
                         <div class="row align-items-center border-bottom border-2 py-2">
@@ -355,7 +349,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary">Agregar</button>
+                        <button type="button" class="btn btn-success">Agregar</button>
                     </div>
                 </form>
             </div>

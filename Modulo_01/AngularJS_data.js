@@ -4,12 +4,12 @@ app.controller('GroupList', function($scope) {
 
     $scope.data_group = {
         A_Options: [
-            { id: '1', name: 'Seleccionar Grupo', status: true, view: 'invisible' },
-            { id: '2', name: 'INGENIERIA EN SOFTWARE - 1 A TV', status: false },
-            { id: '3', name: 'INGENIERIA EN SOFTWARE - 1 A TM', status: false },
-            { id: '4', name: 'INGENIERIA EN SOFTWARE - 7 SW TM', status: false }
+            { id: '1', name: 'Seleccionar Grupo', disabled: true, view: 'invisible' },
+            { id: '2', name: 'INGENIERIA EN SOFTWARE - 1 A TV', disabled: false },
+            { id: '3', name: 'INGENIERIA EN SOFTWARE - 1 A TM', disabled: false },
+            { id: '4', name: 'INGENIERIA EN SOFTWARE - 7 SW TM', disabled: false }
         ],
-        S_Option: { id: '1', name: 'Seleccionar Grupo', status: true, view: 'invisible' }
+        S_Option: { id: '1', name: 'Seleccionar Grupo', disabled: true, view: 'invisible' }
     };
 
     $scope.status = {

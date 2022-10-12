@@ -4,7 +4,7 @@ app.controller('GroupList', function($scope) {
 
     $scope.data_period = {
         A_Options: [
-            { id: '1', name: 'Seleccionar Periodo', status: false },
+            { id: '1', name: 'Seleccionar Periodo', status: false, view: 'invisible' },
             { id: '2', name: 'AGOSTO 2022 - ENERO 2023', status: true },
             { id: '3', name: 'FEBRERO - JULIO 2022', status: true },
             { id: '4', name: 'AGOSTO 2021 - ENERO 2022', status: true },
@@ -33,10 +33,35 @@ app.controller('GroupList', function($scope) {
 
     $scope.data_class = {
         A_Options: [
-            { id: '1', name: 'Seleccionar Materia', status: true, view: 'invisible' }
+            { id: '1', name: 'Seleccionar Materia', status: true, view: 'invisible' },
+            { id: '2', name: 'INGENERIA DE SOFTWARE', status: false },
+            { id: '3', name: 'ALGEBRA', status: false },
+            { id: '4', name: 'TOPICOS SELECTOS DE SOFTWARE', status: false },
+            { id: '5', name: 'BASES DE DATOS II', status: false },
+            { id: '6', name: 'DISEÑO DE BASES DE DATOS', status: false },
+            { id: '7', name: 'ARQUITECTURA DE SOFTWARE', status: false },
+            { id: '8', name: 'PRUEBAS DE SISTEMAS TECNOLOGICOS DE COMUNICACIÓN', status: false }
         ],
         S_Option: { id: '1', name: 'Seleccionar Grupo', status: true, view: 'invisible' }
     };
+
+    $scope.changeGroup = function() {
+        $scope.data_group.S_Option = {
+            id: '1',
+            name: 'Seleccionar Grupo',
+            status: true,
+            view: 'invisible'
+        };
+    }
+
+    $scope.changeClass = function() {
+        $scope.data_class.S_Option = {
+            id: '1',
+            name: 'Seleccionar Materia',
+            status: true,
+            view: 'invisible'
+        };
+    }
 
     $scope.showClasses = function() {
         if ($scope.data_group.S_Option.id > 1) {

@@ -1084,55 +1084,55 @@
                             </div>
                             <div class="row align-items-center border-bottom border-2 py-2">
                                 <div class="form-floating">
-                                    <input type="number" class="form-control" id="parcial_1_{{student.id}}_{{student_class.id}}" value="{{student_class.p_1}}" placeholder="Calificación del parcial 1">
+                                    <input type="number" class="form-control" id="parcial_1_{{student.id}}_{{student_class.id}}" value="{{student_class.p_1}}" placeholder="Calificación del parcial 1" required>
                                     <label class="px-4" for="parcial_1_{{student.id}}_{{student_class.id}}">Parcial 1</label>
                                 </div>
                             </div>
                             <div class="row align-items-center border-bottom border-2 py-2">
                                 <div class="form-floating">
-                                    <input type="number" class="form-control" id="parcial_2_{{student.id}}_{{student_class.id}}" value="{{student_class.p_2}}" placeholder="Calificación del parcial 2">
+                                    <input type="number" class="form-control" id="parcial_2_{{student.id}}_{{student_class.id}}" value="{{student_class.p_2}}" placeholder="Calificación del parcial 2" required>
                                     <label class="px-4" for="parcial_2_{{student.id}}_{{student_class.id}}">Parcial 2</label>
                                 </div>
                             </div>
                             <div class="row align-items-center border-bottom border-2 py-2">
                                 <div class="form-floating">
-                                    <input type="number" class="form-control" id="parcial_3_{{student.id}}_{{student_class.id}}" value="{{student_class.p_3}}" placeholder="Calificación del parcial 3">
+                                    <input type="number" class="form-control" id="parcial_3_{{student.id}}_{{student_class.id}}" value="{{student_class.p_3}}" placeholder="Calificación del parcial 3" required>
                                     <label class="px-4" for="parcial_3_{{student.id}}_{{student_class.id}}">Parcial 3</label>
                                 </div>
                             </div>
                             <div class="row align-items-center border-bottom border-2 py-2">
                                 <div class="form-floating">
-                                    <input type="number" class="form-control" id="parcial_T_{{student.id}}_{{student_class.id}}" value="{{formatNumber((student_class.p_1 + student_class.p_2 + student_class.p_3)/3)}}" placeholder="Calificación Total">
+                                    <input type="number" class="form-control" id="parcial_T_{{student.id}}_{{student_class.id}}" value="{{formatNumber((student_class.p_1 + student_class.p_2 + student_class.p_3)/3)}}" placeholder="Calificación Total" required>
                                     <label class="px-4" for="parcial_T_{{student.id}}_{{student_class.id}}">Total Parcial</label>
                                 </div>
                             </div>
                             <div class="row align-items-center border-bottom border-2 py-2">
                                 <div class="form-floating">
-                                    <input type="number" class="form-control" id="asistencia_1_{{student.id}}_{{student_class.id}}" value="{{student_class.a_1}}" placeholder="Asistencias del parcial 1">
+                                    <input type="number" class="form-control" id="asistencia_1_{{student.id}}_{{student_class.id}}" value="{{student_class.a_1}}" placeholder="Asistencias del parcial 1" required>
                                     <label class="px-4" for="asistencia_1_{{student.id}}_{{student_class.id}}">Asistencia 1</label>
                                 </div>
                             </div>
                             <div class="row align-items-center border-bottom border-2 py-2">
                                 <div class="form-floating">
-                                    <input type="number" class="form-control" id="asistencia_2_{{student.id}}_{{student_class.id}}" value="{{student_class.a_2}}" placeholder="Asistencias del parcial 2">
+                                    <input type="number" class="form-control" id="asistencia_2_{{student.id}}_{{student_class.id}}" value="{{student_class.a_2}}" placeholder="Asistencias del parcial 2" required>
                                     <label class="px-4" for="asistencia_2_{{student.id}}_{{student_class.id}}">Asistencia 2</label>
                                 </div>
                             </div>
                             <div class="row align-items-center border-bottom border-2 py-2">
                                 <div class="form-floating">
-                                    <input type="number" class="form-control" id="asistencia_3_{{student.id}}_{{student_class.id}}" value="{{student_class.a_3}}" placeholder="Asistencias del parcial 3">
+                                    <input type="number" class="form-control" id="asistencia_3_{{student.id}}_{{student_class.id}}" value="{{student_class.a_3}}" placeholder="Asistencias del parcial 3" required>
                                     <label class="px-4" for="asistencia_3_{{student.id}}_{{student_class.id}}">Asistencia 3</label>
                                 </div>
                             </div>
                             <div class="row align-items-center border-bottom border-2 py-2">
                                 <div class="form-floating">
-                                    <input type="number" class="form-control" id="asistencia_T_{{student.id}}_{{student_class.id}}" value="{{student_class.a_1 + student_class.a_2 + student_class.a_3}}" placeholder="Asistencias Totales">
+                                    <input type="number" class="form-control" id="asistencia_T_{{student.id}}_{{student_class.id}}" value="{{student_class.a_1 + student_class.a_2 + student_class.a_3}}" placeholder="Asistencias Totales" required>
                                     <label class="px-4" for="asistencia_T_{{student.id}}_{{student_class.id}}">Total Asistencia</label>
                                 </div>
                             </div>
                             <div class="row align-items-center py-2">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="student_class_{{student.id}}_{{student_class.id}}" value="{{student_class.name}}" placeholder="Nombre de la materia">
+                                    <input type="text" class="form-control" id="student_class_{{student.id}}_{{student_class.id}}" value="{{student_class.name}}" placeholder="Nombre de la materia" required>
                                     <label class="px-4" for="student_class_{{student.id}}_{{student_class.id}}">Materia</label>
                                 </div>
                             </div>

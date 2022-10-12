@@ -83,9 +83,9 @@ app.controller('GroupList', function($scope) {
     ];
 
     $scope.certificates = [
-        { id: '1', name: 'Carta de buena conducta', status: 'OCULTO', role: 'ALUMNO', number: '169', career: '', extra_info: '' },
-        { id: '2', name: 'Constancia', status: 'OCULTO', role: 'ALUMNO', number: '7', career: 'ING. EN SW', extra_info: 'Documento para acreditar estancia de alumno' },
-        { id: '3', name: 'Constancia con calificaciones', status: 'ACTIVO', role: 'ALUMNO', number: '14', career: '', extra_info: 'Kardex' }
+        { id: '1', name: 'Carta de buena conducta', status: 'OCULTO', role: 'ALUMNO', number: '169', career: '', extra_info: '', content: '' },
+        { id: '2', name: 'Constancia', status: 'OCULTO', role: 'ALUMNO', number: '7', career: 'ING. EN SW', extra_info: 'Documento para acreditar estancia de alumno', content: '' },
+        { id: '3', name: 'Constancia con calificaciones', status: 'ACTIVO', role: 'ALUMNO', number: '14', career: '', extra_info: 'Kardex', content: '' }
     ];
 
     $scope.historial = [
