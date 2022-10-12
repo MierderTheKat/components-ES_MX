@@ -39,7 +39,7 @@
                         <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_04/index.html">4</a></li>
                         <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_05/index.html">5</a></li>
                         <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_06/index.html">6</a></li>
-                        <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_07/index.html">7</a></li>
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_07/index.html">7</a></li>
                         <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_08/index.html">8</a></li>
                         <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_09/index.html">9</a></li>
                         <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_10/index.html">10</a></li>
@@ -102,18 +102,18 @@
                             <table class="table table-bordered table-striped table-hover align-middle table-sm">
                                 <thead class="table-light">
                                     <tr class="text-center">
-                                        <th scope="col">NO.</th>
-                                        <th scope="col">ALUMNO</th>
-                                        <th scope="col">TIPO</th>
-                                        <th scope="col" ng-repeat="document in documents">{{document.name}}</th>
+                                        <th scope="col" class="align-middle">NO.</th>
+                                        <th scope="col" class="align-middle">ALUMNO</th>
+                                        <th scope="col" class="align-middle">TIPO</th>
+                                        <th scope="col" class="align-middle" ng-repeat="document in documents">{{document.name}}</th>
                                     </tr>
                                 </thead>
                                 <tbody ng-repeat="student in students | filter: search_student">
                                     <tr class="align-items-center">
                                         <th scope="row" rowspan="3" class="text-center">{{student.id}}</th>
                                         <td rowspan="3">{{student.name}} {{student.lastname}}</td>
-                                        <td scope="col">Original</td>
-                                        <td scope="col" ng-repeat="document in documents">
+                                        <td>Original</td>
+                                        <td ng-repeat="document in documents">
                                             <div class="btn-group d-flex align-items-center" role="group">
                                                 <button type="button" class="btn btn-sm btn-light p-1"><i class="fa-solid fa-minus"></i></button>
                                                 <button type="button" class="btn btn-sm btn-light p-1">0</button>
@@ -122,8 +122,8 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td scope="col">Copia</td>
-                                        <td scope="col" ng-repeat="document in documents">
+                                        <th scope="row">Copia</th>
+                                        <td ng-repeat="document in documents">
                                             <div class="btn-group d-flex align-items-center" role="group">
                                                 <button type="button" class="btn btn-sm btn-light p-1"><i class="fa-solid fa-minus"></i></button>
                                                 <button type="button" class="btn btn-sm btn-light p-1">0</button>
@@ -132,8 +132,8 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td scope="col">Adjunto</td>
-                                        <td scope="col" ng-repeat="document in documents">
+                                        <th scope="row">Adjunto</th>
+                                        <td ng-repeat="document in documents">
                                             <div class="btn-group d-flex align-items-center" role="group">
                                                 <button type="button" class="btn btn-sm btn-light p-1" data-bs-toggle="modal" href="#Modal_Comment_{{student.name}}_{{document.id}}"><i class="fa-regular fa-comment"></i></button>
                                                 <button type="button" class="btn btn-sm btn-light p-1" data-bs-toggle="modal" href="#Modal_Archive_{{student.name}}_{{document.id}}"><i class="fa-regular fa-file"></i></button>
@@ -163,18 +163,18 @@
                             <table class="table table-bordered table-striped table-hover align-middle table-sm">
                                 <thead class="table-light">
                                     <tr class="text-center">
-                                        <th scope="col">NO.</th>
-                                        <th scope="col">ALUMNO</th>
-                                        <th scope="col">TIPO</th>
-                                        <th scope="col" ng-repeat="document in documents">{{document.name}}</th>
+                                        <th scope="col" class="align-middle">NO.</th>
+                                        <th scope="col" class="align-middle">ALUMNO</th>
+                                        <th scope="col" class="align-middle">TIPO</th>
+                                        <th scope="col" class="align-middle" ng-repeat="document in documents">{{document.name}}</th>
                                     </tr>
                                 </thead>
                                 <tbody ng-repeat="reticle_student in reticle_students | filter: search_reticle_student">
                                     <tr class="align-items-center">
                                         <th scope="row" rowspan="3" class="text-center">{{reticle_student.id}}</th>
                                         <td rowspan="3">{{reticle_student.name}} {{reticle_student.lastname}}</td>
-                                        <td scope="col">Original</td>
-                                        <td scope="col" ng-repeat="document in documents">
+                                        <td>Original</td>
+                                        <td ng-repeat="document in documents">
                                             <div class="btn-group d-flex align-items-center" role="group">
                                                 <button type="button" class="btn btn-sm btn-light p-1"><i class="fa-solid fa-minus"></i></button>
                                                 <button type="button" class="btn btn-sm btn-light p-1">0</button>
@@ -183,8 +183,8 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td scope="col">Copia</td>
-                                        <td scope="col" ng-repeat="document in documents">
+                                        <th scope="row">Copia</th>
+                                        <td ng-repeat="document in documents">
                                             <div class="btn-group d-flex align-items-center" role="group">
                                                 <button type="button" class="btn btn-sm btn-light p-1"><i class="fa-solid fa-minus"></i></button>
                                                 <button type="button" class="btn btn-sm btn-light p-1">0</button>
@@ -193,8 +193,8 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td scope="col">Adjunto</td>
-                                        <td scope="col" ng-repeat="document in documents">
+                                        <th scope="row">Adjunto</th>
+                                        <td ng-repeat="document in documents">
                                             <div class="btn-group d-flex align-items-center" role="group">
                                                 <button type="button" class="btn btn-sm btn-light p-1" data-bs-toggle="modal" href="#Modal_Comment_{{reticle_student.name}}_{{document.id}}"><i class="fa-regular fa-comment"></i></button>
                                                 <button type="button" class="btn btn-sm btn-light p-1" data-bs-toggle="modal" href="#Modal_Archive_{{reticle_student.name}}_{{document.id}}"><i class="fa-regular fa-file"></i></button>
@@ -239,12 +239,12 @@
                                     <tr class="text-center">
                                         <th scope="col" rowspan="2" class="align-middle">NO.</th>
                                         <th scope="col" rowspan="2" class="align-middle">TITULO</th>
-                                        <th scope="col" colspan="2">DOCUMENTOS REQUERIDOS</th>
-                                        <th scope="col" rowspan="2"></th>
+                                        <th scope="col" colspan="2" class="align-middle">DOCUMENTOS REQUERIDOS</th>
+                                        <th scope="col" rowspan="2" class="align-middle"></th>
                                     </tr>
                                     <tr class="text-center">
-                                        <th scope="col">NUM ORIGINALES</th>
-                                        <th scope="col">NUM COPIAS</th>
+                                        <th scope="col" class="align-middle">NUM ORIGINALES</th>
+                                        <th scope="col" class="align-middle">NUM COPIAS</th>
                                     </tr>
                                 </thead>
                                 <tbody>

@@ -42,7 +42,7 @@
                         <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_04/index.html">4</a></li>
                         <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_05/index.html">5</a></li>
                         <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_06/index.html">6</a></li>
-                        <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_07/index.html">7</a></li>
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_07/index.html">7</a></li>
                         <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_08/index.html">8</a></li>
                         <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_09/index.html">9</a></li>
                         <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_10/index.html">10</a></li>
@@ -284,11 +284,11 @@
                                             <tr class="border-bottom-0 border-top-0">
                                                 <th scope="col" rowspan="2" class="align-middle">NO.</th>
                                                 <th scope="col" rowspan="2" class="align-middle">DOCENTE</th>
-                                                <th class="border-bottom" scope="col" colspan="2">NO. DE REPROBADOS</th>
+                                                <th scope="col" colspan="2" class="align-middle border-bottom">NO. DE REPROBADOS</th>
                                             </tr>
                                             <tr class="border-top-0">
-                                                <th scope="col">ALUMNOS</th>
-                                                <th scope="col">MATERIAS</th>
+                                                <th scope="col" class="align-middle">ALUMNOS</th>
+                                                <th scope="col" class="align-middle">MATERIAS</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -341,11 +341,11 @@
                                             <tr class="border-bottom-0 border-top-0">
                                                 <th scope="col" rowspan="2" class="align-middle">NO.</th>
                                                 <th scope="col" rowspan="2" class="align-middle">DOCENTE</th>
-                                                <th class="border-bottom" scope="col" colspan="2">NO. DE REPROBADOS</th>
+                                                <th scope="col" colspan="2" class="align-middle border-bottom">NO. DE REPROBADOS</th>
                                             </tr>
                                             <tr class="border-top-0">
-                                                <th scope="col">ALUMNOS</th>
-                                                <th scope="col">MATERIAS</th>
+                                                <th scope="col" class="align-middle">ALUMNOS</th>
+                                                <th scope="col" class="align-middle">MATERIAS</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -397,14 +397,14 @@
                                     <table class="table table-bordered table-striped table-hover align-middle table-sm">
                                         <thead class="text-center">
                                             <tr>
-                                                <th scope="col">NO.</th>
-                                                <th scope="col">ID</th>
-                                                <th scope="col">CURP</th>
-                                                <th scope="col">MATRÍCULA</th>
-                                                <th scope="col">NOMBRE COMPLETO</th>
-                                                <th scope="col">GRUPO</th>
-                                                <th scope="col">CARRERA</th>
-                                                <th scope="col">TURNO</th>
+                                                <th scope="col" class="align-middle">NO.</th>
+                                                <th scope="col" class="align-middle">ID</th>
+                                                <th scope="col" class="align-middle">CURP</th>
+                                                <th scope="col" class="align-middle">MATRÍCULA</th>
+                                                <th scope="col" class="align-middle">NOMBRE COMPLETO</th>
+                                                <th scope="col" class="align-middle">GRUPO</th>
+                                                <th scope="col" class="align-middle">CARRERA</th>
+                                                <th scope="col" class="align-middle">TURNO</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -559,10 +559,10 @@
                             <table class="table table-bordered table-striped table-hover align-middle table-sm">
                                 <thead>
                                     <tr class="text-center">
-                                        <th scope="col">NO.</th>
-                                        <th scope="col">GRUPO</th>
-                                        <th scope="col">ACCIONES</th>
-                                        <th scope="col" class="px-3">%</th>
+                                        <th scope="col" class="align-middle">NO.</th>
+                                        <th scope="col" class="align-middle">GRUPO</th>
+                                        <th scope="col" class="align-middle">ACCIONES</th>
+                                        <th scope="col" class="align-middle px-3">%</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -641,43 +641,43 @@
                             <table class="table table-bordered table-striped table-hover align-middle table-sm">
                                 <thead>
                                     <tr class="text-center">
-                                        <th scope="col" rowspan="3" class="align-middle">SITUACIÓN ACADÉMICA</th>
-                                        <th scope="col" colspan="{{classes.length * 3}}">FRECUENCIA</th>
+                                        <th scope="col" class="align-middle" rowspan="3">SITUACIÓN ACADÉMICA</th>
+                                        <th scope="col" class="align-middle" colspan="{{classes.length * 3}}">FRECUENCIA</th>
                                     </tr>
                                     <tr class="text-center">
-                                        <th scope="col" colspan="3" ng-repeat="class in classes">{{class.name}}</th>
+                                        <th scope="col" class="align-middle" colspan="3" ng-repeat="class in classes">{{class.name}}</th>
                                     </tr>
                                     <tr class="text-center">
-                                        <th scope="col" ng-repeat="unit in units">{{unit.unit}}</th>
+                                        <th scope="col" class="align-middle" ng-repeat="unit in units">{{unit.unit}}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <th scope="row">Acreditados</th>
-                                        <th class="text-center" scope="col" ng-repeat="unit in units" data-bs-toggle="modal" href="#Ind_Aca_PC_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" ng-repeat="unit in units" data-bs-toggle="modal" href="#Ind_Aca_PC_Modal{{data_group.id}}"></th>
                                     </tr>
                                     <tr>
                                         <th scope="row">Reprobados</th>
-                                        <th class="text-center" scope="col" ng-repeat="unit in units" data-bs-toggle="modal" href="#Ind_Aca_PC_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" ng-repeat="unit in units" data-bs-toggle="modal" href="#Ind_Aca_PC_Modal{{data_group.id}}"></th>
                                     </tr>
                                     <tr>
                                         <th scope="row">Total</th>
-                                        <th class="text-center" scope="col" ng-repeat="unit in units"></th>
+                                        <th class="text-center" ng-repeat="unit in units"></th>
                                     </tr>
                                     <thead>
                                         <tr>
-                                            <th class="text-center" scope="row"></th>
-                                            <th class="text-center" scope="col" colspan="{{units.length}}">PORCENTAJE</th>
+                                            <th scope="col" class="align-middle text-center"></th>
+                                            <th scope="col" class="align-middle text-center" colspan="{{units.length}}">PORCENTAJE</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <th scope="row">Acreditados</th>
-                                            <th class="text-center" scope="col" ng-repeat="unit in units">%</th>
+                                            <th class="text-center" ng-repeat="unit in units">%</th>
                                         </tr>
                                         <tr>
                                             <th scope="row">Reprobados</th>
-                                            <th class="text-center" scope="col" ng-repeat="unit in units">%</th>
+                                            <th class="text-center" ng-repeat="unit in units">%</th>
                                         </tr>
                                     </tbody>
                                 </tbody>
@@ -688,55 +688,55 @@
                                 <thead>
                                     <tr class="text-center">
                                         <th scope="col" rowspan="2" class="align-middle">RIESGO DE ABANDONO ESCOLAR POR REPROBACIÓN</th>
-                                        <th scope="col" colspan="2">UNIDAD 1</th>
-                                        <th scope="col" colspan="2">UNIDAD 2</th>
-                                        <th scope="col" colspan="2">UNIDAD 3</th>
+                                        <th scope="col" colspan="2" class="align-middle">UNIDAD 1</th>
+                                        <th scope="col" colspan="2" class="align-middle">UNIDAD 2</th>
+                                        <th scope="col" colspan="2" class="align-middle">UNIDAD 3</th>
                                     </tr>
                                     <tr class="text-center">
-                                        <th scope="col">CANTIDAD</th>
-                                        <th scope="col">%</th>
-                                        <th scope="col">CANTIDAD</th>
-                                        <th scope="col">%</th>
-                                        <th scope="col">CANTIDAD</th>
-                                        <th scope="col">%</th>
+                                        <th scope="col" class="align-middle">CANTIDAD</th>
+                                        <th scope="col" class="align-middle">%</th>
+                                        <th scope="col" class="align-middle">CANTIDAD</th>
+                                        <th scope="col" class="align-middle">%</th>
+                                        <th scope="col" class="align-middle">CANTIDAD</th>
+                                        <th scope="col" class="align-middle">%</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <th scope="row">Riesgo Alto</th>
-                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
-                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
-                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
-                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
-                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
-                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
                                     </tr>
                                     <tr>
                                         <th scope="row">Riesgo Moderado</th>
-                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
-                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
-                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
-                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
-                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
-                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
                                     </tr>
                                     <tr>
                                         <th scope="row">Riesgo Bajo</th>
-                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
-                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
-                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
-                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
-                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
-                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
                                     </tr>
                                     <tr>
                                         <th scope="row">Sin Riesgo</th>
-                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
-                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
-                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
-                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
-                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
-                                        <th class="text-center" scope="col" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
+                                        <th class="text-center" data-bs-toggle="modal" href="#Ind_Aca_RA_Modal{{data_group.id}}"></th>
                                     </tr>
                                 </tbody>
                             </table>
@@ -756,34 +756,34 @@
                                     <tr class="text-center border-bottom-0">
                                         <th scope="col" rowspan="2" class="align-middle">ALUMNO(A)</th>
                                         <th scope="col" rowspan="2" class="align-middle">NO.</th>
-                                        <th scope="col" colspan="2">MATERIAS REPROBADAS</th>
-                                        <th scope="col" colspan="4">RIESGO</th>
+                                        <th scope="col" colspan="2" class="align-middle">MATERIAS REPROBADAS</th>
+                                        <th scope="col" colspan="4" class="align-middle">RIESGO</th>
                                     </tr>
                                     <tr class="text-center">
-                                        <th scope="col">PERIODO</th>
-                                        <th scope="col">GENERAL</th>
-                                        <th scope="col">ALTO</th>
-                                        <th scope="col">MODERADO</th>
-                                        <th scope="col">BAJO</th>
-                                        <th scope="col">NINGUNO</th>
+                                        <th scope="col" class="align-middle">PERIODO</th>
+                                        <th scope="col" class="align-middle">GENERAL</th>
+                                        <th scope="col" class="align-middle">ALTO</th>
+                                        <th scope="col" class="align-middle">MODERADO</th>
+                                        <th scope="col" class="align-middle">BAJO</th>
+                                        <th scope="col" class="align-middle">NINGUNO</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th class="text-center" scope="row">1</th>
-                                        <th scope="col"></th>
-                                        <th scope="col"></th>
-                                        <th class="text-center" scope="col"></th>
-                                        <th class="text-center" scope="col">
+                                        <th scope="row" class="text-center">1</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th class="text-center"></th>
+                                        <th class="text-center">
                                             <input class="form-check-input pe-none rounded-circle" type="checkbox" name="Riesgo_Alto" id="Riesgo_Alto">
                                         </th>
-                                        <th class="text-center" scope="col">
+                                        <th class="text-center">
                                             <input class="form-check-input pe-none rounded-circle" type="checkbox" name="Riesgo_Moderado" id="Riesgo_Moderado">
                                         </th>
-                                        <th class="text-center" scope="col">
+                                        <th class="text-center">
                                             <input class="form-check-input pe-none rounded-circle" type="checkbox" name="Riesgo_Bajo" id="Riesgo_Bajo">
                                         </th>
-                                        <th class="text-center" scope="col">
+                                        <th class="text-center">
                                             <input class="form-check-input pe-none rounded-circle" type="checkbox" name="Ningun_Riesgo" checked id="Ningun_Riesgo">
                                         </th>
                                     </tr>
@@ -812,16 +812,16 @@
                             <table class="table table-bordered table-striped table-hover align-middle table-sm">
                                 <thead>
                                     <tr class="text-center">
-                                        <th scope="col">NO.</th>
-                                        <th scope="col">ALUMNO(A)</th>
-                                        <th scope="col">CALIFICACIÓN</th>
+                                        <th scope="col" class="align-middle">NO.</th>
+                                        <th scope="col" class="align-middle">ALUMNO(A)</th>
+                                        <th scope="col" class="align-middle">CALIFICACIÓN</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th class="text-center" scope="row">1</th>
-                                        <th scope="col"></th>
-                                        <th scope="col"></th>
+                                        <th scope="row" class="text-center">1</th>
+                                        <th></th>
+                                        <th></th>
                                     </tr>
                                 </tbody>
                             </table>
@@ -848,14 +848,14 @@
                             <table class="table table-bordered table-striped table-hover align-middle table-sm">
                                 <thead>
                                     <tr class="text-center">
-                                        <th scope="col">NO.</th>
-                                        <th scope="col">ALUMNO(A)</th>
+                                        <th scope="col" class="align-middle">NO.</th>
+                                        <th scope="col" class="align-middle">ALUMNO(A)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th class="text-center" scope="row">1</th>
-                                        <th scope="col"></th>
+                                        <th scope="row" class="text-center">1</th>
+                                        <th></th>
                                     </tr>
                                 </tbody>
                             </table>
@@ -898,13 +898,13 @@
                             <table class="table table-bordered table-striped table-hover align-middle table-sm">
                                 <thead>
                                     <tr class="text-center">
-                                        <th scope="col">NO.</th>
-                                        <th scope="col">TITULAR</th>
+                                        <th scope="col" class="align-middle">NO.</th>
+                                        <th scope="col" class="align-middle">TITULAR</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr ng-repeat="teacher in teachers | filter: search_teacher">
-                                        <th class="text-center" scope="row">{{teacher.id}}</th>
+                                        <th scope="row" class="text-center">{{teacher.id}}</th>
                                         <td>{{teacher.name}} {{teacher.lastname}}</td>
                                     </tr>
                                 </tbody>
@@ -957,18 +957,18 @@
                             <table class=" table table-bordered table-striped table-hover align-middle table-sm">
                                 <thead>
                                     <tr class="text-center">
-                                        <th scope="col">ALUMNO ID</th>
-                                        <th scope="col">FECHA</th>
-                                        <th scope="col">PERIODO</th>
-                                        <th scope="col">PERIODO NOMBRE</th>
-                                        <th scope="col">NOMBRE</th>
-                                        <th scope="col">CURP</th>
-                                        <th scope="col">MATRÍCULA</th>
+                                        <th scope="col" class="align-middle">ALUMNO ID</th>
+                                        <th scope="col" class="align-middle">FECHA</th>
+                                        <th scope="col" class="align-middle">PERIODO</th>
+                                        <th scope="col" class="align-middle">PERIODO NOMBRE</th>
+                                        <th scope="col" class="align-middle">NOMBRE</th>
+                                        <th scope="col" class="align-middle">CURP</th>
+                                        <th scope="col" class="align-middle">MATRÍCULA</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr ng-repeat="student in students | filter: search_student">
-                                        <th class="text-center" scope="row" data-bs-toggle="modal" href="#Modal_student_{{student.id}}">{{student.id}}</th>
+                                        <th scope="row" class="text-center" data-bs-toggle="modal" href="#Modal_student_{{student.id}}">{{student.id}}</th>
                                         <td data-bs-toggle="modal" href="#Modal_student_{{student.id}}">{{student.date}}</td>
                                         <td data-bs-toggle="modal" href="#Modal_student_{{student.id}}">{{student.period}}</td>
                                         <td data-bs-toggle="modal" href="#Modal_student_{{student.id}}">{{student.period_name}}</td>
@@ -1019,18 +1019,18 @@
                                 <table class=" table table-bordered table-striped table-hover align-middle table-sm">
                                     <thead>
                                         <tr class="text-center">
-                                            <th scope="col">ID</th>
-                                            <th scope="col">FECHA</th>
-                                            <th scope="col">PERIODO</th>
-                                            <th scope="col">PERIODO NOMBRE</th>
-                                            <th scope="col">GRUPO</th>
-                                            <th scope="col">CARRERA</th>
-                                            <th scope="col">MATERIA</th>
+                                            <th scope="col" class="align-middle">ID</th>
+                                            <th scope="col" class="align-middle">FECHA</th>
+                                            <th scope="col" class="align-middle">PERIODO</th>
+                                            <th scope="col" class="align-middle">PERIODO NOMBRE</th>
+                                            <th scope="col" class="align-middle">GRUPO</th>
+                                            <th scope="col" class="align-middle">CARRERA</th>
+                                            <th scope="col" class="align-middle">MATERIA</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr ng-repeat="student_class in student_classes">
-                                            <th class="text-center" scope="row" data-bs-toggle="modal" href="#Modal_student_{{student.id}}">{{student_class.id}}</th>
+                                            <th scope="row" class="text-center" data-bs-toggle="modal" href="#Modal_student_{{student.id}}">{{student_class.id}}</th>
                                             <td data-bs-toggle="modal" href="#Modal_student_{{student.id}}_{{student_class.id}}">{{student.date}}</td>
                                             <td data-bs-toggle="modal" href="#Modal_student_{{student.id}}_{{student_class.id}}">{{student.period}}</td>
                                             <td data-bs-toggle="modal" href="#Modal_student_{{student.id}}_{{student_class.id}}">{{student.period_name}}</td>
@@ -1185,15 +1185,15 @@
                             <table class=" table table-bordered table-striped table-hover align-middle table-sm">
                                 <thead>
                                     <tr class="text-center">
-                                        <th scope="col">ID</th>
-                                        <th scope="col">NOMBRE</th>
-                                        <th scope="col">CURP</th>
-                                        <th scope="col">MATRÍCULA</th>
+                                        <th scope="col" class="align-middle">ID</th>
+                                        <th scope="col" class="align-middle">NOMBRE</th>
+                                        <th scope="col" class="align-middle">CURP</th>
+                                        <th scope="col" class="align-middle">MATRÍCULA</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr ng-repeat="escolares_student in escolares_students | filter: search_Escolares_student">
-                                        <th class="text-center" scope="row" data-bs-toggle="modal" href="#Modal_E_S_Agregar_{{escolares_student.id}}">{{escolares_student.id}}</th>
+                                        <th scope="row" class="text-center" data-bs-toggle="modal" href="#Modal_E_S_Agregar_{{escolares_student.id}}">{{escolares_student.id}}</th>
                                         <td data-bs-toggle="modal" href="#Modal_E_S_Agregar_{{escolares_student.id}}">{{escolares_student.name}} {{escolares_student.lastname}}</td>
                                         <td data-bs-toggle="modal" href="#Modal_E_S_Agregar_{{escolares_student.id}}">{{escolares_student.curp}}</td>
                                         <td data-bs-toggle="modal" href="#Modal_E_S_Agregar_{{escolares_student.id}}">{{escolares_student.school_id}}</td>
