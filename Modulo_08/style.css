@@ -1,0 +1,144 @@
+/* _________________ Definir campo de trabajo en Escolares _________________ */
+
+.all {
+    display: flex;
+}
+
+.r_top {
+    height: 44px;
+    border-bottom: 1px solid black;
+}
+
+.rigth {
+    width: 100%;
+    border: 1px solid black;
+}
+
+
+/* _________________ Mouse de seleccion en listas _________________ */
+
+.form-select {
+    cursor: pointer;
+}
+
+button span {
+    visibility: hidden;
+    font-size: 0;
+}
+
+.fa-regular.fa-circle-check.fs-1 {
+    font-size: 6rem!important;
+}
+
+
+/* _________________ Invisible Space _________________ */
+
+.invisible {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+/* _________________ Alumnos Escondidos _________________ */
+
+.photo_student img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    user-select: none;
+}
+
+.info_student p {
+    margin: 0;
+    border-radius: 100%;
+    user-select: none;
+}
+
+.modal_student .btn_delete {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ce1717;
+    color: #ce1717;
+    padding: 0;
+    margin: 0;
+    border-radius: 100%;
+    user-select: none;
+}
+
+.modal_student .btn_delete i {
+    font-weight: 100;
+}
+
+.modal_student .btn_delete:hover {
+    border: 2px solid #962929;
+    color: #962929;
+    box-shadow: 1px 1px 2px rgb(0 0 0 / 20%);
+}
+
+
+/* _________________ Boton fixed Flotante _________________ */
+
+.add-student {
+    height: 70px;
+    width: 70px;
+    border-radius: 100%;
+    border: 0 solid transparent;
+    background-color: #33cd5f;
+    box-shadow: 2px 4px 4px rgb(0 0 0 / 30%);
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+}
+
+.add-student i {
+    color: white;
+    font-weight: 100;
+}
+
+.add-student:hover {
+    background-color: #32c55c;
+    box-shadow: 2px 4px 4px rgb(0 0 0 / 40%);
+}
+
+
+/* _________________ Responsive basico _________________ */
+
+@media (min-width: 556px) {
+    button span {
+        visibility: visible;
+        font-size: 16px;
+    }
+    .info_student p {
+        width: max-content;
+    }
+}
+
+@media (min-width: 992px) {
+    .left {
+        min-width: 220px !important;
+        max-width: 220px !important;
+        border: 1px solid black;
+        border-right: 0px;
+    }
+    .rigth {
+        width: calc(100% - 220px);
+    }
+    .nav-header {
+        height: 60px;
+        border: 1px solid black;
+        border-bottom: 0px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .left {
+        min-width: 240px !important;
+        max-width: 240px !important;
+    }
+    .rigth {
+        width: calc(100% - 240px);
+    }
+}
