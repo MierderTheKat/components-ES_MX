@@ -50,6 +50,13 @@ button span {
     user-select: none;
 }
 
+.modal_student_photo img {
+    width: 266px;
+    height: 266px;
+    border-radius: 100%;
+    user-select: none;
+}
+
 .info_student p {
     margin: 0;
     border-radius: 100%;

@@ -46,9 +46,9 @@ app.controller('GroupList', function($scope) {
     };
 
     $scope.students = [
-        { id: '1', id_course: '2', name: 'JUAN PEDRO', lastname: 'BERUMEN RAMIREZ', curp: 'MARA940621HDGRMV01', school_id: 'MTA2022_A', pay: 'SI', status: 'FALSE', inscription_date: '2018-12-10', inscription_hour: '09:00:00', message: 'No ha tramitado la credencial, canalizar al módulo de credenciales', photo: 'https://placehold.jp/100x100.png' },
-        { id: '2', id_course: '2', name: 'YASSER GUADALUPE', lastname: 'HERNANDEZ GARCIA', curp: 'GARF940621HDGRMV01', school_id: 'ISW2022_B', pay: 'NO', status: 'FALSE', inscription_date: '', inscription_hour: '', message: 'No ha tramitado la credencial, canalizar al módulo de credenciales', photo: 'https://placehold.jp/100x100.png' },
-        { id: '3', id_course: '3', name: 'MIGUEL ARTURO', lastname: 'ALVAREZ GALAVIZ', curp: 'LUFFY40621HDGRMV01', school_id: 'ADE2022_C', pay: 'NO', status: 'FALSE', inscription_date: '2015-08-02', inscription_hour: '10:00:00', message: 'No ha tramitado la credencial, canalizar al módulo de credenciales', photo: 'https://placehold.jp/100x100.png' }
+        { id: '1', id_course: '2', name: 'JUAN PEDRO', lastname: 'BERUMEN RAMIREZ', curp: 'MARA940621HDGRMV01', school_id: 'MTA2022_A', career: 'MECATRÓNICA', grade: '2', group: 'C', turn: 'TM', classroom: 'C3', pay: 'SI', status: 'FALSE', inscription_date: '2018-12-10', inscription_hour: '09:00:00', message: 'No ha tramitado la credencial, canalizar al módulo de credenciales', photo: 'https://placehold.jp/100x100.png' },
+        { id: '2', id_course: '2', name: 'YASSER GUADALUPE', lastname: 'HERNANDEZ GARCIA', curp: 'GARF940621HDGRMV01', school_id: 'ISW2022_B', career: 'ING. EN SOFTWARE', grade: '5', group: 'A', turn: 'TM', classroom: 'A1', pay: 'NO', status: 'FALSE', inscription_date: '', inscription_hour: '', message: 'No ha tramitado la credencial, canalizar al módulo de credenciales', photo: 'https://placehold.jp/100x100.png' },
+        { id: '3', id_course: '3', name: 'MIGUEL ARTURO', lastname: 'ALVAREZ GALAVIZ', curp: 'LUFFY40621HDGRMV01', school_id: 'ADE2022_C', career: 'ADMNISTRACIÓN', grade: '8', group: 'B', turn: 'TV', classroom: 'B2', pay: 'NO', status: 'FALSE', inscription_date: '2015-08-02', inscription_hour: '10:00:00', message: 'No ha tramitado la credencial, canalizar al módulo de credenciales', photo: 'https://placehold.jp/100x100.png' }
     ]
 
     $scope.teachers = [
@@ -92,9 +92,12 @@ app.controller('GroupList', function($scope) {
         S_Option: { id: '1', name: 'Selecciona una opción', status: true, view: 'invisible' }
     };
 
-
-
-
+    $scope.careers = {
+        A_Options: [
+            { id: '1', name: 'Selecciona una materia' }
+        ],
+        S_Option: { id: '1', name: 'Selecciona una materia' }
+    };
 
     $scope.type = {
         A_Options: [
@@ -103,14 +106,6 @@ app.controller('GroupList', function($scope) {
         ],
         S_Option: { id: '1', name: 'EXAMEN EXTRAORDINARIO' }
     };
-
-
-
-
-
-
-
-
 
     $scope.reload = function() {
         location.reload(true);
