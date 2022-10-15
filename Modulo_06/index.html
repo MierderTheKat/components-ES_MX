@@ -41,7 +41,7 @@
                         <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_06/index.html">6</a></li>
                         <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_07/index.html">7</a></li>
                         <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_08/index.html">8</a></li>
-                        <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_09/index.html">9</a></li>
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_09/index.html">9</a></li>
                         <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_10/index.html">10</a></li>
                     </ul>
                 </nav>
@@ -74,12 +74,12 @@
                                 </div>
                             </div>
                             <div class="mt-3">
-                                <button type="button" class="mb-2 mx-1 px-2 btn btn-sm btn-light" data-bs-toggle="modal" href="#Modal_Expedients"><i class="fa-solid fa-box-archive"></i> <span>Expedientes</span></button>
-                                <button type="button" class="mb-2 mx-1 px-2 btn btn-sm btn-light"><i class="fa-solid fa-print"></i> <span>Imprimir</span></button>
-                                <button type="button" class="mb-2 mx-1 px-2 btn btn-sm btn-primary" ng-click="reload()"><i class="fa-solid fa-rotate-right"></i> <span>Recargar</span></button>
-                                <button type="button" class="mb-2 mx-1 px-2 btn btn-sm btn-success"><i class="fa-solid fa-file-excel"></i> <span>Exportar</span></button>
-                                <button type="button" class="mb-2 mx-1 px-2 btn btn-sm btn-success" ng-if="data_reticule_group.S_Option.view != 'invisible'"><i class="fa-solid fa-file-excel"></i> <span>Exportar</span></button>
-                                <button type="button" class="mb-2 mx-1 px-2 btn btn-sm btn-dark" data-bs-toggle="modal" href="#Document_Review"><i class="fa-solid fa-box-archive"></i> <span>Revisión de documentos</span></button>
+                                <button type="button" class="mb-2 mx-1 px-2 btn btn-sm btn-light" data-bs-toggle="modal" href="#Modal_Expedients"><i class="fa-solid fa-box-archive"></i><span> Expedientes</span></button>
+                                <button type="button" class="mb-2 mx-1 px-2 btn btn-sm btn-light"><i class="fa-solid fa-print"></i><span> Imprimir</span></button>
+                                <button type="button" class="mb-2 mx-1 px-2 btn btn-sm btn-primary" ng-click="reload()"><i class="fa-solid fa-rotate-right"></i><span> Recargar</span></button>
+                                <button type="button" class="mb-2 mx-1 px-2 btn btn-sm btn-success"><i class="fa-solid fa-file-excel"></i><span> Exportar</span></button>
+                                <button type="button" class="mb-2 mx-1 px-2 btn btn-sm btn-success" ng-if="data_reticule_group.S_Option.view != 'invisible'"><i class="fa-solid fa-file-excel"></i><span> Exportar</span></button>
+                                <button type="button" class="mb-2 mx-1 px-2 btn btn-sm btn-dark" data-bs-toggle="modal" href="#Document_Review"><i class="fa-solid fa-box-archive"></i><span> Revisión de documentos</span></button>
                             </div>
                         </div>
                     </div>
@@ -303,7 +303,6 @@
         </div>
     </div>
 
-
     <!-- Modal de Revisión de Documentos  -->
     <div class="modal fade" id="Document_Review" aria-hidden="true" aria-labelledby="Document_Review_Label" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-fullscreen modal-dialog-scrollable user-select-none">
@@ -314,7 +313,6 @@
                 </div>
                 <div class="modal-body p-2">
                     <div class="row g-2 m-0 h-100">
-
                         <div class="col-lg-3 px-1 m-0 mt-1">
                             <div class="card user-select-none h-100">
                                 <div class="card-body p-2 text-center">
@@ -410,7 +408,6 @@
             </div>
         </div>
     </div>
-
 
     <!-- Modal de Comentario de Alumno Normal  -->
     <div ng-repeat="student in students | filter: search_student">

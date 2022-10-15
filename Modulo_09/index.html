@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Groups">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horarios</title>
+    <link rel="icon" load href="https://web.escolaresmx.com/theme/img/icon.png">
+
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <!-- Bootstrap 5.2 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/8a7f1b84c8.js" crossorigin="anonymous"></script>
+
+    <!-- Google Charts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <!-- Local Edits -->
+    <script src="AngularJS_data.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="container" ng-controller="GroupList">
+
+    <header class="nav-header"></header>
+    <div class="all">
+        <div class="left"></div>
+        <div class="rigth">
+            <div class="r_top">
+                <nav>
+                    <ul class="pagination justify-content-center m-2">
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_01/index.html">1</a></li>
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_02/index.html">2</a></li>
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_03/index.html">3</a></li>
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_04/index.html">4</a></li>
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_05/index.html">5</a></li>
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_06/index.html">6</a></li>
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_07/index.html">7</a></li>
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_08/index.html">8</a></li>
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_09/index.html">9</a></li>
+                        <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_10/index.html">10</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="row g-2 m-0 p-3">
+                <div class="col-lg-12">
+                    <div class="card user-select-none">
+                        <div class="card-header">
+                            <div class="row align-items-center py-2">
+                                <div class="col-lg-12">
+                                    <h5 class="card-title my-0">Datos</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row align-items-center px-1 py-2 border-0 border-bottom">
+                                <div class="col-5 text-start">
+                                    <h5 for="group" class="card-title my-0">Grupo</h5>
+                                </div>
+                                <div class="col-7">
+                                    <select class="form-select" ng-if="data_period.S_Option.view != 'invisible'" ng-click="changeClass()" ng-options="option.name for option in data_group.A_Options track by option.id" ng-model="data_group.S_Option" required></select>
+                                    <select class="form-select" ng-if="data_period.S_Option.view == 'invisible'" required>
+                                        <option value="">Seleccionar Materia</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <button type="submit" class="mb-2 mx-1 px-2 btn btn-light" ng-click="reload()"><i class="fa-solid fa-rotate-right"></i><span> Recargar</span></button>
+                                <button type="submit" class="mb-2 mx-1 px-2 btn btn-dark" data-bs-toggle="modal" data-bs-target="#Modal_Upload_Doc" type="submit"><i class="fa-solid fa-cloud-arrow-up"></i><span> Subir Documento</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12" ng-if="data_group.S_Option.view == 'invisible'">
+                    <div class="row align-items-center m-3 border-3 border-opacity-75 border-dark" style="border-style: dashed">
+                        <label for="drag" class="align-items-center text-center p-0">
+                        <div class="py-2">
+                            <h2 class="fs-3 fw-light opacity-75 my-5 py-5">Arrastra y suelta los archivos .pdf o has click <strong class="fw-semibold">aquí</strong></h2>
+                        </div>
+                        <input type="file" id="drag" hidden accept=".pdf" aria-invalid="false">
+                    </label>
+                    </div>
+                    <div class="row text-center align-items-center px-1 pb-2">
+                        <div class="card col-md-3 p-0 my-2" ng-repeat="image in images">
+                            <div class="card-body pb-0">
+                                <div class="">
+                                    <div>
+                                        <a href="" target="_blank"><img class="img-fluid img_flex" src="{{image.img_link}}" alt=""></a>
+                                    </div>
+                                    <div class="row align-items-center">
+                                        <button type="button" class="btn btn-light mt-2"><p class="m-0">1 de 1</p>
+                                            <p class="m-0">{{image.grade}}º{{image.group}} {{image.turn}} {{image.career}}</p></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12" ng-if="data_group.S_Option.view != 'invisible'">
+                    <div class="table-responsive mt-2">
+                        <table class=" table table-bordered table-striped align-middle table-sm">
+                            <thead>
+                                <tr class="text-center">
+                                    <th scope="col" class="align-middle">HORA</th>
+                                    <th scope="col" class="align-middle" ng-repeat="week_day in week_days">{{week_day.name}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="hour in hours">
+                                    <th scope="row" class="text-center">{{hour.name}}</th>
+                                    <td class="text-center p-0" ng-repeat="week_day in week_days">
+                                        <div class="btn btn-light w-100 rounded-0" data-bs-toggle="modal" data-bs-target="#Modal_Add_Schedule_{{week_day.id}}_{{hour.id}}" type="submit">
+                                            <i class="text-primary fa-solid fa-circle-plus"></i>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Agregar Grupo -->
+    <div class="modal fade" id="Modal_Upload_Doc" tabindex="-1" aria-labelledby="Modal_Upload_Doc_Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable user-select-none">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="Modal_Upload_Doc_Label">Detalles del grupo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row align-items-center border-bottom border-2 py-2">
+                        <div class="form-floating">
+                            <input type="number" class="form-control" id="A_grade" placeholder="Escribe el grado" required>
+                            <label class="px-4" for="A_grade">Grado</label>
+                        </div>
+                    </div>
+                    <div class="row align-items-center border-bottom border-2 py-2">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="A_group_name" placeholder="Escribe el nombre del grupo" required>
+                            <label class="px-4" for="A_group_name">Grupo</label>
+                        </div>
+                    </div>
+                    <div class="row align-items-center border-bottom border-2 py-2">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="A_career_name" placeholder="Escribe el nombre de la carrera" required>
+                            <label class="px-4" for="A_career_name">Carrera</label>
+                        </div>
+                    </div>
+                    <div class="row align-items-center border-bottom border-2 py-2">
+                        <div class="col-7">
+                            <label for="A_group_turn">Turno</label>
+                        </div>
+                        <div class="col-5">
+                            <select class="form-select" id="A_group_turn" ng-options="option.name for option in turn.A_Options track by option.id" ng-model="turn.S_Option" required></select>
+                        </div>
+                    </div>
+                    <div class="row align-items-center pt-2">
+                        <div class="col-1">
+                            <i class="fa-solid fa-cloud-arrow-up fs-2 text-muted"></i>
+                        </div>
+                        <div class="col-11">
+                            <div class="mb-3">
+                                <label for="formFile_Group" class="form-label">Subir horario</label>
+                                <input class="form-control" type="file" accept=".pdf" id="formFile_Group">
+                                <p class="mt-1 text-muted"></p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-success">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de cada dia y hora del Horario -->
+    <div ng-repeat="hour in hours">
+        <div ng-repeat="week_day in week_days">
+            <div class="modal fade" id="Modal_Add_Schedule_{{week_day.id}}_{{hour.id}}" tabindex="-1" aria-labelledby="Modal_Add_Schedule_{{week_day.id}}_{{hour.id}}_Label" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable user-select-none">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="Modal_Add_Schedule_{{week_day.id}}_{{hour.id}}_Label">Detalle del grupo</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row align-items-center border-bottom border-2 py-2">
+                                <div class="col-7">
+                                    <label for="A_group_type_{{week_day.id}}_{{hour.id}}">Tipo</label>
+                                </div>
+                                <div class="col-5">
+                                    <select class="form-select" id="A_group_type_{{week_day.id}}_{{hour.id}}" ng-options="option.name for option in type.A_Options track by option.id" ng-model="type.S_Option" required></select>
+                                </div>
+                            </div>
+                            <div class="row align-items-center border-bottom border-2 py-2">
+                                <div class="col-7">
+                                    <label for="A_group_teacher_{{week_day.id}}_{{hour.id}}">Docente</label>
+                                </div>
+                                <div class="col-5">
+                                    <select class="form-select" id="A_group_teacher_{{week_day.id}}_{{hour.id}}" ng-options="option.name for option in teacher.A_Options track by option.id" ng-model="teacher.S_Option" required></select>
+                                </div>
+                            </div>
+                            <div class="row align-items-center border-bottom border-2 py-2">
+                                <div class="col-7">
+                                    <label for="A_group_class_{{week_day.id}}_{{hour.id}}">Materia</label>
+                                </div>
+                                <div class="col-5">
+                                    <select class="form-select" id="A_group_class_{{week_day.id}}_{{hour.id}}" ng-options="option.name for option in class.A_Options track by option.id" ng-model="class.S_Option" required></select>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header border-0 text-center">
+                                    <h6 class="modal-title">Horario</h6>
+                                </div>
+                            </div>
+                            <div class="row align-items-center border-bottom border-2 py-2 pb-3">
+                                <p class="fs-6 fw-semibold mb-1 text-center">Lunes</p>
+                                <div class="col-6">
+                                    <label for="A_I1_time_{{week_day.id}}_{{hour.id}}">Hora inicio</label>
+                                    <input type="time" class="form-control" id="A_I1_time_{{week_day.id}}_{{hour.id}}" required>
+                                </div>
+                                <div class="col-6">
+                                    <label for="A_F1_time_{{week_day.id}}_{{hour.id}}">Hora salida</label>
+                                    <input type="time" class="form-control" id="A_F1_time_{{week_day.id}}_{{hour.id}}" required>
+                                </div>
+                            </div>
+                            <div class="row align-items-center border-bottom border-2 py-2 pb-3">
+                                <p class="fs-6 fw-semibold mb-1 text-center">Martes</p>
+                                <div class="col-6">
+                                    <label for="A_I2_time_{{week_day.id}}_{{hour.id}}">Hora inicio</label>
+                                    <input type="time" class="form-control" id="A_I2_time_{{week_day.id}}_{{hour.id}}" required>
+                                </div>
+                                <div class="col-6">
+                                    <label for="A_F2_time_{{week_day.id}}_{{hour.id}}">Hora salida</label>
+                                    <input type="time" class="form-control" id="A_F2_time_{{week_day.id}}_{{hour.id}}" required>
+                                </div>
+                            </div>
+                            <div class="row align-items-center border-bottom border-2 py-2 pb-3">
+                                <p class="fs-6 fw-semibold mb-1 text-center">Miércoles</p>
+                                <div class="col-6">
+                                    <label for="A_I3_time_{{week_day.id}}_{{hour.id}}">Hora inicio</label>
+                                    <input type="time" class="form-control" id="A_I3_time_{{week_day.id}}_{{hour.id}}" required>
+                                </div>
+                                <div class="col-6">
+                                    <label for="A_F3_time_{{week_day.id}}_{{hour.id}}">Hora salida</label>
+                                    <input type="time" class="form-control" id="A_F3_time_{{week_day.id}}_{{hour.id}}" required>
+                                </div>
+                            </div>
+                            <div class="row align-items-center border-bottom border-2 py-2 pb-3">
+                                <p class="fs-6 fw-semibold mb-1 text-center">Jueves</p>
+                                <div class="col-6">
+                                    <label for="A_I4_time_{{week_day.id}}_{{hour.id}}">Hora inicio</label>
+                                    <input type="time" class="form-control" id="A_I4_time_{{week_day.id}}_{{hour.id}}" required>
+                                </div>
+                                <div class="col-6">
+                                    <label for="A_F4_time_{{week_day.id}}_{{hour.id}}">Hora salida</label>
+                                    <input type="time" class="form-control" id="A_F4_time_{{week_day.id}}_{{hour.id}}" required>
+                                </div>
+                            </div>
+                            <div class="row align-items-center border-bottom border-2 py-2 pb-3">
+                                <p class="fs-6 fw-semibold mb-1 text-center">Viernes</p>
+                                <div class="col-6">
+                                    <label for="A_I5_time_{{week_day.id}}_{{hour.id}}">Hora inicio</label>
+                                    <input type="time" class="form-control" id="A_I5_time_{{week_day.id}}_{{hour.id}}" required>
+                                </div>
+                                <div class="col-6">
+                                    <label for="A_F5_time_{{week_day.id}}_{{hour.id}}">Hora salida</label>
+                                    <input type="time" class="form-control" id="A_F5_time_{{week_day.id}}_{{hour.id}}" required>
+                                </div>
+                            </div>
+                            <div class="row align-items-center border-bottom border-2 py-2 pb-3">
+                                <p class="fs-6 fw-semibold mb-1 text-center">Sábado</p>
+                                <div class="col-6">
+                                    <label for="A_I6_time_{{week_day.id}}_{{hour.id}}">Hora inicio</label>
+                                    <input type="time" class="form-control" id="A_I6_time_{{week_day.id}}_{{hour.id}}" required>
+                                </div>
+                                <div class="col-6">
+                                    <label for="A_F6_time_{{week_day.id}}_{{hour.id}}">Hora salida</label>
+                                    <input type="time" class="form-control" id="A_F6_time_{{week_day.id}}_{{hour.id}}" required>
+                                </div>
+                            </div>
+                            <div class="row align-items-center py-2 pb-3">
+                                <p class="fs-6 fw-semibold mb-1 text-center">Domingo</p>
+                                <div class="col-6">
+                                    <label for="A_I7_time_{{week_day.id}}_{{hour.id}}">Hora inicio</label>
+                                    <input type="time" class="form-control" id="A_I7_time_{{week_day.id}}_{{hour.id}}" required>
+                                </div>
+                                <div class="col-6">
+                                    <label for="A_F7_time_{{week_day.id}}_{{hour.id}}">Hora salida</label>
+                                    <input type="time" class="form-control" id="A_F7_time_{{week_day.id}}_{{hour.id}}" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-success">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

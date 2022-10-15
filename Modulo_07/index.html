@@ -44,7 +44,7 @@
                         <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_06/index.html">6</a></li>
                         <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_07/index.html">7</a></li>
                         <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_08/index.html">8</a></li>
-                        <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_09/index.html">9</a></li>
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_09/index.html">9</a></li>
                         <li class="page-item disabled"><a class="page-link px-2 py-1" href="../Modulo_10/index.html">10</a></li>
                     </ul>
                 </nav>
@@ -119,13 +119,31 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="row align-items-center m-3 border-3 border-opacity-75 border-dark" style="border-style: dashed">
-                                <label for="drag" class="align-items-center text-center p-0">
-                                    <div class="py-2">
-                                        <h2 class="fs-3 fw-light opacity-75 my-5 py-5">Arrastra y suelta los archivos .pdf o has click <strong class="fw-semibold">aquí</strong></h2>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="row align-items-center m-3 border-3 border-opacity-75 border-dark" style="border-style: dashed">
+                        <label for="drag" class="align-items-center text-center p-0">
+                        <div class="py-2">
+                            <h2 class="fs-3 fw-light opacity-75 my-5 py-5">Arrastra y suelta los archivos .pdf o has click <strong class="fw-semibold">aquí</strong></h2>
+                        </div>
+                        <input type="file" id="drag" hidden accept=".pdf" aria-invalid="false">
+                    </label>
+                    </div>
+                    <div class="row text-center align-items-center px-1 pb-2">
+                        <div class="card col-md-3 p-0 my-2" ng-repeat="image in images">
+                            <div class="card-body pb-0">
+                                <div class="">
+                                    <div>
+                                        <a href="" target="_blank"><img class="img-fluid img_flex" src="{{image.img_link}}" alt=""></a>
                                     </div>
-                                    <input type="file" id="drag" hidden accept=".pdf" aria-invalid="false">
-                                </label>
+                                    <div class="row align-items-center">
+                                        <button type="button" class="btn btn-light mt-2"><p class="m-0">1 de 1</p>
+                                            <p class="m-0">{{image.grade}}º{{image.group}} {{image.turn}} {{image.career}}</p></button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -140,21 +158,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="row text-center align-items-center px-1 pb-3 border-0 border-bottom">
-                                <div class="card col-md-3 p-0 my-2" ng-repeat="image in images">
-                                    <div class="card-body pb-0">
-                                        <div class="">
-                                            <div>
-                                                <a href="" target="_blank"><img class="img-fluid img_flex" src="{{image.img_link}}" alt=""></a>
-                                            </div>
-                                            <div class="row align-items-center">
-                                                <button type="button" class="btn btn-light mt-2"><p class="m-0">1 de 1</p>
-                                                    <p class="m-0">{{image.grade}}º{{image.group}} {{image.turn}} {{image.career}}</p></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
                             <!-- --------------------- Si NO hay información en Imagenes  --------------------- -->
                             <div ng-if="images.length == 0" class="d-flex align-items-center text-start">
                                 <div class="fs-3 text-muted">
