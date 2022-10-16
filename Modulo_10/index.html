@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Groups">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preinscripciónes</title>
+    <link rel="icon" load href="https://web.escolaresmx.com/theme/img/icon.png">
+
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <!-- Bootstrap 5.2 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/8a7f1b84c8.js" crossorigin="anonymous"></script>
+
+    <!-- Google Charts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <!-- Local Edits -->
+    <script src="AngularJS_data.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+
+
+</head>
+
+<body class="container" ng-controller="GroupList">
+
+    <header class="nav-header"></header>
+    <div class="all">
+        <div class="left bg-light">
+            <nav>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item align-items-center py-2  border-bottom text-center bg-light" type=" button">
+                        <p class="fs-5 m-0 fw-semibold text-uppercase">Control Escolar</p>
+                    </li>
+                    <li class="list-group-item align-items-center p-0" type="button">
+                        <a href="../Modulo_01/index.html">
+                            <button class="btn btn-light rounded-0 w-100">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start overflow-hidden">
+                                        <div class="fs-5">
+                                            <i class="fa-solid fa-border-none me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="fs-6 border border-0 my-0 text-uppercase">Grupos</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end p-0">
+                                        <i class="fa-solid fa-greater-than fw-light"></i>
+                                    </div>
+                                </div>
+                            </button>
+                        </a>
+                    </li>
+                    <li class="list-group-item align-items-center p-0" type="button">
+                        <a href="../Modulo_02/index.html">
+                            <button class="btn btn-light rounded-0 w-100">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start overflow-hidden">
+                                        <div class="fs-5">
+                                            <i class="fa-solid fa-file-lines me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="fs-6 border border-0 my-0 text-uppercase">Constancias</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end p-0">
+                                        <i class="fa-solid fa-greater-than fw-light"></i>
+                                    </div>
+                                </div>
+                            </button>
+                        </a>
+                    </li>
+                    <li class="list-group-item align-items-center p-0" type="button">
+                        <a href="../Modulo_03/index.html">
+                            <button class="btn btn-light rounded-0 w-100">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start overflow-hidden">
+                                        <div class="fs-5">
+                                            <i class="fa-solid fa-bookmark me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="fs-6 border border-0 my-0 text-uppercase">Calificaciones</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end p-0">
+                                        <i class="fa-solid fa-greater-than fw-light"></i>
+                                    </div>
+                                </div>
+                            </button>
+                        </a>
+                    </li>
+                    <li class="list-group-item align-items-center p-0" type="button">
+                        <a href="../Modulo_04/index.html">
+                            <button class="btn btn-light rounded-0 w-100">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start overflow-hidden">
+                                        <div class="fs-5">
+                                            <i class="fa-solid fa-bookmark me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="fs-6 border border-0 my-0 text-uppercase">Classroom</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end p-0">
+                                        <i class="fa-solid fa-greater-than fw-light"></i>
+                                    </div>
+                                </div>
+                            </button>
+                        </a>
+                    </li>
+                    <li class="list-group-item align-items-center p-0" type="button">
+                        <a href="../Modulo_05/index.html">
+                            <button class="btn btn-light rounded-0 w-100">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start overflow-hidden">
+                                        <div class="fs-5">
+                                            <i class="fa-solid fa-bookmark me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="fs-6 border border-0 my-0 text-uppercase">Siseems</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end p-0">
+                                        <i class="fa-solid fa-greater-than fw-light"></i>
+                                    </div>
+                                </div>
+                            </button>
+                        </a>
+                    </li>
+                    <li class="list-group-item align-items-center p-0" type="button">
+                        <a href="../Modulo_06/index.html">
+                            <button class="btn btn-light rounded-0 w-100">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start overflow-hidden">
+                                        <div class="fs-5">
+                                            <i class="fa-solid fa-box-archive me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="fs-6 border border-0 my-0 text-uppercase">Expedientes</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end p-0">
+                                        <i class="fa-solid fa-greater-than fw-light"></i>
+                                    </div>
+                                </div>
+                            </button>
+                        </a>
+                    </li>
+                    <li class="list-group-item align-items-center p-0" type="button">
+                        <a href="../Modulo_07/index.html">
+                            <button class="btn btn-light rounded-0 w-100">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start overflow-hidden">
+                                        <div class="fs-5">
+                                            <i class="fa-solid fa-file-lines me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="fs-6 border border-0 my-0 text-uppercase">Historiales<span class="invisible">_</span>Académicos</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end p-0">
+                                        <i class="fa-solid fa-greater-than fw-light"></i>
+                                    </div>
+                                </div>
+                            </button>
+                        </a>
+                    </li>
+                    <li class="list-group-item align-items-center p-0" type="button">
+                        <a href="../Modulo_08/index.html">
+                            <button class="btn btn-light rounded-0 w-100">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start overflow-hidden">
+                                        <div class="fs-5">
+                                            <i class="fa-solid fa-arrow-right-arrow-left me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="fs-6 border border-0 my-0 text-uppercase">Regularización</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end p-0">
+                                        <i class="fa-solid fa-greater-than fw-light"></i>
+                                    </div>
+                                </div>
+                            </button>
+                        </a>
+                    </li>
+                    <li class="list-group-item align-items-center p-0" type="button">
+                        <a href="../Modulo_09/index.html">
+                            <button class="btn btn-light rounded-0 w-100">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start overflow-hidden">
+                                        <div class="fs-5">
+                                            <i class="fa-regular fa-clock me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="fs-6 border border-0 my-0 text-uppercase">Horarios</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end p-0">
+                                        <i class="fa-solid fa-greater-than fw-light"></i>
+                                    </div>
+                                </div>
+                            </button>
+                        </a>
+                    </li>
+                    <li class="list-group-item align-items-center p-0" type="button">
+                        <a href="../Modulo_10/index.html" class="pe-none">
+                            <button class="btn btn-light rounded-0 w-100 active">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start overflow-hidden">
+                                        <div class="fs-5">
+                                            <i class="fa-solid fa-plus me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="fs-6 border border-0 my-0 text-uppercase">Preinscripciones</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end p-0">
+                                        <i class="fa-solid fa-greater-than fw-light"></i>
+                                    </div>
+                                </div>
+                            </button>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="rigth">
+            <div class="r_top">
+                <nav>
+                    <ul class="pagination justify-content-center m-2">
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_01/index.html">1</a></li>
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_02/index.html">2</a></li>
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_03/index.html">3</a></li>
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_04/index.html">4</a></li>
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_05/index.html">5</a></li>
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_06/index.html">6</a></li>
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_07/index.html">7</a></li>
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_08/index.html">8</a></li>
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_09/index.html">9</a></li>
+                        <li class="page-item"><a class="page-link px-2 py-1" href="../Modulo_10/index.html">10</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="row g-4 m-0 p-3">
+                <div class="col-lg-12">
+                    <div class="card user-select-none">
+                        <div class="card-header">
+                            <div class="row align-items-center py-2">
+                                <div class="col-lg-12">
+                                    <h5 class="card-title my-0">Datos</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row align-items-center px-1 py-2">
+                                <div class="col-5 text-start">
+                                    <h5 class="card-title my-0">Preinscripción</h5>
+                                </div>
+                                <div class="col-7">
+                                    <select class="form-select" ng-options="option.name for option in pre_registration.A_Options track by option.id" ng-model="pre_registration.S_Option" required></select>
+                                </div>
+                            </div>
+                            <div class="align-items-center pb-2 pt-4 border-top" ng-if="pre_registration.S_Option.view !='invisible'">
+                                <div class="text-center">
+                                    <h5 class="card-title my-0">{{pre_registration.S_Option.description}}</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4 m-0 p-0" ng-if="pre_registration.S_Option.view !='invisible'">
+                    <div class="col-lg-6">
+                        <div class="col-lg-12 mt-4">
+                            <div class="card user-select-none">
+                                <div class="card-header">
+                                    <div class="row align-items-center py-2">
+                                        <div class="col-lg-12">
+                                            <h5 class="card-title my-0">Info</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item align-items-center px-1 rounded-0 btn btn-light" type="button">
+                                            <div class="row align-items-center mx-0">
+                                                <div class="col-10 d-flex align-items-center text-start">
+                                                    <div class="fs-4">
+                                                        <i class="fa-solid fa-circle-info text-muted me-3"></i>
+                                                    </div>
+                                                    <div class="py-2">
+                                                        <p class="fs-6 border border-0 my-0 fw-semibold">Avance</p>
+                                                        <p class="fs-6 border border-0 my-0 text-muted">Aspirantes: {{aspirants.length+4}}</p>
+                                                        <p class="fs-6 border border-0 my-0 text-muted">Solicitudes: {{requests.length}} de {{pre_registration.S_Option.max_requests}}</p>
+                                                        <p class="fs-6 border border-0 my-0 text-muted">Fichas: {{tokens.length}} de {{pre_registration.S_Option.max_tokens}}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-2 text-end">
+                                                    <i class="fa-solid fa-rotate-right text-muted fs-3 me-2"></i>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 mt-4">
+                            <div class="card user-select-none">
+                                <div class="card-header">
+                                    <div class="row align-items-center py-2">
+                                        <div class="col-lg-12">
+                                            <h5 class="card-title my-0">Menú</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button">
+                                            <div data-bs-toggle="modal" href="#Modal_Add_Aspirant" type="button">
+                                                <div class="row align-items-center mx-0">
+                                                    <div class="col-10 d-flex align-items-center text-start">
+                                                        <div class="fs-4">
+                                                            <i class="fa-solid fa-user-plus text-muted me-3"></i>
+                                                        </div>
+                                                        <div class="py-2">
+                                                            <p class="border border-0 my-0 fw-semibold">Registro</p>
+                                                            <p class="fs-6 border border-0 my-0 text-muted">Haz clic en esta opción para capturar y generar tu solicitud de preinscripción.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-2 text-end">
+                                                        <i class="fa-solid fa-ellipsis fs-4 me-2"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button">
+                                            <div data-bs-toggle="modal" href="#Modal_search" type="button">
+                                                <div class="row align-items-center mx-0">
+                                                    <div class="col-10 d-flex align-items-center text-start">
+                                                        <div class="fs-4">
+                                                            <i class="fa-solid fa-magnifying-glass text-muted me-3"></i>
+                                                        </div>
+                                                        <div class="py-2">
+                                                            <p class="border border-0 my-0 fw-semibold">Búsqueda</p>
+                                                            <p class="fs-6 border border-0 my-0 text-muted">¿Necesitas re-imprimir o consultar tu solicitud de preinscripción? haz clic aquí.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-2 text-end">
+                                                        <i class="fa-solid fa-ellipsis fs-4 me-2"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button">
+                                            <div data-bs-toggle="modal" href="#Modal_Requests" type="button">
+                                                <div class="row align-items-center mx-0">
+                                                    <div class="col-10 d-flex align-items-center text-start">
+                                                        <div class="fs-4">
+                                                            <i class="fa-regular fa-circle text-muted me-3"></i>
+                                                        </div>
+                                                        <div class="py-2">
+                                                            <p class="border border-0 my-0 fw-semibold">Solicitudes</p>
+                                                            <p class="fs-6 border border-0 my-0 text-muted">Lista de aspirantes con solicitud.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-2 text-end">
+                                                        <i class="fa-solid fa-ellipsis fs-4 me-2"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button">
+                                            <div data-bs-toggle="modal" href="#Modal_Tokens" type="button">
+                                                <div class="row align-items-center mx-0">
+                                                    <div class="col-10 d-flex align-items-center text-start">
+                                                        <div class="fs-4">
+                                                            <i class="fa-regular fa-circle-dot text-muted me-3"></i>
+                                                        </div>
+                                                        <div class="py-2">
+                                                            <p class="border border-0 my-0 fw-semibold">Fichas</p>
+                                                            <p class="fs-6 border border-0 my-0 text-muted">Lista de aspirantes con ficha.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-2 text-end">
+                                                        <i class="fa-solid fa-ellipsis fs-4 me-2"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button">
+                                            <div data-bs-toggle="modal" href="#Modal_no_Tokens" type="button">
+                                                <div class="row align-items-center mx-0">
+                                                    <div class="col-10 d-flex align-items-center text-start">
+                                                        <div class="fs-4">
+                                                            <i class="fa-regular fa-circle-xmark text-muted me-3"></i>
+                                                        </div>
+                                                        <div class="py-2">
+                                                            <p class="border border-0 my-0 fw-semibold">Solicitudes sin Ficha</p>
+                                                            <p class="fs-6 border border-0 my-0 text-muted">Lista de aspirantes con solicitud y sin ficha.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-2 text-end">
+                                                        <i class="fa-solid fa-ellipsis fs-4 me-2"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button">
+                                            <div class="row align-items-center mx-0">
+                                                <div class="col-10 d-flex align-items-center text-start">
+                                                    <div class="fs-4">
+                                                        <i class="fa-regular fa-calendar text-muted me-3"></i>
+                                                    </div>
+                                                    <div class="py-2">
+                                                        <p class="border border-0 my-0 fw-semibold">Citas</p>
+                                                        <p class="fs-6 border border-0 my-0 text-muted">Consulta aquí el día y hora que tienes que ir a entregar papelería.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-2 text-end">
+                                                    <i class="fa-solid fa-arrow-up-right-from-square fs-4 me-2"></i>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item align-items-center px-1 rounded-0 btn btn-light" type="button">
+                                            <div class="row align-items-center mx-0">
+                                                <div class="col-10 d-flex align-items-center text-start">
+                                                    <div class="fs-4">
+                                                        <i class="fa-regular fa-rectangle-list text-muted me-3"></i>
+                                                    </div>
+                                                    <div class="py-2">
+                                                        <p class="border border-0 my-0 fw-semibold">Lista de alumnos por salón</p>
+                                                        <p class="fs-6 border border-0 my-0 text-muted">Lista de aspirantes que presentaran examen CENEVAL.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-2 text-end">
+                                                    <i class="fa-solid fa-arrow-up-right-from-square fs-4 me-2"></i>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="col-lg-12 mt-4">
+                            <div class="card user-select-none">
+                                <div class="card-header">
+                                    <div class="row align-items-center py-2">
+                                        <div class="col-lg-12">
+                                            <h5 class="card-title my-0">Camara</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body border-bottom" ng-if="view_camera==true">
+                                    <div class="text-center">
+                                        <video id="camera_video" class="img-fluid" autoplay ng-if="camera_error==''"></video>
+                                        <div class="text-center" ng-if="camera_error!=''">
+                                            <i class="fa-solid fa-triangle-exclamation fs-1 text-warning"></i>
+                                            <p class="fs-3 m-0 fw-bold">{{camera_error}}</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="card-footer p-3 border-top-0">
+                                    <div class="btn-group d-flex" role="group" aria-label="Botones de acción para la camara">
+                                        <button type="button" class="btn btn-success py-2{{no_click}}" ng-click="cameraOn()"><i class="fa-solid fa-power-off"></i></button>
+                                        <button type="button" class="btn btn-danger" ng-click="cameraOff()"><i class="fa-solid fa-power-off"></i></button>
+                                        <button type="button" class="btn btn-primary" ng-click="getSnapshot()"><i class="fa-solid fa-camera"></i></button>
+                                    </div>
+                                </div>
+                                <div class="card-body border-top {{view_snapshot}}">
+                                    <div class="text-center">
+                                        <canvas style="display: none" id="canvas" width="640" height="480"></canvas>
+                                        <img id="Snapshot" class="img-fluid" src="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 mt-4">
+                            <div class="card user-select-none">
+                                <div class="card-header">
+                                    <div class="row align-items-center py-2">
+                                        <div class="col-lg-12">
+                                            <h5 class="card-title my-0">Opciones</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button">
+                                            <div data-bs-toggle="modal" href="#Modal_Config" type="button">
+                                                <div class="row align-items-center mx-0">
+                                                    <div class="col-10 d-flex align-items-center text-start">
+                                                        <div class="fs-4">
+                                                            <i class="fa-solid fa-gear text-muted me-3"></i>
+                                                        </div>
+                                                        <div class="py-2">
+                                                            <p class="border border-0 my-0 fw-semibold">Ajustes</p>
+                                                            <p class="fs-6 border border-0 my-0 text-muted">Configuración</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-2 text-end">
+                                                        <i class="fa-solid fa-ellipsis fs-4 me-2"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item align-items-center px-1 rounded-0 btn btn-light" type="button">
+                                            <div data-bs-toggle="modal" href="#Modal_Delete_records" type="button">
+                                                <div class="row align-items-center mx-0">
+                                                    <div class="col-10 d-flex align-items-center text-start">
+                                                        <div class="fs-4">
+                                                            <i class="fa-solid fa-trash-can text-danger opacity-75 me-3"></i>
+                                                        </div>
+                                                        <div class="py-2">
+                                                            <p class="border border-0 my-0 fw-semibold">Eliminar registros sin solicitud</p>
+                                                            <p class="fs-6 border border-0 my-0 text-muted">Haz clic en esta opción para eliminar permanentemente los registros incompletos.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-2 text-end">
+                                                        <i class="fa-solid fa-ellipsis fs-4 me-2"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 mt-4">
+                            <div class="card user-select-none">
+                                <div class="card-header">
+                                    <div class="row align-items-center py-2">
+                                        <div class="col-lg-12">
+                                            <h5 class="card-title my-0">Importar</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item align-items-center px-1 rounded-0 btn btn-light" type="button">
+                                            <label class="row align-items-center mx-0">
+                                                <div class="col-10 d-flex align-items-center text-start">
+                                                    <div class="fs-4">
+                                                        <i class="fa-solid fa-cloud-arrow-up text-muted me-3"></i>
+                                                    </div>
+                                                    <div class="py-2">
+                                                        <p class="border border-0 my-0 fw-semibold">Importar aceptados</p>
+                                                        <p class="fs-6 border border-0 my-0 text-muted">Importa un archivo .CSV de los aspirantes aceptados: (CURP/Folio CENEVAL, Grado, Grupo, Carrera, Turno).</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-2 text-end">
+                                                    <i class="fa-solid fa-crop-simple fs-4 me-2"></i>
+                                                </div>
+                                                <input type="file" hidden="" accept=".csv" aria-invalid="false">
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 mt-4">
+                            <div class="card user-select-none">
+                                <div class="card-header">
+                                    <div class="row align-items-center py-2">
+                                        <div class="col-lg-12">
+                                            <h5 class="card-title my-0">Exportar</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button">
+                                            <div class="row align-items-center mx-0">
+                                                <div class="col-10 d-flex align-items-center text-start">
+                                                    <div class="fs-4">
+                                                        <i class="fa-solid fa-cloud-arrow-down text-muted me-3"></i>
+                                                    </div>
+                                                    <div class="py-2">
+                                                        <p class="border border-0 my-0 fw-semibold">Descargar</p>
+                                                        <p class="fs-6 border border-0 my-0 text-muted">Exporta un concentrado en formato para Excel.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-2 text-end">
+                                                    <i class="fa-solid fa-crop-simple fs-4 me-2"></i>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button">
+                                            <div class="row align-items-center mx-0">
+                                                <div class="col-10 d-flex align-items-center text-start">
+                                                    <div class="fs-4">
+                                                        <i class="fa-solid fa-cloud-arrow-down text-muted me-3"></i>
+                                                    </div>
+                                                    <div class="py-2">
+                                                        <p class="border border-0 my-0 fw-semibold">Descargar concentrado para SIGAF</p>
+                                                        <p class="fs-6 border border-0 my-0 text-muted">Exporta un concentrado en formato para Excel (Aspirantes aceptados).</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-2 text-end">
+                                                    <i class="fa-solid fa-crop-simple fs-4 me-2"></i>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item align-items-center px-1 rounded-0 btn btn-light" type="button">
+                                            <div class="row align-items-center mx-0">
+                                                <div class="col-10 d-flex align-items-center text-start">
+                                                    <div class="fs-4">
+                                                        <i class="fa-solid fa-cloud-arrow-down text-muted me-3"></i>
+                                                    </div>
+                                                    <div class="py-2">
+                                                        <p class="border border-0 my-0 fw-semibold">Descargar lista de alumnos por salón</p>
+                                                        <p class="fs-6 border border-0 my-0 text-muted">Lista de aspirantes que presentaran examen CENEVAL.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-2 text-end">
+                                                    <i class="fa-solid fa-crop-simple fs-4 me-2"></i>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Eliminar Registros sin Solicitud -->
+    <div class="modal fade" id="Modal_Delete_records" data-bs-backdrop="static" aria-hidden="true" aria-labelledby="Modal_Student_Add_Conf_Label" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-sm modal-dialog-scrollable user-select-none">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="Modal_Student_Add_Conf_Label">Confirmación</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <p class="m-0">¿Está seguro/a de eliminar los registros sin solicitud?</p>
+                </div>
+                <div class="modal-footer justify-content-center btn-group btn-group-lg">
+                    <button class="col-5 btn btn-light m-0" data-bs-dismiss="modal" type="button">Cancelar</button>
+                    <button class="col-5 btn btn-danger m-0" type="button">Si</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Registro -->
+    <div class="modal fade" id="Modal_Add_Aspirant" tabindex="-1" aria-labelledby="Modal_Add_Aspirant_Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable user-select-none">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="Modal_Add_Aspirant_Label">Nuevo aspirante</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row align-items-center border-bottom border-2 px-1 py-2">
+                        <div class="col-7">
+                            <label for="A_foreign">Extranjero</label>
+                        </div>
+                        <div class="col-5">
+                            <select class="form-select" id="A_foreign" required>
+                                <option selected>Selecciona</option>
+                                <option>SI</option>    
+                                <option>NO</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row align-items-center border-bottom border-2 py-2">
+                        <div class="form-floating">
+                            <input type="text" maxlength="18" class="form-control" id="A_curp" placeholder="Escribe tu curp" required>
+                            <label class="px-4" for="A_curp">CURP</label>
+                        </div>
+                    </div>
+                    <div class="row align-items-center border-bottom border-2 py-2">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="A_dad_lastname" placeholder="Escribe tu apellido paterno" required>
+                            <label class="px-4" for="A_dad_lastname">Apellido paterno</label>
+                        </div>
+                    </div>
+                    <div class="row align-items-center border-bottom border-2 py-2">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="A_mom_lastname" placeholder="Escribe tu apellido materno">
+                            <label class="px-4" for="A_mom_lastname">Apellido materno</label>
+                        </div>
+                    </div>
+                    <div class="row align-items-center border-bottom border-2 py-2">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="A_name" placeholder="Escribe tu nombre completo" required>
+                            <label class="px-4" for="A_name">Nombre(s)</label>
+                        </div>
+                    </div>
+                    <div class="row align-items-center border-bottom border-2 py-2">
+                        <div class="form-floating">
+                            <input type="date" class="form-control" id="A_birthdate" required>
+                            <label class="px-4" for="A_birthdate">Fecha de nacimiento (AAAA-MM-DD)</label>
+                        </div>
+                    </div>
+                    <div class="row align-items-center border-bottom border-2 px-1 py-2">
+                        <div class="col-7">
+                            <label for="A_gender">Genero</label>
+                        </div>
+                        <div class="col-5">
+                            <select class="form-select" id="A_gender" required>
+                                <option selected>Selecciona</option>
+                                <option>MASCULINO</option>    
+                                <option>FEMENINO</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row align-items-center border-bottom border-2 py-2">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="A_street_number" placeholder="Escribe la calle y número de tu casa" required>
+                            <label class="px-4" for="A_street_number">Calle y Número</label>
+                        </div>
+                    </div>
+                    <div class="row align-items-center border-bottom border-2 py-2">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="A_suburb_name" placeholder="Escribe el nombre de tu colonia" required>
+                            <label class="px-4" for="A_suburb_name">Colonia</label>
+                        </div>
+                    </div>
+                    <div class="row align-items-center border-bottom border-2 py-2">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="A_CCT" placeholder="Escribe el C.C.T. de tu escuela" required>
+                            <label class="px-4" for="A_CCT">C.C.T. Escuela</label>
+                        </div>
+                    </div>
+                    <div class="row align-items-center border-bottom border-2 px-1 py-2">
+                        <div class="col-7">
+                            <label for="A_school">Escuelas</label>
+                        </div>
+                        <div class="col-5">
+                            <select class="form-select" id="A_school" ng-options="option.name for option in schools.A_Options track by option.id" ng-model="schools.S_Option" required></select>
+                        </div>
+                    </div>
+                    <div class="row align-items-center py-2">
+                        <div class="form-floating">
+                            <input type="number" class="form-control" id="A_average" placeholder="Escribe tu promedio final" required>
+                            <label class="px-4" for="A_average">Promedio final</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-success">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Ajustes -->
+    <div class="modal fade" id="Modal_Config" tabindex="-1" aria-labelledby="Modal_Modal_Config_Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable user-select-none">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="Modal_Modal_Config_Label">Ajustes</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row align-items-center border-bottom border-2 py-2">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="C_title" value="{{pre_registration.S_Option.name}}" placeholder="Escribe el titulo" required>
+                            <label class="px-4" for="C_title">Título</label>
+                        </div>
+                    </div>
+                    <div class="row align-items-center py-2">
+                        <div class="form-floating">
+                            <textarea class="form-control" id="C_description" placeholder="Escribe una descripción" rows="3">{{pre_registration.S_Option.description}}</textarea>
+                            <label class="px-4" for="C_description">Contenido</label>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header border-0 text-center">
+                            <h6 class="modal-title">Limite</h6>
+                        </div>
+                    </div>
+                    <div class="row align-items-center border-bottom border-2 py-2">
+                        <div class="form-floating">
+                            <input type="number" class="form-control" id="C_title" value="{{pre_registration.S_Option.max_requests}}" placeholder="Escribe el numero maximo de solicitudes" required>
+                            <label class="px-4" for="C_title">Solicitudes maximo</label>
+                        </div>
+                    </div>
+                    <div class="row align-items-center py-2">
+                        <div class="form-floating">
+                            <input type="number" class="form-control" id="C_title" value="{{pre_registration.S_Option.max_tokens}}" placeholder="Escribe el numero maximo de fichas" required>
+                            <label class="px-4" for="C_title">Fichas máximo</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-success">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Busqueda -->
+    <div class="modal fade" id="Modal_search" tabindex="-1" aria-labelledby="Modal_search_Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable user-select-none">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="Modal_search_Label">Búsqueda</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex align-items-center border-bottom border-2 py-3">
+                        <i class="fa-solid fa-magnifying-glass mx-3 fs-5 opacity-50"></i>
+                        <input class="form-control me-3" ng-init="search_aspirant=''" ng-model="search_aspirant" placeholder="Buscar aspirantes por CURP, Nombre, Solicitud registrada">
+                    </div>
+                    <div class="d-flex align-items-center py-2 text-start" ng-if="search_aspirant==''">
+                        <div class="fs-3 text-muted">
+                            <i class="fa-regular fa-circle-xmark me-3"></i>
+                        </div>
+                        <div class="py-3">
+                            <p class="border border-0 my-0 pb-1">No se encuentra el aspirante buscado</p>
+                            <p class="border border-0 my-0 pb-1 text-muted">Los aspirantes disponibles se mostrarán aquí.</p>
+                        </div>
+                    </div>
+                    <ul class="list-group list-group-flush" ng-if="search_aspirant !=''">
+                        <li class="list-group-item d-flex align-items-center px-1" ng-repeat="aspirant in aspirants | filter: search_aspirant">
+                            <div class="photo_aspirant text-center me-3">
+                                <img class="border border-3 border-success" src="{{aspirant.photo}}" alt="" type="button" data-bs-toggle="modal" href="#Aspirant_IMG_Modal_{{aspirant.id}}_Search">
+                            </div>
+                            <div class="row w-100 btn btn-light d-flex align-items-center rounded-0 rounded-end text-start" type="button" data-bs-toggle="modal" href="#Modal_aspirant_{{aspirant.id}}_Search">
+                                <div class="col-10">
+                                    <p class="m-0">{{aspirant.id}} - {{aspirant.lastname}} {{aspirant.name}} - {{aspirant.curp}}</p>
+                                    <p class="m-0 text-muted fw-semibold">
+                                        <span ng-if=" aspirant.id_request !=0">SOLICITUD: <span class="fw-bold">#{{(requests | filter : {id: aspirant.id_request})[0].id }}</span></span>
+                                        <span ng-if="aspirant.id_request==0"><span class="fw-bold">SIN SOLICITUD</span></span>
+                                        <span ng-if=" aspirant.id_token !=0">| FICHA: <span class="fw-bold">#{{(tokens | filter : {id: aspirant.id_token})[0].id }}</span></span>
+                                        <span ng-if="aspirant.id_token==0"><span class="fw-bold">- SIN FICHA</span></span>
+                                </div>
+                                <div class="col-2 text-center">
+                                    <div type="button"><i class="fa-solid fa-ellipsis"></i></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Busqueda > Imagen Aspirante  -->
+    <div ng-repeat="aspirant in aspirants | filter: search_aspirant">
+        <div class="modal fade" id="Aspirant_IMG_Modal_{{aspirant.id}}_Search" data-bs-toggle="modal" href="#Modal_search" type="button" tabindex="-1" aria-labelledby="Aspirant_IMG_Modal_{{aspirant.id}}_Search_Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-sm modal-dialog-scrollable user-select-none">
+                <div class="modal-content rounded-circle">
+                    <div class="modal-body">
+                        <div class="modal_aspirant_photo">
+                            <img class="rounded-circle" src="{{aspirant.photo}}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Opciones del Aspirante < Busqueda -->
+    <div ng-repeat="aspirant in aspirants | filter: search_aspirant">
+        <div class="modal fade" id="Modal_aspirant_{{aspirant.id}}_Search" data-bs-backdrop="static" tabindex="-1" aria-labelledby="Modal_aspirant_{{aspirant.id}}_Search_Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable user-select-none">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="Modal_aspirant_{{aspirant.id}}_Search_Label">Opciones del aspirante</h5>
+                        <button type="button" class="btn-close" data-bs-toggle="modal" href="#Modal_search" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card">
+                            <div class="card-header border-0 text-center">
+                                <h6 class="modal-title">{{aspirant.lastname}} {{aspirant.name}}</h6>
+                            </div>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-solid fa-user text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Ir al perfil</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end">
+                                        <i class="fa-solid fa-greater-than fs-4 me-2"></i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button" ng-if=" aspirant.id_request !=0">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-solid fa-hashtag text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Solicitud: {{(requests | filter : {id: aspirant.id_request})[0].id }}</p>
+                                            <p class="fs-6 border border-0 my-0 text-muted">Descargar solicitud de preinscripción</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end">
+                                        <i class="fa-solid fa-crop-simple fs-4 me-2"></i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button" ng-if=" aspirant.id_request==0">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-12 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-solid fa-circle-info text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Asignar solicitud</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button" ng-if=" aspirant.id_token !=0">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-solid fa-hashtag text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Ficha: {{(tokens | filter : {id: aspirant.id_token})[0].id }}</p>
+                                            <p class="fs-6 border border-0 my-0 text-muted">Descargar ficha de preinscripción</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end">
+                                        <i class="fa-solid fa-crop-simple fs-4 me-2"></i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button" ng-if=" aspirant.id_token !=0">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-solid fa-hashtag text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Generar Ficha: {{(tokens | filter : {id: aspirant.id_token})[0].id }}</p>
+                                            <p class="fs-6 border border-0 my-0 text-muted">Descargar ficha de preinscripción</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end">
+                                        <i class="fa-solid fa-crop-simple fs-4 me-2"></i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button" ng-if=" aspirant.id_token !=0">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-solid fa-hashtag text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Enviar Ficha al correo: {{(tokens | filter : {id: aspirant.id_token})[0].id }}</p>
+                                            <p class="fs-6 border border-0 my-0 text-muted">Descargar ficha de preinscripción</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end">
+                                        <i class="fa-solid fa-crop-simple fs-4 me-2"></i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button" ng-if=" aspirant.id_token==0">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-12 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-solid fa-circle-info text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Asignar Ficha</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-regular fa-file text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Hoja de Pago Ceneval</p>
+                                            <p class="fs-6 border border-0 my-0 text-muted">Descargar ficha de preinscripción</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end">
+                                        <i class="fa-solid fa-crop-simple fs-4 me-2"></i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 rounded-0 row w-100">
+                                <button class="btn btn-dark py-2"><p class="my-0 fw-semibold"><i class="fa-solid fa-cloud-arrow-up"></i> Subir foto</p></button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" href="#Modal_search">Regresar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Solicitudes -->
+    <div class="modal fade" id="Modal_Requests" tabindex="-1" aria-labelledby="Modal_Requests_Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable user-select-none">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="Modal_Requests_Label">Solicitudes</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row align-items-center border-bottom border-2 px-1 py-2">
+                        <div class="col-7">
+                            <label for="Req_Show">Mostrar</label>
+                        </div>
+                        <div class="col-5">
+                            <select class="form-select" id="Req_Show" required>
+                                <option selected>Todas</option>
+                                <option>Sin solicitud</option>
+                                <option>Con solicitud</option>
+                                <option>Con solicitud y Ficha</option>
+                                <option>Con solicitud y sin Ficha</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="table-responsive mt-2">
+                        <table class=" table table-bordered table-striped align-middle table-sm">
+                            <thead>
+                                <tr class="text-center">
+                                    <th scope="col" class="align-middle">NO.</th>
+                                    <th scope="col" class="align-middle">FECHA DE REGISTRO</th>
+                                    <th scope="col" class="align-middle">ASPIRANTE</th>
+                                    <th scope="col" class="align-middle">CURP</th>
+                                    <th scope="col" class="align-middle">SOLICITUD</th>
+                                    <th scope="col" class="align-middle">FICHA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="aspirant in aspirants" ng-if="aspirant.id_request != 0">
+                                    <th scope="row" class="text-center" data-bs-toggle="modal" href="#Modal_aspirant_{{aspirant.id}}_Requests">{{aspirant.id}}</th>
+                                    <td class="text-center" data-bs-toggle="modal" href="#Modal_aspirant_{{aspirant.id}}_Requests">{{aspirant.register_date}}</td>
+                                    <td class="text-center" data-bs-toggle="modal" href="#Modal_aspirant_{{aspirant.id}}_Requests">{{aspirant.lastname}} {{aspirant.name}}</td>
+                                    <td class="text-center" data-bs-toggle="modal" href="#Modal_aspirant_{{aspirant.id}}_Requests">{{aspirant.curp}}</td>
+                                    <td class="text-center" data-bs-toggle="modal" href="#Modal_aspirant_{{aspirant.id}}_Requests">{{(requests | filter : {id: aspirant.id_request})[0].id }}</td>
+                                    <td class="text-center" data-bs-toggle="modal" href="#Modal_aspirant_{{aspirant.id}}_Requests">{{(tokens | filter : {id: aspirant.id_token})[0].id }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Opciones del Aspirante < Solicitudes -->
+    <div ng-repeat="aspirant in aspirants">
+        <div class="modal fade" id="Modal_aspirant_{{aspirant.id}}_Requests" data-bs-backdrop="static" tabindex="-1" aria-labelledby="Modal_aspirant_{{aspirant.id}}_Requests_Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable user-select-none">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="Modal_aspirant_{{aspirant.id}}_Requests_Label">Opciones del aspirante</h5>
+                        <button type="button" class="btn-close" data-bs-toggle="modal" href="#Modal_Requests" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card">
+                            <div class="card-header border-0 text-center">
+                                <h6 class="modal-title">{{aspirant.lastname}} {{aspirant.name}}</h6>
+                            </div>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-solid fa-user text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Ir al perfil</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end">
+                                        <i class="fa-solid fa-greater-than fs-4 me-2"></i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button" ng-if=" aspirant.id_request !=0">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-solid fa-hashtag text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Solicitud: {{(requests | filter : {id: aspirant.id_request})[0].id }}</p>
+                                            <p class="fs-6 border border-0 my-0 text-muted">Descargar solicitud de preinscripción</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end">
+                                        <i class="fa-solid fa-crop-simple fs-4 me-2"></i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button" ng-if=" aspirant.id_request==0">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-12 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-solid fa-circle-info text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Asignar solicitud</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button" ng-if=" aspirant.id_token !=0">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-solid fa-hashtag text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Ficha: {{(tokens | filter : {id: aspirant.id_token})[0].id }}</p>
+                                            <p class="fs-6 border border-0 my-0 text-muted">Descargar ficha de preinscripción</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end">
+                                        <i class="fa-solid fa-crop-simple fs-4 me-2"></i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button" ng-if=" aspirant.id_token !=0">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-solid fa-hashtag text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Generar Ficha: {{(tokens | filter : {id: aspirant.id_token})[0].id }}</p>
+                                            <p class="fs-6 border border-0 my-0 text-muted">Descargar ficha de preinscripción</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end">
+                                        <i class="fa-solid fa-crop-simple fs-4 me-2"></i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button" ng-if=" aspirant.id_token !=0">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-solid fa-hashtag text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Enviar Ficha al correo: {{(tokens | filter : {id: aspirant.id_token})[0].id }}</p>
+                                            <p class="fs-6 border border-0 my-0 text-muted">Descargar ficha de preinscripción</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end">
+                                        <i class="fa-solid fa-crop-simple fs-4 me-2"></i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button" ng-if=" aspirant.id_token==0">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-12 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-solid fa-circle-info text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Asignar Ficha</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-regular fa-file text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Hoja de Pago Ceneval</p>
+                                            <p class="fs-6 border border-0 my-0 text-muted">Descargar ficha de preinscripción</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end">
+                                        <i class="fa-solid fa-crop-simple fs-4 me-2"></i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 rounded-0 row w-100">
+                                <button class="btn btn-dark py-2"><p class="my-0 fw-semibold"><i class="fa-solid fa-cloud-arrow-up"></i> Subir foto</p></button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" href="#Modal_Requests">Regresar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Fichas -->
+    <div class="modal fade" id="Modal_Tokens" tabindex="-1" aria-labelledby="Modal_Tokens_Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable user-select-none">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="Modal_Tokens_Label">Fichas</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive mt-2">
+                        <table class=" table table-bordered table-striped align-middle table-sm">
+                            <thead>
+                                <tr class="text-center">
+                                    <th scope="col" class="align-middle">NO.</th>
+                                    <th scope="col" class="align-middle">FECHA DE REGISTRO</th>
+                                    <th scope="col" class="align-middle">ASPIRANTE</th>
+                                    <th scope="col" class="align-middle">CURP</th>
+                                    <th scope="col" class="align-middle">SOLICITUD</th>
+                                    <th scope="col" class="align-middle">FICHA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="aspirant in aspirants" ng-if="aspirant.id_token != 0">
+                                    <th scope="row" class="text-center" data-bs-toggle="modal" href="#Modal_aspirant_{{aspirant.id}}_Tokens">{{aspirant.id}}</th>
+                                    <td class="text-center" data-bs-toggle="modal" href="#Modal_aspirant_{{aspirant.id}}_Tokens">{{aspirant.register_date}}</td>
+                                    <td class="text-center" data-bs-toggle="modal" href="#Modal_aspirant_{{aspirant.id}}_Tokens">{{aspirant.lastname}} {{aspirant.name}}</td>
+                                    <td class="text-center" data-bs-toggle="modal" href="#Modal_aspirant_{{aspirant.id}}_Tokens">{{aspirant.curp}}</td>
+                                    <td class="text-center" data-bs-toggle="modal" href="#Modal_aspirant_{{aspirant.id}}_Tokens">{{(requests | filter : {id: aspirant.id_request})[0].id }}</td>
+                                    <td class="text-center" data-bs-toggle="modal" href="#Modal_aspirant_{{aspirant.id}}_Tokens">{{(tokens | filter : {id: aspirant.id_token})[0].id }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Opciones del Aspirante < Fichas -->
+    <div ng-repeat="aspirant in aspirants">
+        <div class="modal fade" id="Modal_aspirant_{{aspirant.id}}_Tokens" data-bs-backdrop="static" tabindex="-1" aria-labelledby="Modal_aspirant_{{aspirant.id}}_Tokens_Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable user-select-none">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="Modal_aspirant_{{aspirant.id}}_Tokens_Label">Opciones del aspirante</h5>
+                        <button type="button" class="btn-close" data-bs-toggle="modal" href="#Modal_Tokens" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card">
+                            <div class="card-header border-0 text-center">
+                                <h6 class="modal-title">{{aspirant.lastname}} {{aspirant.name}}</h6>
+                            </div>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-solid fa-user text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Ir al perfil</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end">
+                                        <i class="fa-solid fa-greater-than fs-4 me-2"></i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button" ng-if=" aspirant.id_request !=0">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-solid fa-hashtag text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Solicitud: {{(requests | filter : {id: aspirant.id_request})[0].id }}</p>
+                                            <p class="fs-6 border border-0 my-0 text-muted">Descargar solicitud de preinscripción</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end">
+                                        <i class="fa-solid fa-crop-simple fs-4 me-2"></i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button" ng-if=" aspirant.id_request==0">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-12 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-solid fa-circle-info text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Asignar solicitud</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button" ng-if=" aspirant.id_token !=0">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-solid fa-hashtag text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Ficha: {{(tokens | filter : {id: aspirant.id_token})[0].id }}</p>
+                                            <p class="fs-6 border border-0 my-0 text-muted">Descargar ficha de preinscripción</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end">
+                                        <i class="fa-solid fa-crop-simple fs-4 me-2"></i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button" ng-if=" aspirant.id_token !=0">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-solid fa-hashtag text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Generar Ficha: {{(tokens | filter : {id: aspirant.id_token})[0].id }}</p>
+                                            <p class="fs-6 border border-0 my-0 text-muted">Descargar ficha de preinscripción</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end">
+                                        <i class="fa-solid fa-crop-simple fs-4 me-2"></i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button" ng-if=" aspirant.id_token !=0">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-solid fa-hashtag text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Enviar Ficha al correo: {{(tokens | filter : {id: aspirant.id_token})[0].id }}</p>
+                                            <p class="fs-6 border border-0 my-0 text-muted">Descargar ficha de preinscripción</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end">
+                                        <i class="fa-solid fa-crop-simple fs-4 me-2"></i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button" ng-if=" aspirant.id_token==0">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-12 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-solid fa-circle-info text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Asignar Ficha</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-regular fa-file text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Hoja de Pago Ceneval</p>
+                                            <p class="fs-6 border border-0 my-0 text-muted">Descargar ficha de preinscripción</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end">
+                                        <i class="fa-solid fa-crop-simple fs-4 me-2"></i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 rounded-0 row w-100">
+                                <button class="btn btn-dark py-2"><p class="my-0 fw-semibold"><i class="fa-solid fa-cloud-arrow-up"></i> Subir foto</p></button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" href="#Modal_Tokens">Regresar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Fichas -->
+    <div class="modal fade" id="Modal_no_Tokens" tabindex="-1" aria-labelledby="Modal_no_Tokens_Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable user-select-none">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="Modal_no_Tokens_Label">Sin Fichas</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive mt-2">
+                        <table class=" table table-bordered table-striped align-middle table-sm">
+                            <thead>
+                                <tr class="text-center">
+                                    <th scope="col" class="align-middle">NO.</th>
+                                    <th scope="col" class="align-middle">FECHA DE REGISTRO</th>
+                                    <th scope="col" class="align-middle">ASPIRANTE</th>
+                                    <th scope="col" class="align-middle">CURP</th>
+                                    <th scope="col" class="align-middle">SOLICITUD</th>
+                                    <th scope="col" class="align-middle">FICHA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="aspirant in aspirants" ng-if="aspirant.id_token == 0 && aspirant.id_request != 0">
+                                    <th scope="row" class="text-center" data-bs-toggle="modal" href="#Modal_aspirant_{{aspirant.id}}_no_Tokens">{{aspirant.id}}</th>
+                                    <td class="text-center" data-bs-toggle="modal" href="#Modal_aspirant_{{aspirant.id}}_no_Tokens">{{aspirant.register_date}}</td>
+                                    <td class="text-center" data-bs-toggle="modal" href="#Modal_aspirant_{{aspirant.id}}_no_Tokens">{{aspirant.lastname}} {{aspirant.name}}</td>
+                                    <td class="text-center" data-bs-toggle="modal" href="#Modal_aspirant_{{aspirant.id}}_no_Tokens">{{aspirant.curp}}</td>
+                                    <td class="text-center" data-bs-toggle="modal" href="#Modal_aspirant_{{aspirant.id}}_no_Tokens">{{(requests | filter : {id: aspirant.id_request})[0].id }}</td>
+                                    <td class="text-center" data-bs-toggle="modal" href="#Modal_aspirant_{{aspirant.id}}_no_Tokens">{{(tokens | filter : {id: aspirant.id_token})[0].id }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Opciones del Aspirante < Sin Fichas -->
+    <div ng-repeat="aspirant in aspirants">
+        <div class="modal fade" id="Modal_aspirant_{{aspirant.id}}_no_Tokens" data-bs-backdrop="static" tabindex="-1" aria-labelledby="Modal_aspirant_{{aspirant.id}}_no_Tokens_Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable user-select-none">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="Modal_aspirant_{{aspirant.id}}_no_Tokens_Label">Opciones del aspirante</h5>
+                        <button type="button" class="btn-close" data-bs-toggle="modal" href="#Modal_no_Tokens" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card">
+                            <div class="card-header border-0 text-center">
+                                <h6 class="modal-title">{{aspirant.lastname}} {{aspirant.name}}</h6>
+                            </div>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-solid fa-user text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Ir al perfil</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end">
+                                        <i class="fa-solid fa-greater-than fs-4 me-2"></i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button" ng-if=" aspirant.id_request !=0">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-solid fa-hashtag text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Solicitud: {{(requests | filter : {id: aspirant.id_request})[0].id }}</p>
+                                            <p class="fs-6 border border-0 my-0 text-muted">Descargar solicitud de preinscripción</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end">
+                                        <i class="fa-solid fa-crop-simple fs-4 me-2"></i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button" ng-if=" aspirant.id_request==0">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-12 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-solid fa-circle-info text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Asignar solicitud</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button" ng-if=" aspirant.id_token !=0">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-solid fa-hashtag text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Ficha: {{(tokens | filter : {id: aspirant.id_token})[0].id }}</p>
+                                            <p class="fs-6 border border-0 my-0 text-muted">Descargar ficha de preinscripción</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end">
+                                        <i class="fa-solid fa-crop-simple fs-4 me-2"></i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button" ng-if=" aspirant.id_token !=0">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-solid fa-hashtag text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Generar Ficha: {{(tokens | filter : {id: aspirant.id_token})[0].id }}</p>
+                                            <p class="fs-6 border border-0 my-0 text-muted">Descargar ficha de preinscripción</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end">
+                                        <i class="fa-solid fa-crop-simple fs-4 me-2"></i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button" ng-if=" aspirant.id_token !=0">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-solid fa-hashtag text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Enviar Ficha al correo: {{(tokens | filter : {id: aspirant.id_token})[0].id }}</p>
+                                            <p class="fs-6 border border-0 my-0 text-muted">Descargar ficha de preinscripción</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end">
+                                        <i class="fa-solid fa-crop-simple fs-4 me-2"></i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button" ng-if=" aspirant.id_token==0">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-12 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-solid fa-circle-info text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Asignar Ficha</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 border-0 border-bottom rounded-0 btn btn-light" type="button">
+                                <div class="row align-items-center mx-0">
+                                    <div class="col-10 d-flex align-items-center text-start">
+                                        <div class="fs-4">
+                                            <i class="fa-regular fa-file text-muted me-3"></i>
+                                        </div>
+                                        <div class="py-2">
+                                            <p class="border border-0 my-0 fw-semibold">Hoja de Pago Ceneval</p>
+                                            <p class="fs-6 border border-0 my-0 text-muted">Descargar ficha de preinscripción</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-end">
+                                        <i class="fa-solid fa-crop-simple fs-4 me-2"></i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item align-items-center px-1 rounded-0 row w-100">
+                                <button class="btn btn-dark py-2"><p class="my-0 fw-semibold"><i class="fa-solid fa-cloud-arrow-up"></i> Subir foto</p></button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" href="#Modal_no_Tokens">Regresar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
