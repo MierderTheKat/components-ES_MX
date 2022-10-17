@@ -9,6 +9,12 @@
     border-bottom: 1px solid black;
 }
 
+.left {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
 .rigth {
     width: 100%;
     border: 1px solid black;
@@ -76,8 +82,10 @@
     .left {
         min-width: 220px !important;
         max-width: 220px !important;
+        height: auto;
         border: 1px solid black;
         border-right: 0px;
+        overflow: visible;
     }
     .rigth {
         width: calc(100% - 220px);
