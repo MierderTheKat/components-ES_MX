@@ -53,7 +53,12 @@ app.controller('GroupList', function($scope) {
             navigator.webkitGetUserMedia ||
             navigator.mozGetUserMedia ||
             navigator.msGetUserMedia);
-        navigator.getMedia({ video: true }, function(stream) {
+        navigator.getMedia({
+            video: {
+                width: 640,
+                height: 480
+            }
+        }, function(stream) {
             self.webCamPermissions(stream); // Tiene webcam
         }, function() {
             self.unavalable = false; // No tiene webcam
