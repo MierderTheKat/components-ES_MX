@@ -75,9 +75,9 @@ app.controller('GroupList', function($scope) {
     ];
 
     $scope.ChangeView = function(id) {
+        $scope.students_docs[id - 1].view = 'visible';
         for (let i = 0; i < $scope.students_docs.length; i++) {
-            $scope.students_docs[id].view = 'visible';
-            if ($scope.students_docs[i].id != (id + 1)) {
+            if ($scope.students_docs[i].id != (id)) {
                 $scope.students_docs[i].view = 'invisible';
             }
         }

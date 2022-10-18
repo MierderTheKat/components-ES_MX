@@ -27,11 +27,6 @@
     cursor: pointer;
 }
 
-button span {
-    visibility: hidden;
-    font-size: 0;
-}
-
 
 /* _________________ Invisible Space _________________ */
 
@@ -43,14 +38,19 @@ button span {
 }
 
 
+/* _________________ Alumnos Escondidos _________________ */
+
+.photo_student img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    user-select: none;
+}
+
+
 /* _________________ Responsive basico _________________ */
 
-@media (min-width: 556px) {
-    button span {
-        visibility: visible;
-        font-size: 16px;
-    }
-}
+@media (min-width: 556px) {}
 
 @media (min-width: 992px) {
     .left {

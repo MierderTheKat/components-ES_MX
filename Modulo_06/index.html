@@ -519,7 +519,7 @@
                                         <input class="form-control me-3" ng-model="search_docs_student" placeholder="Filtrar">
                                     </div>
                                     <div ng-repeat="student_doc in students_docs | filter: search_docs_student">
-                                        <div class="btn btn-light d-flex align-items-center py-2 text-start border-bottom" ng-click="ChangeView(student_doc.id-1)">
+                                        <div class="btn btn-light d-flex align-items-center py-2 text-start border-bottom" ng-click="ChangeView(student_doc.id)">
                                             <div class="fs-3 opacity-75">
                                                 <i class="fa-solid fa-user me-3"></i>
                                             </div>
