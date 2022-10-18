@@ -93,7 +93,7 @@ app.controller('GroupList', function($scope) {
         { id: '1', name: 'Esau', lastname: 'Anaya Rivas', status: 'REGULAR', school_id: 'ISW2022_B1', id_group: '3', photo: 'https://placehold.jp/100x100.png' },
         { id: '2', name: 'Valeria', lastname: 'Barraza Ruano', status: 'REGULAR', school_id: 'ISW2022_B2', id_group: '3', photo: 'https://placehold.jp/100x100.png' },
         { id: '3', name: 'Alex', lastname: 'Villagomez Esqueda', status: 'REGULAR', school_id: 'ISW2022_C1', id_group: '4', photo: 'https://placehold.jp/100x100.png' }
-    ]
+    ];
 
     $scope.data_period = {
         A_Options: [
@@ -126,6 +126,6 @@ app.controller('GroupList', function($scope) {
 
     $scope.reload = function() {
         location.reload(true);
-    }
+    };
 
 });

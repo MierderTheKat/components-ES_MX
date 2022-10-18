@@ -23,7 +23,7 @@ app.controller('GroupList', function($scope) {
 
     $scope.images = [
         { id: '1', name: 'YASSER GUADALUPE', lastname: 'HERNANDEZ GARCIA', curp: 'MARA940621HDGRMV01', id_student: 'ISW2022_B', calification: 'NULL', career: 'MECATRÓNICA', grade: '2', group: 'C', turn: 'TM', img_link: 'https://placehold.jp/100x200.png' }
-    ]
+    ];
 
     $scope.hours = [
         { id: '1', name: '07:00' },
@@ -54,7 +54,8 @@ app.controller('GroupList', function($scope) {
         { id: '26', name: '20:30' },
         { id: '27', name: '21:00' },
         { id: '28', name: '21:30' },
-    ]
+    ];
+
     $scope.week_days = [
         { id: '1', name: 'LUNES' },
         { id: '2', name: 'MARTES' },
@@ -63,7 +64,7 @@ app.controller('GroupList', function($scope) {
         { id: '5', name: 'VIERNES' },
         { id: '6', name: 'SÁBADO' },
         { id: '7', name: 'DOMINGO' }
-    ]
+    ];
 
     $scope.type = {
         A_Options: [
@@ -101,6 +102,6 @@ app.controller('GroupList', function($scope) {
 
     $scope.reload = function() {
         location.reload(true);
-    }
+    };
 
 });

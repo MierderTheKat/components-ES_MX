@@ -92,17 +92,17 @@ app.controller('GroupList', function($scope) {
         { id: '1', name: 'DAVID VICTOR', lastname: 'BERUMEN RAMIREZ', expired_date: 'Oct 1,2022' },
         { id: '2', name: 'YASSER GUADALUPE', lastname: 'HERNANDEZ GARCIA', expired_date: 'Oct 1,2022' },
         { id: '3', name: 'MIGUEL ARTURO', lastname: 'ALVAREZ GALAVIZ', expired_date: 'Oct 1,2022' }
-    ]
+    ];
 
     $scope.students = [
         { id: '1', name: 'JUAN PEDRO', lastname: 'BERUMEN RAMIREZ', school_id: 'ISW2022_A', curp: 'MARA940621HDGRMV01', careers: 'INGENIERIA EN SOFTWARE', grade: '2', group: 'C', turn: 'VESPERTINO', type: 'FISICO', photo: 'https://placehold.jp/100x100.png' },
         { id: '2', name: 'YASSER GUADALUPE', lastname: 'HERNANDEZ GARCIA', school_id: 'ISW2022_B', curp: 'GARF940621HDGRMV01', careers: 'INGENIERIA EN SOFTWARE', grade: '1', group: 'A', turn: 'MATUTINO', type: 'VIRTUAL', photo: 'https://placehold.jp/100x100.png' },
         { id: '3', name: 'MIGUEL ARTURO', lastname: 'ALVAREZ GALAVIZ', school_id: 'ISW2022_C', curp: 'LUFFY40621HDGRMV01', careers: 'ADMINISTRACIÓN DE EMPRESAS', grade: '1', group: 'A', turn: 'MATUTINO', type: 'FISICO', photo: 'https://placehold.jp/100x100.png' }
-    ]
+    ];
 
     $scope.reload = function() {
         location.reload(true);
-    }
+    };
 
     google.charts.load('current', { 'packages': ['bar'] });
     google.charts.setOnLoadCallback(drawStuff);

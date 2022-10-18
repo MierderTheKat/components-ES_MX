@@ -52,7 +52,7 @@ app.controller('GroupList', function($scope) {
             status: true,
             view: 'invisible'
         };
-    }
+    };
 
     $scope.changeClass = function() {
         $scope.data_class.S_Option = {
@@ -61,7 +61,7 @@ app.controller('GroupList', function($scope) {
             status: true,
             view: 'invisible'
         };
-    }
+    };
 
     $scope.showClasses = function() {
         if ($scope.data_group.S_Option.id > 1) {
@@ -86,7 +86,7 @@ app.controller('GroupList', function($scope) {
                 S_Option: { id: '1', name: 'Seleccionar Grupo', status: true, view: 'invisible' }
             };
         }
-    }
+    };
 
     $scope.students = [{
             id: '1',
@@ -173,7 +173,7 @@ app.controller('GroupList', function($scope) {
                 { id_class: '8', grade_u1: '5', grade_u2: '4', grade_u3: '5' }
             ]
         }
-    ]
+    ];
 
     $scope.data_period_student = {
         A_Options: [
@@ -193,10 +193,8 @@ app.controller('GroupList', function($scope) {
         S_Option: { id: '10', name: 'AGOSTO 2018 - ENERO 2018', status: true }
     };
 
-
-
     $scope.reload = function() {
         location.reload(true);
-    }
+    };
 
 });

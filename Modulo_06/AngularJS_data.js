@@ -31,7 +31,7 @@ app.controller('GroupList', function($scope) {
                 view: 'invisible'
             };
         }
-    }
+    };
 
     $scope.changeGroup_2 = function() {
         if ($scope.data_reticule_group.S_Option.id > 1) {
@@ -42,11 +42,11 @@ app.controller('GroupList', function($scope) {
                 view: 'invisible'
             };
         }
-    }
+    };
 
     $scope.students = [
         { id: '1', name: 'Arturo', lastname: 'Alvarez Galaviz', school_id: 'ISW2022_B1', id_group: '3', period_id: '10' }
-    ]
+    ];
 
     $scope.reticle_students = [
         { id: '1', name: 'Juan', lastname: 'Berumen Ramirez', },
@@ -54,7 +54,7 @@ app.controller('GroupList', function($scope) {
         { id: '3', name: 'Arturo', lastname: 'Alvarez Galaviz', },
         { id: '4', name: 'Mauricio', lastname: 'Velazquez Villagomez', },
         { id: '5', name: 'Jovany', lastname: 'Maciaz Elena', }
-    ]
+    ];
 
     $scope.documents = [
         { id: '1', name: 'ACTA DE NACIMIENTO', original: 1, copy: 2, status: "Sin archivo", revision: 0 },
@@ -66,13 +66,13 @@ app.controller('GroupList', function($scope) {
         { id: '7', name: 'CARTA DE BUENA CONDUCTA', original: 1, copy: 2, status: "Sin archivo", revision: 1 },
         { id: '8', name: 'COMPROBANTE DE DOMICILIO', original: 1, copy: 2, status: "Sin archivo", revision: 0 },
         { id: '9', name: 'FORMATO DE LLENADO', original: 1, copy: 2, status: "Sin archivo", revision: 4 }
-    ]
+    ];
 
     $scope.students_docs = [
         { id: '1', name: 'DAVID', lastname: 'BERUMEN RAMIREZ', request: 1, view: 'invisible', status: 'Pendiente', status_color: 'danger', curp: 'MARA940621HDGRMV01', email: 'ramirezjuanber@gmail.com', photo: 'https://placehold.jp/100x100.png' },
         { id: '2', name: 'JUAN', lastname: 'VELAZQUEZ VILLAGOMEZ', request: 2, view: 'invisible', status: 'Realizado', status_color: 'success', curp: 'MARA940621HDGRMV01', email: 'ramirezjuanber@gmail.com', photo: 'https://placehold.jp/100x100.png' },
         { id: '3', name: 'YASSER', lastname: 'HERNANDEZ GARCIA', request: 3, view: 'invisible', status: 'Pendiente', status_color: 'danger', curp: 'MARA940621HDGRMV01', email: 'ramirezjuanber@gmail.com', photo: 'https://placehold.jp/100x100.png' }
-    ]
+    ];
 
     $scope.ChangeView = function(id) {
         for (let i = 0; i < $scope.students_docs.length; i++) {
@@ -81,10 +81,10 @@ app.controller('GroupList', function($scope) {
                 $scope.students_docs[i].view = 'invisible';
             }
         }
-    }
+    };
 
     $scope.reload = function() {
         location.reload(true);
-    }
+    };
 
 });

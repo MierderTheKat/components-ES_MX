@@ -49,7 +49,7 @@ app.controller('GroupList', function($scope) {
         { id: '1', id_course: '2', name: 'JUAN PEDRO', lastname: 'BERUMEN RAMIREZ', curp: 'MARA940621HDGRMV01', school_id: 'MTA2022_A', career: 'MECATRÓNICA', grade: '2', group: 'C', turn: 'TM', classroom: 'C3', pay: 'SI', status: 'FALSE', inscription_date: '2018-12-10', inscription_hour: '09:00:00', message: 'No ha tramitado la credencial, canalizar al módulo de credenciales', photo: 'https://placehold.jp/100x100.png' },
         { id: '2', id_course: '2', name: 'YASSER GUADALUPE', lastname: 'HERNANDEZ GARCIA', curp: 'GARF940621HDGRMV01', school_id: 'ISW2022_B', career: 'ING. EN SOFTWARE', grade: '5', group: 'A', turn: 'TM', classroom: 'A1', pay: 'NO', status: 'FALSE', inscription_date: '', inscription_hour: '', message: 'No ha tramitado la credencial, canalizar al módulo de credenciales', photo: 'https://placehold.jp/100x100.png' },
         { id: '3', id_course: '3', name: 'MIGUEL ARTURO', lastname: 'ALVAREZ GALAVIZ', curp: 'LUFFY40621HDGRMV01', school_id: 'ADE2022_C', career: 'ADMNISTRACIÓN', grade: '8', group: 'B', turn: 'TV', classroom: 'B2', pay: 'NO', status: 'FALSE', inscription_date: '2015-08-02', inscription_hour: '10:00:00', message: 'No ha tramitado la credencial, canalizar al módulo de credenciales', photo: 'https://placehold.jp/100x100.png' }
-    ]
+    ];
 
     $scope.teachers = [
         { id: '1', teacher_id: 'ISA143B', name: 'Yasser', lastname: 'Hernadez Garcia', class: 'PRUEBAS DE SOFTWARE', documents: '2', classroom: '14', date: '12/09/2020', hour: '12:10 AM' },
@@ -109,6 +109,6 @@ app.controller('GroupList', function($scope) {
 
     $scope.reload = function() {
         location.reload(true);
-    }
+    };
 
 });

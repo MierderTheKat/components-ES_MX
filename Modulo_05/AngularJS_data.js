@@ -53,7 +53,6 @@ app.controller('GroupList', function($scope) {
         { id: '3', name: 'Valeria', lastname: 'Barraza Ruano' }
     ];
 
-
     $scope.teacher_disapproveds = [
         { id: '1', name: 'Yasser Hernadez Garcia', students: '20', careers: '30' },
         { id: '2', name: 'Arturo Alvarez Galaviz', students: '15', careers: '12' },
@@ -70,19 +69,19 @@ app.controller('GroupList', function($scope) {
         { id: '1', id_student: '6770336', name: 'JUAN PEDRO', lastname: 'BERUMEN RAMIREZ', school_id: 'MTA2022_A', curp: 'MARA940621HDGRMV01', career: 'MECATRÓNICA', grade: '2', group: 'C', turn: 'TM' },
         { id: '2', id_student: '6778283', name: 'YASSER GUADALUPE', lastname: 'HERNANDEZ GARCIA', school_id: 'ISW2022_B', curp: 'GARF940621HDGRMV01', career: 'INGENIERIA EN SOFTWARE', grade: '1', group: 'A', turn: 'TV' },
         { id: '3', id_student: '6775085', name: 'MIGUEL ARTURO', lastname: 'ALVAREZ GALAVIZ', school_id: 'ADE2022_C', curp: 'LUFFY40621HDGRMV01', career: 'ADMINISTRACIÓN DE EMPRESAS', grade: '1', group: 'A', turn: 'TN' }
-    ]
+    ];
 
     $scope.students = [
         { id: '1', date: '2020-04-23 12:52:42', period: 'SEMESTRAL 2 - 2019', period_name: 'AGOSTO 2018 - ENERO 2019', name: 'JUAN PEDRO', lastname: 'BERUMEN RAMIREZ', curp: 'MARA940621HDGRMV01', school_id: 'MTA2022_A', grade: '2', group: 'C', turn: 'TM', career: 'MECATRÓNICA' },
         { id: '2', date: '2022-06-14 13:13:18', period: 'SEMESTRAL 1 - 2021', period_name: 'AGOSTO 2021 - ENERO 2022', name: 'YASSER GUADALUPE', lastname: 'HERNANDEZ GARCIA', curp: 'GARF940621HDGRMV01', school_id: 'ISW2022_B', grade: '1', group: 'A', turn: 'TV', career: 'INGENIERIA EN SOFTWARE' },
         { id: '3', date: '2021-12-30 08:35:60', period: 'SEMESTRAL 3 - 2020', period_name: 'FEBRERO - JULIO 2022', name: 'MIGUEL ARTURO', lastname: 'ALVAREZ GALAVIZ', curp: 'LUFFY40621HDGRMV01', school_id: 'ADE2022_C', grade: '1', group: 'A', turn: 'TN', career: 'ADMINISTRACIÓN DE EMPRESAS' }
-    ]
+    ];
 
     $scope.student_classes = [
         { id: '1', name: 'QUÍMICA II', p_1: 7.5, p_2: 6, p_3: 6, a_1: 18, a_2: 19, a_3: 19 },
         { id: '2', name: 'LECTURA, EXPRESIÓN ORAL Y ESCRITA II', p_1: 9.5, p_2: 5.5, p_3: 8.2, a_1: 15, a_2: 17, a_3: 23 },
         { id: '3', name: 'INGLÉS II', p_1: 9.2, p_2: 9.3, p_3: 10, a_1: 20, a_2: 20, a_3: 20 }
-    ]
+    ];
 
     $scope.formatNumber = function(i) {
         return Math.round(i);
@@ -110,7 +109,7 @@ app.controller('GroupList', function($scope) {
         { id: '1', name: 'LILITH', lastname: 'LOPEZ DIAZ', curp: 'CURPDEMO', school_id: 'ABC123' },
         { id: '2', name: 'ALICIA', lastname: 'ZAPATA BRAVO', curp: 'BERD940621HDGRMV01', school_id: '1000001' },
         { id: '3', name: 'GUSTAVO', lastname: 'GARCIA ZARAGOZA', curp: 'XXXX707684XXXXXX37', school_id: '1000002' }
-    ]
+    ];
 
     $scope.status = {
         A_Options: [
@@ -187,6 +186,6 @@ app.controller('GroupList', function($scope) {
         var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
 
         chart.draw(data, options);
-    }
+    };
 
 });
