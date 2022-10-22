@@ -256,8 +256,8 @@
                         </div>
                         <div class="card-body text-center">
                             <div class="d-flex align-items-center py-3">
-                                <i class="fa-solid fa-magnifying-glass mx-3 fs-5 opacity-50"></i>
-                                <input class="form-control me-3" ng-init="search_student = ''" ng-model="search_student" placeholder="Busca por Apellidos, CURP o Matrícula">
+                                <i class="fa-solid fa-magnifying-glass me-3 fs-5 opacity-50"></i>
+                                <input class="form-control" ng-init="search_student = ''" ng-model="search_student" placeholder="Busca por Apellidos, CURP o Matrícula">
                             </div>
                             <ul class="p-0 m-0">
                                 <li class="btn btn-light list-group-item d-flex align-items-center px-1 py-2 rounded-2" type="button" ng-if="search_student != ''" ng-repeat="student in students | filter: search_student" ng-click="ChangeView(student.id)">
@@ -267,9 +267,9 @@
                                     <div class="row w-100 d-flex align-items-center text-start">
                                         <div class="col-10">
                                             <p class="m-0">{{student.name}} {{student.lastname}}</p>
-                                            <p class="m-0 fw-semibold text-muted break-text">{{student.type}} - {{student.curp}} - {{student.student_id}} </p>
+                                            <p class="m-0 fw-semibold text-muted break-text">{{student.type}} - <span class="text-break">{{student.curp}}</span> - {{student.student_id}} </p>
                                         </div>
-                                        <div class="col-2 text-center">
+                                        <div class="col-2 p-0 pe-3 text-end">
                                             <div type="button"><i class="fa-solid fa-ellipsis fs-5"></i></div>
                                         </div>
                                     </div>
@@ -283,19 +283,19 @@
                                     <div class="row w-100 d-flex align-items-center text-start">
                                         <div class="col-10">
                                             <p class="m-0">{{student.name}} {{student.lastname}}</p>
-                                            <p class="m-0 fw-semibold text-muted">{{student.type}} - {{student.curp}} - {{student.student_id}} </p>
+                                            <p class="m-0 fw-semibold text-muted">{{student.type}} - <span class="text-break">{{student.curp}}</span> - {{student.student_id}} </p>
                                         </div>
-                                        <div class="col-2 text-center text-danger">
+                                        <div class="col-2 p-0 pe-3 text-end text-danger">
                                             <div type="button" ng-click="ChangeView(0)"><i class="fa-regular fa-circle-xmark fs-2"></i></div>
                                         </div>
                                     </div>
                                 </li>
                             </ul>
                             <div class="row align-items-center px-1 py-2">
-                                <div class="col-6 text-start">
-                                    <h5 for="group" class="card-title my-0">Grupo</h5>
+                                <div class="col-5 text-start">
+                                    <h5 for="group" class="card-title fs-6 fw-bold my-0">Grupo</h5>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-7">
                                     <select class="form-select" ng-if="activeSelector == true" ng-options="option.name for option in groups.A_Options track by option.id" ng-model="groups.S_Option" required></select>
                                     <select class="form-select" ng-if="activeSelector == false" required>
                                         <option value="">Seleccionar Grupo</option>

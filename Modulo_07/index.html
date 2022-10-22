@@ -271,8 +271,8 @@
                             <!-- --------------------- Si hay información en Alumnos --------------------- -->
                             <div ng-if="students.length > 0">
                                 <div class="d-flex align-items-center py-1">
-                                    <i class="fa-solid fa-magnifying-glass mx-3 fs-5 opacity-50"></i>
-                                    <input class="form-control me-3" ng-init="search_student = ''" ng-model="search_student" placeholder="Buscar alumno">
+                                    <i class="fa-solid fa-magnifying-glass me-3 fs-5 opacity-50"></i>
+                                    <input class="form-control" ng-init="search_student = ''" ng-model="search_student" placeholder="Buscar alumno">
                                 </div>
                                 <div class="d-flex align-items-center py-2 text-start" ng-if="search_student == ''">
                                     <div class="fs-3 text-muted">

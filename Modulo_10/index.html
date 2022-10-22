@@ -264,10 +264,10 @@
                         </div>
                         <div class="card-body">
                             <div class="row align-items-center px-1 py-2">
-                                <div class="col-5 text-start">
-                                    <h5 class="card-title my-0">Preinscripción</h5>
+                                <div class="col-7 pe-0 text-start">
+                                    <h5 class="card-title fs-6 fw-bold my-0">Preinscripción</h5>
                                 </div>
-                                <div class="col-7">
+                                <div class="col-5">
                                     <select class="form-select" ng-options="option.name for option in pre_registration.A_Options track by option.id" ng-model="pre_registration.S_Option" required></select>
                                 </div>
                             </div>
@@ -668,10 +668,10 @@
                 </div>
                 <div class="modal-body">
                     <div class="row align-items-center border-bottom border-2 px-1 py-2">
-                        <div class="col-7">
+                        <div class="col-5">
                             <label for="A_foreign">Extranjero</label>
                         </div>
-                        <div class="col-5">
+                        <div class="col-7">
                             <select class="form-select" id="A_foreign" required>
                                 <option selected>Selecciona</option>
                                 <option>SI</option>    
@@ -710,10 +710,10 @@
                         </div>
                     </div>
                     <div class="row align-items-center border-bottom border-2 px-1 py-2">
-                        <div class="col-7">
+                        <div class="col-5">
                             <label for="A_gender">Genero</label>
                         </div>
-                        <div class="col-5">
+                        <div class="col-7">
                             <select class="form-select" id="A_gender" required>
                                 <option selected>Selecciona</option>
                                 <option>MASCULINO</option>    
@@ -740,10 +740,10 @@
                         </div>
                     </div>
                     <div class="row align-items-center border-bottom border-2 px-1 py-2">
-                        <div class="col-7">
+                        <div class="col-5">
                             <label for="A_school">Escuelas</label>
                         </div>
-                        <div class="col-5">
+                        <div class="col-7">
                             <select class="form-select" id="A_school" ng-options="option.name for option in schools.A_Options track by option.id" ng-model="schools.S_Option" required></select>
                         </div>
                     </div>
@@ -819,8 +819,8 @@
                 </div>
                 <div class="modal-body">
                     <div class="d-flex align-items-center border-bottom border-2 py-3">
-                        <i class="fa-solid fa-magnifying-glass mx-3 fs-5 opacity-50"></i>
-                        <input class="form-control me-3" ng-init="search_aspirant=''" ng-model="search_aspirant" placeholder="Buscar aspirantes por CURP, Nombre, Solicitud registrada">
+                        <i class="fa-solid fa-magnifying-glass me-3 fs-5 opacity-50"></i>
+                        <input class="form-control" ng-init="search_aspirant=''" ng-model="search_aspirant" placeholder="Buscar aspirantes por CURP, Nombre, Solicitud registrada">
                     </div>
                     <div class="d-flex align-items-center py-2 text-start" ng-if="search_aspirant==''">
                         <div class="fs-3 text-muted">
@@ -837,7 +837,7 @@
                                 <img class="border border-3 border-success" src="{{aspirant.photo}}" alt="" type="button" data-bs-toggle="modal" href="#Aspirant_IMG_Modal_{{aspirant.id}}_Search">
                             </div>
                             <div class="row w-100 btn btn-light d-flex align-items-center rounded-0 rounded-end text-start" type="button" data-bs-toggle="modal" href="#Modal_aspirant_{{aspirant.id}}_Search">
-                                <div class="col-10">
+                                <div class="col-10 p-0">
                                     <p class="m-0">{{aspirant.id}} - {{aspirant.lastname}} {{aspirant.name}} - {{aspirant.curp}}</p>
                                     <p class="m-0 text-muted fw-semibold">
                                         <span ng-if=" aspirant.id_request !=0">SOLICITUD: <span class="fw-bold">#{{(requests | filter : {id: aspirant.id_request})[0].id }}</span></span>
@@ -845,7 +845,7 @@
                                         <span ng-if=" aspirant.id_token !=0">| FICHA: <span class="fw-bold">#{{(tokens | filter : {id: aspirant.id_token})[0].id }}</span></span>
                                         <span ng-if="aspirant.id_token==0"><span class="fw-bold">- SIN FICHA</span></span>
                                 </div>
-                                <div class="col-2 text-center">
+                                <div class="col-2 text-end">
                                     <div type="button"><i class="fa-solid fa-ellipsis"></i></div>
                                 </div>
                             </div>
@@ -1009,8 +1009,11 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="list-group-item align-items-center px-1 rounded-0 row w-100">
-                                <button class="btn btn-dark py-2"><p class="my-0 fw-semibold"><i class="fa-solid fa-cloud-arrow-up"></i> Subir foto</p></button>
+                            <li class="list-group-item align-items-center px-1 mx-auto rounded-0 row w-100">
+                                <label class="btn btn-dark py-2"><p class="my-0 fw-semibold">
+                                    <i class="fa-solid fa-cloud-arrow-up"></i> Subir foto</p>
+                                    <input type="file" hidden="" accept=".png,.jpg,.jpeg" aria-invalid="false">
+                                </label>
                             </li>
                         </ul>
                     </div>
@@ -1032,10 +1035,10 @@
                 </div>
                 <div class="modal-body">
                     <div class="row align-items-center border-bottom border-2 px-1 py-2">
-                        <div class="col-7">
+                        <div class="col-5">
                             <label for="Req_Show">Mostrar</label>
                         </div>
-                        <div class="col-5">
+                        <div class="col-7">
                             <select class="form-select" id="Req_Show" required>
                                 <option selected>Todas</option>
                                 <option>Sin solicitud</option>
@@ -1212,8 +1215,11 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="list-group-item align-items-center px-1 rounded-0 row w-100">
-                                <button class="btn btn-dark py-2"><p class="my-0 fw-semibold"><i class="fa-solid fa-cloud-arrow-up"></i> Subir foto</p></button>
+                            <li class="list-group-item align-items-center px-1 mx-auto rounded-0 row w-100">
+                                <label class="btn btn-dark py-2"><p class="my-0 fw-semibold">
+                                    <i class="fa-solid fa-cloud-arrow-up"></i> Subir foto</p>
+                                    <input type="file" hidden="" accept=".png,.jpg,.jpeg" aria-invalid="false">
+                                </label>
                             </li>
                         </ul>
                     </div>
@@ -1401,8 +1407,11 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="list-group-item align-items-center px-1 rounded-0 row w-100">
-                                <button class="btn btn-dark py-2"><p class="my-0 fw-semibold"><i class="fa-solid fa-cloud-arrow-up"></i> Subir foto</p></button>
+                            <li class="list-group-item align-items-center px-1 mx-auto rounded-0 row w-100">
+                                <label class="btn btn-dark py-2"><p class="my-0 fw-semibold">
+                                    <i class="fa-solid fa-cloud-arrow-up"></i> Subir foto</p>
+                                    <input type="file" hidden="" accept=".png,.jpg,.jpeg" aria-invalid="false">
+                                </label>
                             </li>
                         </ul>
                     </div>
@@ -1590,8 +1599,11 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="list-group-item align-items-center px-1 rounded-0 row w-100">
-                                <button class="btn btn-dark py-2"><p class="my-0 fw-semibold"><i class="fa-solid fa-cloud-arrow-up"></i> Subir foto</p></button>
+                            <li class="list-group-item align-items-center px-1 mx-auto rounded-0 row w-100">
+                                <label class="btn btn-dark py-2"><p class="my-0 fw-semibold">
+                                    <i class="fa-solid fa-cloud-arrow-up"></i> Subir foto</p>
+                                    <input type="file" hidden="" accept=".png,.jpg,.jpeg" aria-invalid="false">
+                                </label>
                             </li>
                         </ul>
                     </div>

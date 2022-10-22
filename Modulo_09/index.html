@@ -260,7 +260,7 @@
                         <div class="card-body">
                             <div class="row align-items-center px-1 py-2 border-0 border-bottom">
                                 <div class="col-5 text-start">
-                                    <h5 for="group" class="card-title my-0">Grupo</h5>
+                                    <h5 for="group" class="card-title fs-6 fw-bold my-0">Grupo</h5>
                                 </div>
                                 <div class="col-7">
                                     <select class="form-select" ng-options="option.name for option in data_group.A_Options track by option.id" ng-model="data_group.S_Option" required></select>
@@ -352,18 +352,18 @@
                         </div>
                     </div>
                     <div class="row align-items-center border-bottom border-2 py-2">
-                        <div class="col-7">
+                        <div class="col-5">
                             <label for="A_group_turn">Turno</label>
                         </div>
-                        <div class="col-5">
+                        <div class="col-7">
                             <select class="form-select" id="A_group_turn" ng-options="option.name for option in turn.A_Options track by option.id" ng-model="turn.S_Option" required></select>
                         </div>
                     </div>
-                    <div class="row align-items-center pt-2">
-                        <div class="col-1">
+                    <div class="d-flex align-items-center pt-2">
+                        <div class="me-3">
                             <i class="fa-solid fa-cloud-arrow-up fs-2 text-muted"></i>
                         </div>
-                        <div class="col-11">
+                        <div class="w-100">
                             <div class="mb-3">
                                 <label for="formFile_Group" class="form-label">Subir horario</label>
                                 <input class="form-control" type="file" accept=".pdf" id="formFile_Group">
@@ -393,26 +393,26 @@
                         </div>
                         <div class="modal-body">
                             <div class="row align-items-center border-bottom border-2 py-2">
-                                <div class="col-7">
+                                <div class="col-5">
                                     <label for="A_group_type_{{week_day.id}}_{{hour.id}}">Tipo</label>
                                 </div>
-                                <div class="col-5">
+                                <div class="col-7">
                                     <select class="form-select" id="A_group_type_{{week_day.id}}_{{hour.id}}" ng-options="option.name for option in type.A_Options track by option.id" ng-model="type.S_Option" required></select>
                                 </div>
                             </div>
                             <div class="row align-items-center border-bottom border-2 py-2">
-                                <div class="col-7">
+                                <div class="col-5">
                                     <label for="A_group_teacher_{{week_day.id}}_{{hour.id}}">Docente</label>
                                 </div>
-                                <div class="col-5">
+                                <div class="col-7">
                                     <select class="form-select" id="A_group_teacher_{{week_day.id}}_{{hour.id}}" ng-options="option.name for option in teacher.A_Options track by option.id" ng-model="teacher.S_Option" required></select>
                                 </div>
                             </div>
                             <div class="row align-items-center border-bottom border-2 py-2">
-                                <div class="col-7">
+                                <div class="col-5">
                                     <label for="A_group_class_{{week_day.id}}_{{hour.id}}">Materia</label>
                                 </div>
-                                <div class="col-5">
+                                <div class="col-7">
                                     <select class="form-select" id="A_group_class_{{week_day.id}}_{{hour.id}}" ng-options="option.name for option in class.A_Options track by option.id" ng-model="class.S_Option" required></select>
                                 </div>
                             </div>

@@ -258,8 +258,8 @@
                             <div class="row m-0 justify-content-between border-0 border-bottom">
                                 <div class="col-lg-6">
                                     <div class="row align-items-center px-1 py-2">
-                                        <div class="col-5 text-start">
-                                            <h5 for="group" class="card-title my-0">Carrera</h5>
+                                        <div class="col-5 pe-0 text-start">
+                                            <h5 for="group" class="card-title fs-6 fw-bold my-0">Carrera</h5>
                                         </div>
                                         <div class="col-7">
                                             <select class="form-select" ng-click="changeReticle()" ng-options="option.name for option in careers.A_Options track by option.id" ng-model="careers.S_Option" required></select>
@@ -268,8 +268,8 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="row align-items-center px-1 py-2">
-                                        <div class="col-5 text-start">
-                                            <h5 for="group" class="card-title my-0">Plan de estudios</h5>
+                                        <div class="col-5 pe-0 text-start">
+                                            <h5 for="group" class="card-title fs-6 fw-bold my-0">Plan de estudios</h5>
                                         </div>
                                         <div class="col-7">
                                             <select class="form-select" ng-if="careers.S_Option.view != 'invisible'" ng-options="option.name for option in reticle.A_Options track by option.id" ng-model="reticle.S_Option" required></select>

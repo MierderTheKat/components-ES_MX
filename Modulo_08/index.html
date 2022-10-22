@@ -260,7 +260,7 @@
                         <div class="card-body text-center">
                             <div class="row align-items-center px-1 py-2 border-0 border-bottom">
                                 <div class="col-5 text-start">
-                                    <h5 for="group" class="card-title my-0">Periodo</h5>
+                                    <h5 for="group" class="card-title fs-6 fw-bold my-0">Periodo</h5>
                                 </div>
                                 <div class="col-7">
                                     <select class="form-select" ng-options="option.name for option in data_period.A_Options track by option.id" ng-model="data_period.S_Option" required></select>
@@ -268,7 +268,7 @@
                             </div>
                             <div class="row align-items-center px-1 py-2 border-0 border-bottom">
                                 <div class="col-5 text-start">
-                                    <h5 for="group" class="card-title my-0">Curso</h5>
+                                    <h5 for="group" class="card-title fs-6 fw-bold my-0">Curso</h5>
                                 </div>
                                 <div class="col-7">
                                     <select class="form-select" ng-options="option.name for option in data_courses.A_Options track by option.id" ng-model="data_courses.S_Option" required></select>
@@ -276,7 +276,7 @@
                             </div>
                             <div class="row align-items-center px-1 py-2">
                                 <div class="col-5 text-start">
-                                    <h5 for="group" class="card-title my-0">Por página</h5>
+                                    <h5 for="group" class="card-title fs-6 fw-bold my-0">Por página</h5>
                                 </div>
                                 <div class="col-7">
                                     <select class="form-select" ng-options="option.name for option in data_limit.A_Options track by option.id" ng-model="data_limit.S_Option" required></select>
@@ -320,8 +320,8 @@
                         </div>
                         <div class="card-body">
                             <div class="d-flex align-items-center border-bottom border-2 py-3">
-                                <i class="fa-solid fa-magnifying-glass mx-3 fs-5 opacity-50"></i>
-                                <input class="form-control me-3" ng-model="search_student" placeholder="Buscar alumnos inscritos por nombre">
+                                <i class="fa-solid fa-magnifying-glass me-3 fs-5 opacity-50"></i>
+                                <input class="form-control" ng-model="search_student" placeholder="Buscar alumnos inscritos por nombre">
                             </div>
                             <div class="row align-items-center border-bottom border-2 py-2">
                                 <div class="col-9 text-start">
@@ -333,7 +333,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="d-flex align-items-center py-2 text-start" ng-if="students.length == 0">
                                 <div class="fs-3 text-muted">
                                     <i class="fa-regular fa-circle-xmark me-3"></i>
@@ -440,11 +439,11 @@
                                 <h6 class="modal-title">Importación</h6>
                             </div>
                         </div>
-                        <div class="row align-items-center">
-                            <div class="col-1">
+                        <div class="d-flex align-items-center">
+                            <div class="mx-3">
                                 <i class="fa-solid fa-cloud-arrow-up fs-2 text-muted"></i>
                             </div>
-                            <div class="col-11">
+                            <div class="w-100">
                                 <div class="mt-3">
                                     <label for="formFile_Teachers" class="form-label">Importar Docentes</label>
                                     <input class="form-control" type="file" accept=".csv" id="formFile_Teachers">
@@ -483,8 +482,8 @@
                     <!-- --------------------- Si hay información en Docentes --------------------- -->
                     <div ng-if="teachers.length> 0">
                         <div class="d-flex align-items-center py-3">
-                            <i class="fa-solid fa-magnifying-glass mx-3 fs-5 opacity-50"></i>
-                            <input class="form-control me-3" ng-model="search_teacher" placeholder="Filtrar docentes">
+                            <i class="fa-solid fa-magnifying-glass me-3 fs-5 opacity-50"></i>
+                            <input class="form-control" ng-model="search_teacher" placeholder="Filtrar docentes">
                         </div>
                         <div class="table-responsive">
                             <table class="table table-bordered table-striped table-hover align-middle table-sm">
@@ -569,10 +568,10 @@
                         </div>
                     </div>
                     <div class="row align-items-center py-2">
-                        <div class="col-7">
+                        <div class="col-5">
                             <label for="A_group_turn">Turno</label>
                         </div>
-                        <div class="col-5">
+                        <div class="col-7">
                             <select class="form-select" id="A_group_turn" ng-options="option.name for option in turn.A_Options track by option.id" ng-model="turn.S_Option" required></select>
                         </div>
                     </div>
@@ -636,19 +635,19 @@
                                 <label class="px-4" for="E_id_name">Clave</label>
                             </div>
                         </div>
-                        <div class="row align-items-center py-2">
-                            <div class="col-7">
+                        <div class="row align-items-center border-bottom border-2 py-2">
+                            <div class="col-5">
                                 <label for="E_type">Tipo</label>
                             </div>
-                            <div class="col-5">
+                            <div class="col-7">
                                 <select class="form-select" id="E_type" ng-options="option.name for option in type.A_Options track by option.id" ng-model="type.S_Option" required></select>
                             </div>
                         </div>
-                        <div class="row align-items-center py-2">
-                            <div class="col-7">
+                        <div class="row align-items-center border-bottom border-2 py-2">
+                            <div class="col-5">
                                 <label for="E_visibility">Visibilidad</label>
                             </div>
-                            <div class="col-5">
+                            <div class="col-7">
                                 <select class="form-select" id="E_visibility" required>
                                     <option value="public" selected>PÚBLICO</option>
                                     <option value="private">PRIVADO</option>
@@ -700,14 +699,14 @@
                     <!-- --------------------- Si hay información en Alumnos de Escolares --------------------- -->
                     <div ng-if="students.length > 0">
                         <div class="d-flex align-items-center py-3">
-                            <i class="fa-solid fa-magnifying-glass mx-3 fs-5 opacity-50"></i>
-                            <input class="form-control me-3" ng-init="search_student = ''" ng-model="search_student" placeholder="Buscar por nombre de la persona">
+                            <i class="fa-solid fa-magnifying-glass me-3 fs-5 opacity-50"></i>
+                            <input class="form-control" ng-init="search_student = ''" ng-model="search_student" placeholder="Buscar por nombre de la persona">
                         </div>
                         <div class="d-flex align-items-center py-2 text-start" ng-if="search_student == ''">
                             <div class="fs-3 text-muted">
                                 <i class="fa-regular fa-circle-xmark me-3"></i>
                             </div>
-                            <div class="py-3">
+                            <div class="py-0">
                                 <p class="border border-0 my-0 pb-1">No se encuentra el alumno buscado</p>
                                 <p class="border border-0 my-0 pb-1 text-muted">Los alumnos disponibles se mostrarán aquí.</p>
                             </div>
@@ -722,10 +721,10 @@
                                             </div>
                                             <div class="py-2">
                                                 <p class="fs-6 m-0 fw-semibold">{{student.name}} {{student.lastname}}</p>
-                                                <p class="fs-6 m-0 text-muted">{{student.curp}} - {{student.school_id}}</p>
+                                                <p class="fs-6 m-0 text-muted text-break">{{student.curp}} - {{student.school_id}}</p>
                                             </div>
                                         </div>
-                                        <div class="col-2 text-end text-primary my-2">
+                                        <div class="col-2 text-end text-success my-2">
                                             <i class="fa-solid fa-circle-plus fs-3 me-2"></i>
                                         </div>
                                     </div>
@@ -755,7 +754,7 @@
                 </div>
                 <div class="modal-footer justify-content-center btn-group btn-group-lg">
                     <button class="col-5 btn btn-light m-0" data-bs-toggle="modal" href="#Modal_Student_Add" type="button">Cancelar</button>
-                    <button class="col-5 btn btn-primary m-0" data-bs-toggle="modal" href="#Modal_Student_Add" type="button">Si</button>
+                    <button class="col-5 btn btn-success m-0" data-bs-toggle="modal" href="#Modal_Student_Add" type="button">Si</button>
                 </div>
             </div>
         </div>

@@ -257,7 +257,7 @@
                         <div class="card-body text-center">
                             <div class="row align-items-center px-1 py-2 border-0 border-bottom">
                                 <div class="col-5 text-start">
-                                    <h5 for="group" class="card-title my-0">Periodo</h5>
+                                    <h5 for="group" class="card-title fs-6 fw-bold my-0">Periodo</h5>
                                 </div>
                                 <div class="col-7">
                                     <select class="form-select" ng-click="changeGroup()" ng-options="option.name for option in data_period.A_Options track by option.id" ng-model="data_period.S_Option" required></select>
@@ -265,7 +265,7 @@
                             </div>
                             <div class="row align-items-center px-1 py-2 border-0 border-bottom">
                                 <div class="col-5 text-start">
-                                    <h5 for="group" class="card-title my-0">Grupo</h5>
+                                    <h5 for="group" class="card-title fs-6 fw-bold my-0">Grupo</h5>
                                 </div>
                                 <div class="col-7">
                                     <select class="form-select" ng-if="data_period.S_Option.view != 'invisible'" ng-click="changeClass()" ng-options="option.name for option in data_group.A_Options track by option.id" ng-model="data_group.S_Option" required></select>
@@ -276,7 +276,7 @@
                             </div>
                             <div class="row align-items-center px-1 py-2 border-0 border-bottom">
                                 <div class="col-5 text-start">
-                                    <h5 for="group" class="card-title my-0">Materia</h5>
+                                    <h5 for="group" class="card-title fs-6 fw-bold my-0">Materia</h5>
                                 </div>
                                 <div class="col-7">
                                     <select class="form-select" ng-if="data_group.S_Option.view != 'invisible' && data_period.S_Option.view != 'invisible'" ng-options="option.name for option in data_class.A_Options track by option.id" ng-model="data_class.S_Option" required></select>
@@ -320,9 +320,9 @@
                                 <thead class="table-light">
                                     <tr class="text-center">
                                         <th scope="col" class="align-middle">Alumno</th>
-                                        <th scope="col" class="align-middle">U1</th>
-                                        <th scope="col" class="align-middle">U2</th>
-                                        <th scope="col" class="align-middle">U3</th>
+                                        <th scope="col" class="align-middle px-5">U1</th>
+                                        <th scope="col" class="align-middle px-5">U2</th>
+                                        <th scope="col" class="align-middle px-5">U3</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -335,10 +335,10 @@
                                         </th>
                                         <td class="text-center">
                                             <div class="mb-3">
-                                                <input type="number" min="0" max="10" value="{{students.grade.grade_u1}}" class="bg-danger bg-opacity-25 form-control text-center" placeholder="U1">
+                                                <input type="number" min="0" max="10" class="bg-danger bg-opacity-25 form-control text-center px-1" placeholder="U1">
                                             </div>
                                             <div ng-if="data_class.S_Option.view != 'invisible'">
-                                                <select class="form-select" ng-options="option.name for option in data_period_student.A_Options track by option.id" ng-model="data_period_student.S_Option" required></select>
+                                                <select class="form-select ps-1" ng-options="option.name for option in data_period_student.A_Options track by option.id" ng-model="data_period_student.S_Option" required></select>
                                             </div>
                                             <div class="text-danger">
                                                 <i class="fa-solid fa-circle-xmark"></i>
@@ -346,10 +346,10 @@
                                         </td>
                                         <td class="text-center">
                                             <div class="mb-3">
-                                                <input type="number" min="0" max="10" class="bg-success bg-opacity-25 form-control text-center" placeholder="U2">
+                                                <input type="number" min="0" max="10" class="bg-success bg-opacity-25 form-control text-center px-1" placeholder="U2">
                                             </div>
                                             <div ng-if="data_class.S_Option.view != 'invisible'">
-                                                <select class="form-select" ng-options="option.name for option in data_period_student.A_Options track by option.id" ng-model="data_period_student.S_Option" required></select>
+                                                <select class="form-select ps-1" ng-options="option.name for option in data_period_student.A_Options track by option.id" ng-model="data_period_student.S_Option" required></select>
                                             </div>
                                             <div class="text-danger">
                                                 <i class="fa-solid fa-circle-xmark"></i>
@@ -357,10 +357,10 @@
                                         </td>
                                         <td class="text-center">
                                             <div class="mb-3">
-                                                <input type="number" min="0" max="10" class="bg-danger bg-opacity-25 form-control text-center" placeholder="U3">
+                                                <input type="number" min="0" max="10" class="bg-danger bg-opacity-25 form-control text-center px-1" placeholder="U3">
                                             </div>
                                             <div ng-if="data_class.S_Option.view != 'invisible'">
-                                                <select class="form-select" ng-options="option.name for option in data_period_student.A_Options track by option.id" ng-model="data_period_student.S_Option" required></select>
+                                                <select class="form-select ps-1" ng-options="option.name for option in data_period_student.A_Options track by option.id" ng-model="data_period_student.S_Option" required></select>
                                             </div>
                                             <div class="text-danger">
                                                 <i class="fa-solid fa-circle-xmark"></i>
