@@ -245,8 +245,8 @@
                     </ul>
                 </nav>
             </div>
-            <div class="row g-4 m-0 p-3">
-                <form class="col-lg-6">
+            <div class="row g-3 m-0 p-3">
+                <div class="col-lg-6">
                     <div class="card user-select-none">
                         <div class="card-header">
                             <div class="row align-items-center">
@@ -265,7 +265,7 @@
                             <button type="button" class="mb-2 mx-1 px-2 btn btn-primary" data-bs-toggle="modal" data-bs-target="#A_Modal_Group" type="submit" ng-disabled=data_group.S_Option.disabled><i class="fa-solid fa-user-plus"></i><span> Agregar Alumno</span></button>
                         </div>
                     </div>
-                </form>
+                </div>
                 <div class="col-lg-6" ng-if="data_group.S_Option.view != 'invisible'">
                     <div class="card user-select-none">
                         <div class="card-header">
@@ -285,61 +285,10 @@
                                         <p>{{student.name}} {{student.lastname}}</p>
                                         <p>{{student.status}} - {{student.school_id}}</p>
                                     </button>
-                                    <!-- Modal para editar Alumno -->
-                                    <div class="modal fade" id="E_Modal_{{student.id}}" tabindex="-1" aria-labelledby="E_ModalLabel{{student.id}}" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered modal-m">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="E_ModalLabel{{student.id}}">Editar Alumno</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="row align-items-center border-bottom border-2 py-2">
-                                                        <div class="col-5">
-                                                            <label for="student-period">Periodo</label>
-                                                        </div>
-                                                        <div class="col-7">
-                                                            <select class="form-select" id="student-period" ng-options="option.name for option in data_period.A_Options track by option.id" ng-model="data_period.S_Option" required></select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row align-items-center py-2">
-                                                        <div class="col-5">
-                                                            <label for="student-type">Tipo</label>
-                                                        </div>
-                                                        <div class="col-7">
-                                                            <select class="form-select" id="student-type" ng-options="option.name for option in data_type.A_Options track by option.id" ng-model="data_type.S_Option" required></select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                                    <button type="button" class="btn btn-danger">Eliminar</button>
-                                                    <button type="button" class="btn btn-primary">Editar</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                                 <div class="col-2 modal_student text-center">
                                     <button type="button" class="btn text-danger border-danger border rounded-circle" data-bs-toggle="modal" data-bs-target="#D_Modal_{{student.id}}"><i class="fa-solid fa-x fw-light"></i></button>
-                                    <!-- Modal para Eliminar Alumno -->
-                                    <div class="modal fade" id="D_Modal_{{student.id}}" tabindex="-1" aria-labelledby="D_ModalLabel{{student.id}}" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered modal-sm">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="D_ModalLabel{{student.id}}">Eliminar Alumno</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    ¿Esta seguro de eliminar del grupo a <b>{{student.name}} {{student.lastname}}</b>?
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                                    <button type="button" class="btn btn-danger">Eliminar</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+
                                 </div>
                             </li>
                         </ul>
@@ -474,6 +423,62 @@
             </div>
         </div>
     </div>
+
+    <div ng-repeat="student in students | filter: { id_group: data_group.S_Option.id }">
+        <!-- Modal para editar Alumno -->
+        <div class="modal fade" id="E_Modal_{{student.id}}" tabindex="-1" aria-labelledby="E_ModalLabel{{student.id}}" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-m">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="E_ModalLabel{{student.id}}">Editar Alumno</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row align-items-center border-bottom border-2 py-2">
+                            <div class="col-5">
+                                <label for="student-period">Periodo</label>
+                            </div>
+                            <div class="col-7">
+                                <select class="form-select" id="student-period" ng-options="option.name for option in data_period.A_Options track by option.id" ng-model="data_period.S_Option" required></select>
+                            </div>
+                        </div>
+                        <div class="row align-items-center py-2">
+                            <div class="col-5">
+                                <label for="student-type">Tipo</label>
+                            </div>
+                            <div class="col-7">
+                                <select class="form-select" id="student-type" ng-options="option.name for option in data_type.A_Options track by option.id" ng-model="data_type.S_Option" required></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-danger">Eliminar</button>
+                        <button type="button" class="btn btn-primary">Editar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal para Eliminar Alumno -->
+        <div class="modal fade" id="D_Modal_{{student.id}}" tabindex="-1" aria-labelledby="D_ModalLabel{{student.id}}" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="D_ModalLabel{{student.id}}">Eliminar Alumno</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ¿Esta seguro de eliminar del grupo a <b>{{student.name}} {{student.lastname}}</b>?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-danger">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Boton Flotante de Agregar Grupo -->
     <button type="button" class="add-group" data-bs-toggle="modal" data-bs-target="#add-group"><i class="fa-solid fa-plus fa-2x"></i></button>
     <!-- Modal Agregar Grupo -->

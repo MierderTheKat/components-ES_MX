@@ -244,7 +244,7 @@
                     </ul>
                 </nav>
             </div>
-            <div class="row g-4 m-0 p-3">
+            <div class="row g-3 m-0 p-3">
                 <div class="col-12">
                     <div class="card user-select-none">
                         <div class="card-header">
@@ -510,8 +510,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-2">
-                    <div class="row g-2 m-0 h-100">
-                        <div class="col-lg-3 px-1 m-0 mt-1">
+                    <div class="row g-3 m-0 h-100">
+                        <div class="col-lg-3">
                             <div class="card user-select-none h-100">
                                 <div class="card-body p-2 text-center">
                                     <div class="d-flex align-items-center border-bottom border-2 py-2">
@@ -533,7 +533,7 @@
                             </div>
                         </div>
                         <!-- Datos el Alumno -->
-                        <div class="col-lg-9 px-1 m-0 mt-1" ng-repeat="student_doc in students_docs | filter: search_docs_student" ng-if="student_doc.view != 'invisible'">
+                        <div class="col-lg-9" ng-repeat="student_doc in students_docs | filter: search_docs_student" ng-if="student_doc.view != 'invisible'">
                             <div class="card">
                                 <div class="card-body p-2 text-center border-bottom">
                                     <div class="row d-flex align-items-center px-2 py-2">
@@ -561,7 +561,7 @@
                                 </div>
                                 <div class="card-body p-2 text-center bg-light border-bottom">
                                     <div class="row g-2 m-0 h-100">
-                                        <div class="col-lg-4 px-1 m-0 mt-1">
+                                        <div class="col-md-4">
                                             <div class="card" ng-repeat="document in documents">
                                                 <div class="card-body p-2 text-center border-bottom">
                                                     <div class="btn btn-light row d-flex align-items-center px-2 py-2 m-0">
@@ -588,7 +588,7 @@
                                                 <button type="button" class="btn btn-success my-1">Generar y enviar</button>
                                             </div>
                                         </div>
-                                        <div class="col-lg-8 px-1 m-0 mt-1">
+                                        <div class="col-md-8">
                                             <div ng-if="documents.length == 0">
                                                 <h2>Sin documento</h2>
                                             </div>
