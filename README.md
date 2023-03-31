@@ -11,4 +11,4 @@ Se realizaron las vistas de el apartado de Control Escolar, estas vistas solo po
 Cuanta con un total de 10 modulos, con funciones distintas entre ellos.
 Los modulos son totalmente responsivos
 
-[Accede a la pagina](https://mierderthekat.github.io/test-component-ES_MX/Modulo_01/index.html)
+[Accede a la pagina](https://mierderthekat.github.io/components-ES_MX/Modulo_01/index.html)
